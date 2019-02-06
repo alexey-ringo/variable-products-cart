@@ -12,6 +12,13 @@ try {
     window.$ = window.jQuery = require('jquery');
 
     require('bootstrap');
+    require('slicknav');
+    require('owl.carousel');
+    require('jquery.nicescroll');
+    require('jquery-zoom');
+    require('jquery-ui');
+    
+    
 } catch (e) {}
 
 /**
