@@ -11,15 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', 'ShopController@index')->name('shop.index');
+Route::get('/shop', 'ShopController@category')->name('shop.category');
+Route::get('/shop/{groupproduct}', 'ShopController@show')->name('shop.show');
+
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/category', 'CategoryController@index')->name('shop.category');
+//Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/category', 'CategoryController@index')->name('shop.category');

@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Groupproduct;
+use App\Product;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class ShopController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +16,21 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('shop.category');
+        return view('shop.index');
     }
+    
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function category()
+    {
+        return view('shop.category', [
+            'groupproducts' => Groupproduct::orderBy('id')->paginate(9)
+            ]);
+    }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -35,18 +50,22 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Category  $category
+     * @param  string  $slug
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show(string $slug)
     {
-        //
+        $groupproduct = Groupproduct::where('slug', $slug)->firstOrFail();
+        
+        return view('shop.product', [
+            'groupproduct' => $groupproduct
+            ]);
     }
 
     /**
