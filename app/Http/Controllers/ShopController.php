@@ -24,13 +24,27 @@ class ShopController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function category()
+    public function categories()
     {
         return view('shop.category', [
             'groupproducts' => Groupproduct::orderBy('id')->paginate(9)
             ]);
     }
     
+    public function category(string $slug = null)
+    {
+        $category = Category::where('slug', $slug)->get();
+        
+        $groupproducts = Groupproduct::with('categories')->whereHas('categories', function($query) use($slug) {
+            $query->where('slug', $slug);
+        })->get();
+        
+        //dd($category);
+        return view('shop.category', [
+            'groupproducts' => $groupproducts,
+            'category' => $category
+            ]);
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -64,7 +78,8 @@ class ShopController extends Controller
         $groupproduct = Groupproduct::where('slug', $slug)->firstOrFail();
         
         return view('shop.product', [
-            'groupproduct' => $groupproduct
+            'groupproduct' => $groupproduct,
+            'products' => $groupproduct->products()->where('groupproduct_id', $groupproduct->id)->get()
             ]);
     }
 

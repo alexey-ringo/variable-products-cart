@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -17,5 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SizesTableSeeder::class);
         $this->call(GroupproductsTableSeeder::class);
         $this->call(ProductsTableSeeder::class);
+        $this->call(CategoriesTableSeeder::class);
+        $this->call(CategoryGroupproductTableSeeder::class);
     }
 }

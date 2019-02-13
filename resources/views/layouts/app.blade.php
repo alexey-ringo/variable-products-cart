@@ -28,7 +28,11 @@
 	    {{-- <div id="preloder">
 		    <div class="loader"></div>
 	    </div> --}}
+	    
+	    @include('layouts.header')
 
+
+{{--
 	    <!-- Header section -->
 	    <header class="header-section">
 		    <div class="header-top">
@@ -98,6 +102,9 @@
 		    </nav>
 	    </header>
 	    <!-- Header section end -->
+
+
+--}}
         
         <main class="py-4">
             @yield('content')

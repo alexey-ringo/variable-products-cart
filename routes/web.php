@@ -13,8 +13,11 @@
 
 
 Route::get('/', 'ShopController@index')->name('shop.index');
-Route::get('/shop', 'ShopController@category')->name('shop.category');
-Route::get('/shop/{groupproduct}', 'ShopController@show')->name('shop.show');
+//Route::get('/shop', 'ShopController@category')->name('shop.category');
+//Route::get('/shop/{groupproduct}', 'ShopController@show')->name('shop.show');
+Route::get('/shop', 'ShopController@categories')->name('shop.categories');
+Route::get('/shop/{slug?}', 'ShopController@category')->name('shop.category');
+Route::get('/products/{slug}', 'ShopController@show')->name('shop.product');
 
 
 Auth::routes();

@@ -145,7 +145,7 @@
 							<div class="product-item">
 								<div class="pi-pic">
 									<div class="tag-sale">ON SALE</div>
-									<a href="{{ route('shop.show', $groupproduct->slug) }}">
+									<a href="{{ route('shop.product', $groupproduct->slug) }}">
 										<img class="img-fluid" src="{{ asset('storage/' . $groupproduct->image) }}" alt="">
 									</a>
 									<div class="pi-links">
@@ -155,7 +155,7 @@
 								</div>
 								<div class="pi-text">
 									<h6>{{ $groupproduct->price }} руб.</h6>
-									<a href="{{ route('shop.show', $groupproduct->slug) }}">
+									<a href="{{ route('shop.product', $groupproduct->slug) }}">
 										<p>{{ $groupproduct->name }}</p>
 									</a>
 								</div>

@@ -15,7 +15,7 @@ class CreateCategoryGroupproductTable extends Migration
     {
         Schema::create('category_groupproduct', function (Blueprint $table) {
             $table->increments('id');
-             $table->integer('category_id')->unsigned()->nullable();
+            $table->integer('category_id')->unsigned()->nullable();
             $table->foreign('category_id')->references('id')
                   ->on('categories')->onDelete('cascade');
             $table->integer('groupproduct_id')->unsigned()->nullable();

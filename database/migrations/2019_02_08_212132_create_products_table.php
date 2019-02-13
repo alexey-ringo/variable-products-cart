@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->foreign('groupproduct_id')->references('id')->on('groupproducts')->onDelete('restrict');
             $table->string('sku')->unique();
             $table->string('name')->nullable();
-            //$table->json('images')->default(null);
+            $table->json('images')->nullable();
             $table->integer('color_id')->unsigned()->nullable();
             $table->foreign('color_id')->references('id')->on('colors')->onDelete('restrict');
             $table->integer('size_id')->unsigned()->nullable();

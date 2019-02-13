@@ -44,6 +44,12 @@
 					</div>
 					<div class="fw-size-choose">
 						<p>Size</p>
+						@forelse ($products as $product)
+						<div class="sc-item">
+							<input type="radio" name="sc" id="xs-size">
+							<label for="xs-size">{{ $product->size_id }}</label>
+						</div>
+						{{--
 						<div class="sc-item">
 							<input type="radio" name="sc" id="xs-size">
 							<label for="xs-size">32</label>
@@ -68,6 +74,12 @@
 							<input type="radio" name="sc" id="xxl-size">
 							<label for="xxl-size">42</label>
 						</div>
+						--}}
+						@empty
+						
+						<div style="text-align: left">No items found</div>
+						
+						@endforelse
 					</div>
 					<div class="quantity">
 						<p>Quantity</p>
