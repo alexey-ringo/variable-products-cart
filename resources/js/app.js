@@ -21,6 +21,7 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('product-component', require('./components/ProductComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -71,11 +72,13 @@ $(window).on('load', function() {
 	/*------------------
 		Navigation
 	--------------------*/
+	/*
 	$('.main-menu').slicknav({
 		prependTo:'.main-navbar .container',
 		closedSymbol: '<i class="flaticon-right-arrow"></i>',
 		openedSymbol: '<i class="flaticon-down-arrow"></i>'
 	});
+	*/
 
 
 	/*------------------

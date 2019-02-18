@@ -10,8 +10,18 @@ class Product extends Model
         'images' => 'array'
         ];
         
-    public function groupproducts()
+    public function groupproduct()
     {
-        $this->belongsTo('App\Groupproduct');
+        return $this->belongsTo('App\Groupproduct');
+    }
+    
+    public function color()
+    {
+        return $this->belongsTo('App\Color');
+    }
+    
+    public function size()
+    {
+        return $this->belongsTo('App\Size');
     }
 }

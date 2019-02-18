@@ -76,10 +76,13 @@ class ShopController extends Controller
     public function show(string $slug)
     {
         $groupproduct = Groupproduct::where('slug', $slug)->firstOrFail();
+        $products = $groupproduct->products()->with('color', 'size')->get();
+        
+        $result['groupproduct'] = $groupproduct->toArray();
+        $result['products'] = $products->toArray();
         
         return view('shop.product', [
-            'groupproduct' => $groupproduct,
-            'products' => $groupproduct->products()->where('groupproduct_id', $groupproduct->id)->get()
+            'result' => json_encode($result)
             ]);
     }
 
