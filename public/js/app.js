@@ -1916,14 +1916,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['initialProducts'],
   data: function data() {
@@ -1932,7 +1924,11 @@ __webpack_require__.r(__webpack_exports__);
       selectedColor: 'default',
       selectedColorIndex: 0,
       selectedSize: 'default',
-      selectedSizeIndex: 0
+      selectedSizeIndex: 0,
+      currentImage1: 'default',
+      currentImage2: 'default',
+      currentImage3: 'default',
+      currentImage4: 'default'
     };
   },
   mounted: function mounted() {
@@ -1941,26 +1937,39 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     update: function update() {
       this.selectedColor = this.defaultColor;
-      this.selectedSize = this.defaultSize;
+      this.selectedSize = this.defaultSize; //this.currentImage1 = this.selectedProduct.images.image1;
+
+      this.currentImage1 = this.selectedProduct.images.image1;
+      this.currentImage2 = this.selectedProduct.images.image2;
+      this.currentImage3 = this.selectedProduct.images.image3;
+      this.currentImage4 = this.selectedProduct.images.image4;
     },
     selectColor: function selectColor(index) {
       this.selectedColor = this.colors[index];
       this.selectedColorIndex = index;
+      this.getCurrentImages();
     },
     selectSize: function selectSize(index) {
       this.selectedSize = this.currentSizes[index];
       this.selectedSizeIndex = index;
     },
+    getCurrentImages: function getCurrentImages() {
+      this.currentImage1 = this.selectedProduct.images.image1;
+      this.currentImage2 = this.selectedProduct.images.image2;
+      this.currentImage3 = this.selectedProduct.images.image3;
+      this.currentImage4 = this.selectedProduct.images.image4;
+    },
     addCart: function addCart() {
-      /*
-      axios.get('/start/get-json').then((response) => {
-             console.log(response)
-             this.urldata = response.data
-             this.is_refresh = false
-             this.id++
-             });
-             */
-      console.log(this.selectedProduct);
+      axios.post('/add-cart', {
+        product: this.selectedProduct.id,
+        quantity: 1
+      }).then(function (response) {
+        console.log(response); //this.urldata = response.data
+        //this.is_refresh = false
+        //this.id++
+      }).catch(function (e) {
+        console.log(e);
+      });
     }
   },
   computed: {
@@ -45135,11 +45144,73 @@ var render = function() {
       _c("div", { staticClass: "product-pic-zoom" }, [
         _c("img", {
           staticClass: "product-big-img",
-          attrs: { src: _vm.selectedProduct.images.image1, alt: "" }
+          attrs: { src: "/storage/" + _vm.currentImage1 }
         })
       ]),
       _vm._v(" "),
-      _vm._m(0)
+      _c(
+        "div",
+        {
+          staticClass: "product-thumbs",
+          staticStyle: { overflow: "hidden", outline: "none" },
+          attrs: { tabindex: "1" }
+        },
+        [
+          _c("div", { staticClass: "product-thumbs-track" }, [
+            _c(
+              "div",
+              {
+                staticClass: "pt active",
+                attrs: { "data-imgbigurl": "img/single-product/1.jpg" }
+              },
+              [
+                _c("img", {
+                  attrs: { src: "/storage/" + _vm.currentImage1, alt: "" }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "pt",
+                attrs: { "data-imgbigurl": "img/single-product/2.jpg" }
+              },
+              [
+                _c("img", {
+                  attrs: { src: "/storage/" + _vm.currentImage2, alt: "" }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "pt",
+                attrs: { "data-imgbigurl": "img/single-product/3.jpg" }
+              },
+              [
+                _c("img", {
+                  attrs: { src: "/storage/" + _vm.currentImage3, alt: "" }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "pt",
+                attrs: { "data-imgbigurl": "img/single-product/4.jpg" }
+              },
+              [
+                _c("img", {
+                  attrs: { src: "/storage/" + _vm.currentImage4, alt: "" }
+                })
+              ]
+            )
+          ])
+        ]
+      )
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "col-lg-6 product-details" }, [
@@ -45153,32 +45224,13 @@ var render = function() {
         _vm._v(_vm._s(_vm.globalProducts.groupproduct.price) + " руб.")
       ]),
       _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
       _vm._m(1),
       _vm._v(" "),
       _vm._m(2),
       _vm._v(" "),
-      _vm._m(3),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "fw-size-choose" },
-        [
-          _c("p", [_vm._v("Color")]),
-          _vm._v(" "),
-          _vm._l(_vm.colors, function(color) {
-            return _c("div", { staticClass: "sc-item" }, [
-              _c("input", {
-                attrs: { type: "radio", name: "sc", id: "xs-size" }
-              }),
-              _vm._v(" "),
-              _c("label", { attrs: { for: "xs-size" } }, [
-                _vm._v(_vm._s(color))
-              ])
-            ])
-          })
-        ],
-        2
-      ),
+      _c("h3", [_vm._v("Color")]),
       _vm._v(" "),
       _c(
         "ul",
@@ -45201,7 +45253,7 @@ var render = function() {
         0
       ),
       _vm._v(" "),
-      _vm._m(4),
+      _vm._m(3),
       _vm._v(" "),
       _c(
         "ul",
@@ -45224,7 +45276,7 @@ var render = function() {
         0
       ),
       _vm._v(" "),
-      _vm._m(5),
+      _vm._m(4),
       _vm._v(" "),
       _c(
         "a",
@@ -45240,77 +45292,13 @@ var render = function() {
         [_vm._v("SHOP NOW")]
       ),
       _vm._v(" "),
-      _vm._m(6),
+      _vm._m(5),
       _vm._v(" "),
-      _vm._m(7)
+      _vm._m(6)
     ])
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "product-thumbs",
-        staticStyle: { overflow: "hidden", outline: "none" },
-        attrs: { tabindex: "1" }
-      },
-      [
-        _c("div", { staticClass: "product-thumbs-track" }, [
-          _c(
-            "div",
-            {
-              staticClass: "pt active",
-              attrs: { "data-imgbigurl": "img/single-product/1.jpg" }
-            },
-            [_c("img", { attrs: { src: "", alt: "" } })]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "pt",
-              attrs: { "data-imgbigurl": "img/single-product/2.jpg" }
-            },
-            [
-              _c("img", {
-                attrs: { src: "img/single-product/thumb-2.jpg", alt: "" }
-              })
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "pt",
-              attrs: { "data-imgbigurl": "img/single-product/3.jpg" }
-            },
-            [
-              _c("img", {
-                attrs: { src: "img/single-product/thumb-3.jpg", alt: "" }
-              })
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "pt",
-              attrs: { "data-imgbigurl": "img/single-product/4.jpg" }
-            },
-            [
-              _c("img", {
-                attrs: { src: "img/single-product/thumb-4.jpg", alt: "" }
-              })
-            ]
-          )
-        ])
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

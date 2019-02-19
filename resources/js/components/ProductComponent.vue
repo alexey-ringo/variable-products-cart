@@ -2,14 +2,14 @@
     <div class="row">
 		<div class="col-lg-6">
 			<div class="product-pic-zoom">
-				<img class="product-big-img" v-bind:src="selectedProduct.images.image1" alt="">
+				<img class="product-big-img" v-bind:src="'/storage/' + currentImage1">
 			</div>
 			<div class="product-thumbs" tabindex="1" style="overflow: hidden; outline: none;">
 				<div class="product-thumbs-track">
-					<div class="pt active" data-imgbigurl="img/single-product/1.jpg"><img src="" alt=""></div>
-					<div class="pt" data-imgbigurl="img/single-product/2.jpg"><img src="img/single-product/thumb-2.jpg" alt=""></div>
-					<div class="pt" data-imgbigurl="img/single-product/3.jpg"><img src="img/single-product/thumb-3.jpg" alt=""></div>
-					<div class="pt" data-imgbigurl="img/single-product/4.jpg"><img src="img/single-product/thumb-4.jpg" alt=""></div>
+					<div class="pt active" data-imgbigurl="img/single-product/1.jpg"><img v-bind:src="'/storage/' + currentImage1" alt=""></div>
+					<div class="pt" data-imgbigurl="img/single-product/2.jpg"><img v-bind:src="'/storage/' + currentImage2" alt=""></div>
+					<div class="pt" data-imgbigurl="img/single-product/3.jpg"><img v-bind:src="'/storage/' + currentImage3" alt=""></div>
+					<div class="pt" data-imgbigurl="img/single-product/4.jpg"><img v-bind:src="'/storage/' + currentImage4" alt=""></div>
 				</div>
 			</div>
 		</div>
@@ -28,15 +28,7 @@
 			<div class="p-review">
 				<a href="">3 reviews</a>|<a href="">Add your review</a>
 			</div>
-			<div class="fw-size-choose">
-				<p>Color</p>
-				
-				<div class="sc-item" v-for="color in colors">
-					<input type="radio" name="sc" id="xs-size">
-					<label for="xs-size">{{color}}</label>
-				</div>
-				
-			</div>
+				<h3>Color</h3>
 				
 			<ul class="list-group">
 				<li
@@ -137,7 +129,12 @@
                 selectedColor: 'default',
                 selectedColorIndex: 0,
                 selectedSize: 'default',
-                selectedSizeIndex: 0
+                selectedSizeIndex: 0,
+                currentImage1: 'default',
+                currentImage2: 'default',
+                currentImage3: 'default',
+                currentImage4: 'default'
+                
             }
         },
         mounted() {
@@ -147,27 +144,43 @@
             update: function() {
             	this.selectedColor = this.defaultColor;
                 this.selectedSize = this.defaultSize;
+                //this.currentImage1 = this.selectedProduct.images.image1;
+                this.currentImage1 = this.selectedProduct.images.image1;
+                this.currentImage2 = this.selectedProduct.images.image2;
+                this.currentImage3 = this.selectedProduct.images.image3;
+                this.currentImage4 = this.selectedProduct.images.image4;
             },
             selectColor: function(index) {            	
             	this.selectedColor = this.colors[index];
             	this.selectedColorIndex = index;
+            	this.getCurrentImages();
             },
             selectSize: function(index) {
             	this.selectedSize = this.currentSizes[index];
             	this.selectedSizeIndex = index;
             },
             
-            addCart: function() {
-            	/*
-            	axios.get('/start/get-json').then((response) => {
-                    console.log(response)
-                    this.urldata = response.data
-                    this.is_refresh = false
-                    this.id++
-                    });
-                    */
-                console.log(this.selectedProduct);
+            getCurrentImages: function() {
+            	this.currentImage1 = this.selectedProduct.images.image1;
+            	this.currentImage2 = this.selectedProduct.images.image2;
+            	this.currentImage3 = this.selectedProduct.images.image3;
+            	this.currentImage4 = this.selectedProduct.images.image4;
+            },
             
+            addCart: function() {
+            	axios.post('/add-cart', {
+            		product: this.selectedProduct.id,
+            		quantity: 1
+            		})
+            		.then((response) => {
+                    	console.log(response);
+                    	//this.urldata = response.data
+                    	//this.is_refresh = false
+                    	//this.id++
+                    })
+                    .catch(e => {
+                    	console.log(e);
+                    });
             }
             
         },
@@ -222,12 +235,11 @@
 				//console.log('Product is updated');
     			for(let i = 0; i < this.globalProducts.products.length; i++) {
     				if(this.globalProducts.products[i].color.value == this.selectedColor && this.globalProducts.products[i].size.value == this.selectedSize) {
-    							return this.globalProducts.products[i];
+    					return this.globalProducts.products[i];
     				}
     			}
     			
 			}
-			
     	}
     }
 </script>
