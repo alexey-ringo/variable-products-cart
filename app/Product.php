@@ -10,7 +10,7 @@ class Product extends Model
         'images' => 'array'
         ];
         
-    public function groupproducts()
+    public function groupproduct()
     {
         $this->belongsTo('App\Groupproduct');
     }

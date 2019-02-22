@@ -15,7 +15,7 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('groupproduct_id')->unsigned()->nullable();
+            $table->integer('groupproduct_id')->unsigned();
             $table->foreign('groupproduct_id')->references('id')->on('groupproducts')->onDelete('restrict');
             $table->string('sku')->unique();
             $table->string('name')->nullable();
