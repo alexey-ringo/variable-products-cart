@@ -14,4 +14,19 @@ class OrderItem extends Model
     {
         $this->belongsTo('App\Services\Cart\Models\Order');
     }
+    
+     public function getItemQuantity()
+    {
+        return $this->quantity;
+    }
+    
+    public function getItemAmount()
+    {
+        return $this->quantity * $this->order_price;
+    }
+    
+    public function getProductPrice()
+    {
+        return 13;
+    }
 }

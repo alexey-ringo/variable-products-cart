@@ -28,6 +28,23 @@
 			<div class="section-title">
 				<h2>RELATED PRODUCTS</h2>
 			</div>
+			
+			
+			<!--Test addCart form -->
+			<form action="{{route('cart.add')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
+                    {{csrf_field()}}
+                    
+                    <input type="text" id="product" name="product" 
+                    class="form-control" value="2" readonly="">
+                    
+                    <input type="text" id="quantity" name="quantity" 
+                    class="form-control" value="2" readonly="">
+                    
+                    <button type="submit" class="btn btn-primary btn-sm">
+          				<i class="fa fa-dot-circle-o"></i> Submit
+        			</button>
+			</form>
+			
 			<div class="product-slider owl-carousel">
 				<div class="product-item">
 					<div class="pi-pic">

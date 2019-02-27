@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Groupproduct;
 use App\Product;
 use Illuminate\Http\Request;
+use App\Services\Cart\Cart;
+use App\Services\Cart\CartService;
 
 class CartController extends Controller
 {
@@ -47,24 +49,44 @@ class CartController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function addCart(Request $request)
+    public function addCart(Request $request, Cart $cart)
     {
-        if ($request->isMethod('post')){    
-            return response()->json(['response' => 'This is post method']); 
+        if (!$request->isMethod('post')){  
+            return false;
         }
-
-        return response()->json(['response' => 'This is get method']);
+        
+        $productId = $request->input('product');
+        $quantity = $request->input('quantity');
+        //dd($productId);
+        $cart->add($request, $productId, $quantity);
+        //$cart->
+        
+        //return response()->json(['response' => $cart->add($request, $productId, $quantity)]); 
+            return response()->json(['response' => 'ОК']);
+        //return json_encode(['response' => $cart->add($request, $productId, $quantity)]);
+        
         
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  string  $slug
+     * @param  null
      * @return \Illuminate\Http\Response
      */
-    public function show(string $slug)
+    public function showCart(Request $request, Cart $cart)
     {
+        //if (!$request->isMethod('post')){  
+        //    return false;
+        //}
+        
+        
+        $itemsInOrder = $cart->getItems($request);
+        $cartStatus = $cart->getStatus($request);
+        return view('shop.cart', [
+            'itemsInOrder' => $itemsInOrder,
+            'cartStatus' => $cartStatus,
+            ]);
 
     }
 
@@ -86,7 +108,7 @@ class CartController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function updateCart(Request $request, Cart $cart)
     {
         //
     }

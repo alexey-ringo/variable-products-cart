@@ -15,8 +15,18 @@ class Order extends Model
         return $this->hasMany('App\Services\Cart\Models\OrderItem');
     }
     
-    public function productsQuantity()
+    public function totalQuantity()
     {
-        //
+        return $this->orderItems->sum('quantity');
+    }
+    
+    public function totalAmount()
+    {
+        $orderItems = $this->orderItems;
+        $sumItem = 0;
+        foreach($orderItems as $orderItem) {
+            $sumItem += $orderItem->quantity * $orderItem->order_price;
+        }
+        return $sumItem;
     }
 }

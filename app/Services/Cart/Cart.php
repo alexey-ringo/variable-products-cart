@@ -7,9 +7,8 @@ use App\Services\Cart\Models\OrderItem;
 
 Interface Cart {
     public function add(Request $request, int $productId, int $quantity);
-    public function getOrder();
-    public function delete($productId);
-    public function setQuantity($productId, $quantity);
-    public function getStatus();
-    public function isEmpty();
+    public function delete(Request $request, int $productId);
+    public function getItems(Request $request);
+    public function setItemQuantity(Request $request, int $productId, int $quantity);
+    public function getStatus(Request $request);
 }

@@ -13,11 +13,12 @@ class CartServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register(): void
+    public function register()
     {
         $this->app->singleton(Cart::class, function() {
             return new CartService();
         });
+        //$this->app->singleton('App\Services\Cart\Cart', 'App\Services\Cart\CartService');
     }
 
     /**
