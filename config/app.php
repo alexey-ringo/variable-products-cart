@@ -176,6 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         
         //Custom ServiceProvider
+        App\Providers\CustomSessionServiceProvider::class,
         App\Providers\FrontendServiceProvider::class,
         App\Providers\CartServiceProvider::class,
 

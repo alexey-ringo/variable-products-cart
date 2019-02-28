@@ -3,6 +3,7 @@
 namespace App\Handlers;
 
 use Illuminate\Support\Arr;
+use Illuminate\Session\ExistenceAwareInterface;
 use SessionHandlerInterface;
 use Illuminate\Support\Carbon;
 use Illuminate\Contracts\Auth\Guard;
@@ -11,7 +12,7 @@ use Illuminate\Support\InteractsWithTime;
 use Illuminate\Database\ConnectionInterface;
 use Illuminate\Contracts\Container\Container;
 
-class CustomSessionHandler implements SessionHandlerInterface, ExistenceAwareInterface
+class CustomDatabaseSessionHandler implements SessionHandlerInterface, ExistenceAwareInterface
 {
     use InteractsWithTime;
 
