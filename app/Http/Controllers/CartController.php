@@ -57,8 +57,9 @@ class CartController extends Controller
         
         $productId = $request->input('product');
         $quantity = $request->input('quantity');
-        //dd($productId);
+        
         $cart->add($request, $productId, $quantity);
+        
         //$cart->
         
         //return response()->json(['response' => $cart->add($request, $productId, $quantity)]); 

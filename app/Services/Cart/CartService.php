@@ -7,11 +7,15 @@ use App\Services\Cart\Cart;
 use App\Services\Cart\Models\Order;
 use App\Services\Cart\Models\OrderItem;
 
+use Event;
+use App\Events\Cart\onAddItemEvent;
+
+
 class CartService implements Cart {
     const SESSION_KEY = 'order_id';
 
     private $_order;
-    private $req = null;
+    private $req;
 
     public function add(Request $request, int $productId, int $quantity)
     {
@@ -34,7 +38,12 @@ class CartService implements Cart {
         
         $link->order_price = $link->getProductPrice();
         $link->quantity = $link->quantity + $quantity;
-        return $link->save();
+        
+        if($link->save()) {
+            Event::fire(new onAddItemEvent($link));
+            return true;
+        }
+        return false;
     }
    
    
