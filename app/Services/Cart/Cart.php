@@ -6,7 +6,7 @@ use App\Services\Cart\Models\Order;
 use App\Services\Cart\Models\OrderItem;
 
 Interface Cart {
-    public function add(Request $request, int $productId, int $quantity);
+    public function add(Request $request, int $productId, int $quantity, Array $AddAttributes = null);
     public function delete(Request $request, int $productId);
     public function getItems(Request $request);
     public function setItemQuantity(Request $request, int $productId, int $quantity);

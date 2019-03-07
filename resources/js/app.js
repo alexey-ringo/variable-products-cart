@@ -22,6 +22,11 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('product-component', require('./components/ProductComponent.vue').default);
+Vue.component('cart-component', require('./components/CartComponent.vue').default);
+Vue.component('cart-item-component', require('./components/CartItemComponent.vue').default);
+Vue.component('cart-info-component', require('./components/CartInfoComponent.vue').default);
+
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -30,7 +35,49 @@ Vue.component('product-component', require('./components/ProductComponent.vue').
  */
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    data: {
+    	productsInCart: [],
+    	totalCartQuantity: 0
+    },
+    mounted() {
+            this.update()
+        },
+    methods: {
+    	update: function() {
+    		this.getStatusCart(),
+    		//this.getProductsInCart()
+           	console.log(this.totalCartQuantity);
+           },
+        getStatusCart: function() {
+            axios.get('/status-cart')
+           		.then((response) => {
+                	//console.log(response);
+                   	this.totalCartQuantity = response.data.cartStatus.totalQuantity;
+                   	//this.resp = response;
+                })
+                .catch(e => {
+               	console.log(e);
+            });
+        },
+        addcartevent: function(id) {
+            	this.getStatusCart();
+            	//alert(id);
+            }
+            //getProductsInCart: function() {
+            //    axios.get('/products-in-cart')
+            //		.then((response) => {
+            //        	console.log(response);
+            //        	this.productsInCart = response.data.itemsInOrder;
+                    	//this.resp = response;
+            //        })
+            //        .catch(e => {
+            //        	console.log(e);
+            //        });
+            //},
+    	
+    }
+    
 });
 
 

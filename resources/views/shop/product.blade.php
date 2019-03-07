@@ -15,7 +15,7 @@
 				<a href="./category.html"> &lt;&lt; Back to Category</a>
 			</div>
 			
-			<product-component v-bind:initial-products="{{$result}}"></product-component>
+			<product-component v-bind:initial-products="{{$result}}" v-on:addcartevent="addcartevent"></product-component>
 			
 		</div>
 	</section>

@@ -68,7 +68,7 @@
 						<p>Quantity</p>
                         <div class="pro-qty"><input type="text" value="1"></div>
                     </div>
-					<a href="#" class="site-btn" v-on:click="addCart()">SHOP NOW</a>
+					<a href="#" class="site-btn" v-on:click="addCart">SHOP NOW</a>
 					<div id="accordion" class="accordion-area">
 						<div class="panel">
 							<div class="panel-header" id="headingOne">
@@ -167,13 +167,15 @@
             	this.currentImage4 = this.selectedProduct.images.image4;
             },
             
-            addCart: function() {
+            addCart: function(event) {
+            	event.preventDefault();
             	axios.post('/add-cart', {
             		product: this.selectedProduct.id,
             		quantity: 1
             		})
             		.then((response) => {
                     	console.log(response);
+                    	this.$emit("addcartevent", 1);
                     	//this.urldata = response.data
                     	//this.is_refresh = false
                     	//this.id++
@@ -181,6 +183,9 @@
                     .catch(e => {
                     	console.log(e);
                     });
+                    
+                    
+                //this.$emit("addcartevent", 1);
             }
             
         },

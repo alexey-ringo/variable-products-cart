@@ -22,11 +22,8 @@
 								    <a href="#">Sign</a> In or <a href="#">Create Account</a>
 							    </div>
 							    <div class="up-item">
-								    <div class="shopping-card">
-									    <i class="flaticon-bag"></i>
-									    <span>0</span>
-								    </div>
-								    <a href="#">Shopping Cart</a>
+								    <cart-info-component v-bind:total-cart-quantity="totalCartQuantity"></cart-info-component>
+								    <a href="{{route('cart.show')}}">Корзина</a>
 							    </div>
 						    </div>
 					    </div>

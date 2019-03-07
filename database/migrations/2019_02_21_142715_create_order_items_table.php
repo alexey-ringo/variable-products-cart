@@ -20,6 +20,7 @@ class CreateOrderItemsTable extends Migration
             $table->integer('product_id')->unsigned()->nullable();
             $table->integer('quantity');
             $table->decimal('order_price', 10, 2);
+            $table->json('add_attributes')->nullable();
             $table->timestamps();
         });
     }

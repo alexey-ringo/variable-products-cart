@@ -21,6 +21,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\Cart\onAddItemEvent' => [
             'App\Listeners\Cart\AddItemListener'
             ],
+        'App\Events\System\onSessionDestroyEvent' => [
+            'App\Listeners\Cart\SessionDestroyListener'
+            ],
     ];
 
     /**

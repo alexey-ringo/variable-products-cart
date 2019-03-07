@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use App\Groupproduct;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Collection;
 use App\Services\Cart\Cart;
 use App\Services\Cart\CartService;
+
+use Session;
 
 class CartController extends Controller
 {
@@ -58,12 +61,23 @@ class CartController extends Controller
         $productId = $request->input('product');
         $quantity = $request->input('quantity');
         
-        $cart->add($request, $productId, $quantity);
+        //$product = Product::where('id', $productId)->first();
+        $product = Product::find($productId);
+        $groupproduct = $product->groupproduct;
         
-        //$cart->
+        $addOptions['product'] = $product->toArray();
+        $addOptions['groupproduct'] = $groupproduct->toArray();
         
-        //return response()->json(['response' => $cart->add($request, $productId, $quantity)]); 
-            return response()->json(['response' => 'ОК']);
+        //$groupproduct = Groupproduct::with('products')->whereHas('products', function($query) use($productId) {
+        //    $query->where('id', $productId);
+        //})->first();
+        
+        //dd($groupproduct);
+        
+        $result = $cart->add($request, $productId, $quantity, $addOptions);
+        
+        
+        return response()->json(['response' => $result]);
         //return json_encode(['response' => $cart->add($request, $productId, $quantity)]);
         
         
@@ -77,16 +91,26 @@ class CartController extends Controller
      */
     public function showCart(Request $request, Cart $cart)
     {
-        //if (!$request->isMethod('post')){  
-        //    return false;
-        //}
-        
-        
-        $itemsInOrder = $cart->getItems($request);
-        $cartStatus = $cart->getStatus($request);
-        return view('shop.cart', [
-            'itemsInOrder' => $itemsInOrder,
-            'cartStatus' => $cartStatus,
+        //$itemsInOrder = $this->toArray($cart->getItems($request));
+        //$cartStatus = $cart->getStatus($request);
+        return view('shop.cart'/*, [
+            'itemsInOrder' => json_encode($itemsInOrder),
+            'cartStatus' => json_encode($cartStatus),
+            ]*/);
+
+    }
+    
+    public function statusCart(Request $request, Cart $cart)
+    {
+        return response()->json(['cartStatus' => $cart->getStatus($request)]);
+
+    }
+    
+    public function productsCart(Request $request, Cart $cart)
+    {
+        return response()->json([
+            'itemsInOrder' => $this->toArray($cart->getItems($request)),
+            'cartStatus' => $cart->getStatus($request)
             ]);
 
     }
@@ -124,4 +148,9 @@ class CartController extends Controller
     {
         //
     }
+    
+    private function toArray(Collection $collection) {
+        return $collection->toArray();
+    }
+
 }

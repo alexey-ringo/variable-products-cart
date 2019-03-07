@@ -19,7 +19,9 @@ Route::get('/shop', 'ShopController@categories')->name('shop.categories');
 Route::get('/shop/{slug?}', 'ShopController@category')->name('shop.category');
 Route::get('/products/{slug}', 'ShopController@show')->name('shop.product');
 Route::post('/add-cart', 'CartController@addCart')->name('cart.add');
-Route::get('/show-cart', 'CartController@showCart')->name('cart.show');
+Route::get('/products-in-cart', 'CartController@productsCart')->name('cart.products');
+Route::get('/status-cart', 'CartController@statusCart')->name('cart.status');
+Route::get('/cart', 'CartController@showCart')->name('cart.show');
 
 
 Auth::routes();

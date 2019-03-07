@@ -78,6 +78,7 @@ class CustomDatabaseSessionHandler implements SessionHandlerInterface, Existence
      */
     public function open($savePath, $sessionName)
     {
+        Log::info('Session was opened');
         return true;
     }
 
@@ -86,6 +87,7 @@ class CustomDatabaseSessionHandler implements SessionHandlerInterface, Existence
      */
     public function close()
     {
+        Log::info('Session was closed');
         return true;
     }
 
@@ -98,6 +100,7 @@ class CustomDatabaseSessionHandler implements SessionHandlerInterface, Existence
 
         if ($this->expired($session)) {
             $this->exists = true;
+            Log::info('Session was read2 successfully');
 
             return '';
         }
@@ -107,6 +110,8 @@ class CustomDatabaseSessionHandler implements SessionHandlerInterface, Existence
 
             return base64_decode($session->payload);
         }
+        
+        Log::info('Session was read successfully');
 
         return '';
     }
@@ -119,6 +124,7 @@ class CustomDatabaseSessionHandler implements SessionHandlerInterface, Existence
      */
     protected function expired($session)
     {
+        Log::info('Session was expired');
         return isset($session->last_activity) &&
             $session->last_activity < Carbon::now()->subMinutes($this->minutes)->getTimestamp();
     }
@@ -139,6 +145,8 @@ class CustomDatabaseSessionHandler implements SessionHandlerInterface, Existence
         } else {
             $this->performInsert($sessionId, $payload);
         }
+        
+        Log::info('Session was writed');
 
         return $this->exists = true;
     }
@@ -153,6 +161,7 @@ class CustomDatabaseSessionHandler implements SessionHandlerInterface, Existence
     protected function performInsert($sessionId, $payload)
     {
         try {
+            Log::info('Session was performInserted');
             return $this->getQuery()->insert(Arr::set($payload, 'id', $sessionId));
         } catch (QueryException $e) {
             $this->performUpdate($sessionId, $payload);
@@ -168,6 +177,7 @@ class CustomDatabaseSessionHandler implements SessionHandlerInterface, Existence
      */
     protected function performUpdate($sessionId, $payload)
     {
+        Log::info('Session was performUpdated');
         return $this->getQuery()->where('id', $sessionId)->update($payload);
     }
 
@@ -187,6 +197,8 @@ class CustomDatabaseSessionHandler implements SessionHandlerInterface, Existence
         if (! $this->container) {
             return $payload;
         }
+        
+        Log::info('Session was getDefaultPayloaded');
 
         return tap($payload, function (&$payload) {
             $this->addUserInformation($payload)
@@ -205,6 +217,7 @@ class CustomDatabaseSessionHandler implements SessionHandlerInterface, Existence
         if ($this->container->bound(Guard::class)) {
             $payload['user_id'] = $this->userId();
         }
+        Log::info('Session addUserInformation()');
 
         return $this;
     }
@@ -216,6 +229,7 @@ class CustomDatabaseSessionHandler implements SessionHandlerInterface, Existence
      */
     protected function userId()
     {
+        Log::info('Session userId()');
         return $this->container->make(Guard::class)->id();
     }
 
@@ -233,6 +247,7 @@ class CustomDatabaseSessionHandler implements SessionHandlerInterface, Existence
                 'user_agent' => $this->userAgent(),
             ]);
         }
+        Log::info('Session addRequestInformation()');
 
         return $this;
     }
@@ -244,6 +259,7 @@ class CustomDatabaseSessionHandler implements SessionHandlerInterface, Existence
      */
     protected function ipAddress()
     {
+        Log::info('Session ipAddress()');
         return $this->container->make('request')->ip();
     }
 
@@ -254,6 +270,7 @@ class CustomDatabaseSessionHandler implements SessionHandlerInterface, Existence
      */
     protected function userAgent()
     {
+        Log::info('Session userAgent()');
         return substr((string) $this->container->make('request')->header('User-Agent'), 0, 500);
     }
 
@@ -262,9 +279,10 @@ class CustomDatabaseSessionHandler implements SessionHandlerInterface, Existence
      */
     public function destroy($sessionId)
     {
-        Log::info('Session was destroyed successfully');
+        Log::info('Session was DESTROYED!!!');
         //Event::fire(new onSessionDestroyEvent($sessionId));
-        //$this->getQuery()->where('id', $sessionId)->delete();
+        $this->getQuery()->where('id', $sessionId)->delete();
+       
      
 
         return true;
@@ -275,8 +293,8 @@ class CustomDatabaseSessionHandler implements SessionHandlerInterface, Existence
      */
     public function gc($lifetime)
     {
-        //$this->getQuery()->where('last_activity', '<=', $this->currentTime() - $lifetime)->delete();
-        Log::info('Session was gc successfully');
+        $this->getQuery()->where('last_activity', '<=', $this->currentTime() - $lifetime)->delete();
+        Log::info('Session was GC!');
     }
 
     /**
@@ -286,6 +304,7 @@ class CustomDatabaseSessionHandler implements SessionHandlerInterface, Existence
      */
     protected function getQuery()
     {
+        Log::info('Session was getted Query');
         return $this->connection->table($this->table);
     }
 
@@ -298,6 +317,8 @@ class CustomDatabaseSessionHandler implements SessionHandlerInterface, Existence
     public function setExists($value)
     {
         $this->exists = $value;
+        
+        Log::info('Session was setted Exists');
 
         return $this;
     }

@@ -17,7 +17,7 @@ class CartService implements Cart {
     private $_order;
     private $req;
 
-    public function add(Request $request, int $productId, int $quantity)
+    public function add(Request $request, int $productId, int $quantity, Array $AddAttributes = null)
     {
         $this->req = $request;
         /*
@@ -38,10 +38,11 @@ class CartService implements Cart {
         
         $link->order_price = $link->getProductPrice();
         $link->quantity = $link->quantity + $quantity;
+        $link->add_attributes = $AddAttributes;
         
         if($link->save()) {
             Event::fire(new onAddItemEvent($link));
-            return true;
+            return $link;
         }
         return false;
     }
@@ -145,31 +146,8 @@ class CartService implements Cart {
         $result['totalAmount'] = $this->getOrder()->totalAmount();
         
         return $result;
-        
-        /*
-        return Yii::t('app', 'В корзине {productsCount, number} {productsCount, plural, one{товар} few{товара} many{товаров} other{товара}} на сумму {amount} руб.', [
-            'productsCount' => $this->order->productsCount,
-            'amount' => $this->order->amount
-        ]);
-        */
     }
     
-    
-    //public function getTotalAmount(Request $request)
-    //{
-    //   $this->req = $request;
-    //    if ($this->isEmpty()) {
-    //        return false;
-    //    }
-    //    return $this->getOrder()->totalAmount;
-        /*
-        return Yii::t('app', 'В корзине {productsCount, number} {productsCount, plural, one{товар} few{товара} many{товаров} other{товара}} на сумму {amount} руб.', [
-            'productsCount' => $this->order->productsCount,
-            'amount' => $this->order->amount
-        ]);
-        */
-    //}
-
     private function isEmpty()
     {
         if (!$this->req->session()->has(self::SESSION_KEY)) {
@@ -177,4 +155,5 @@ class CartService implements Cart {
         }
         //return $this->order->productsQuantity ? false : true;
     }
+    
 }

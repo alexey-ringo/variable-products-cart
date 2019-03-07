@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Services\Cart\Models\OrderItem;
+use Log;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,6 +17,9 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         \URL::forceScheme('https');
+        OrderItem::saved(function(OrderItem $orderItem) {
+            Log::info('Product save in OrderItem', [$orderItem->order_id => $orderItem->product_id]);
+        });
     }
 
     /**
