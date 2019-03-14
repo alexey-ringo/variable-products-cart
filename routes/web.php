@@ -22,6 +22,9 @@ Route::post('/add-cart', 'CartController@addCart')->name('cart.add');
 Route::get('/products-in-cart', 'CartController@productsCart')->name('cart.products');
 Route::get('/status-cart', 'CartController@statusCart')->name('cart.status');
 Route::get('/cart', 'CartController@showCart')->name('cart.show');
+Route::get('/queue', function() {
+    App\Jobs\ClearCart::dispatch("Send test queue message");
+});
 
 
 Auth::routes();

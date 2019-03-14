@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Services\Cart\Cart;
 use App\Services\Cart\Models\Order;
 use App\Services\Cart\Models\OrderItem;
+use App\Jobs\ClearCart;
 
 use Event;
 use App\Events\Cart\onAddItemEvent;
@@ -63,6 +64,8 @@ class CartService implements Cart {
         $order = new Order;
         if ($order->save()) {
             $this->_order = $order;
+            ClearCart::dispatch($order)->delay(now()->addMinutes(2));
+            //ClearCart::dispatch('send message about queue start');
             return true;
         }
         return false;

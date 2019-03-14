@@ -3,19 +3,14 @@
 namespace App\Handlers;
 
 use Illuminate\Support\Arr;
-use Illuminate\Session\ExistenceAwareInterface;
 use SessionHandlerInterface;
+use Illuminate\Session\ExistenceAwareInterface;
 use Illuminate\Support\Carbon;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\InteractsWithTime;
 use Illuminate\Database\ConnectionInterface;
 use Illuminate\Contracts\Container\Container;
-
-use Event;
-use App\Events\System\onSessionDestroyEvent;
-use Log;
-
 
 class CustomDatabaseSessionHandler implements SessionHandlerInterface, ExistenceAwareInterface
 {
@@ -262,10 +257,7 @@ class CustomDatabaseSessionHandler implements SessionHandlerInterface, Existence
      */
     public function destroy($sessionId)
     {
-        Log::info('Session was destroyed successfully');
-        //Event::fire(new onSessionDestroyEvent($sessionId));
-        //$this->getQuery()->where('id', $sessionId)->delete();
-     
+        $this->getQuery()->where('id', $sessionId)->delete();
 
         return true;
     }
@@ -275,8 +267,7 @@ class CustomDatabaseSessionHandler implements SessionHandlerInterface, Existence
      */
     public function gc($lifetime)
     {
-        //$this->getQuery()->where('last_activity', '<=', $this->currentTime() - $lifetime)->delete();
-        Log::info('Session was gc successfully');
+        $this->getQuery()->where('last_activity', '<=', $this->currentTime() - $lifetime)->delete();
     }
 
     /**

@@ -36,7 +36,7 @@
         },
         methods: {
             update: function() {
-            	//console.log(this.index);
+            	console.log(this.index);
             },
            
     	}
