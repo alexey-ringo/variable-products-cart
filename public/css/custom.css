@@ -1,0 +1,17 @@
+.spad {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.page-top-info {
+  background: #f8f7f7;
+  padding: 15px 0 15px;
+}
+
+/* --------------
+  Product page
+------------------*/
+.product-section {
+  padding-top: 30px;
+  padding-bottom: 35px;
+}

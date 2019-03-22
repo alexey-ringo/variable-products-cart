@@ -17,10 +17,20 @@
 					    </div>
 					    <div class="col-xl-4 col-lg-5">
 						    <div class="user-panel">
+						    @if(Auth::guard('web')->check())	
+								<div class="up-item">
+								    <i class="flaticon-profile"></i>
+								    <p>{{ Auth::user()->name }}</p>
+								 </div>
+								 <div class="up-item">
+								    <a href="{{route('user.logout')}}">Выйти</a>
+							    </div>
+							@else
 							    <div class="up-item">
 								    <i class="flaticon-profile"></i>
-								    <a href="#">Sign</a> In or <a href="#">Create Account</a>
+								    <a href="{{route('login')}}">Войти</a> или <a href="{{route('register')}}">Зарегистрироваться</a>
 							    </div>
+							@endif
 							    <div class="up-item">
 								    <cart-info-component v-bind:total-cart-quantity="totalCartQuantity"></cart-info-component>
 								    <a href="{{route('cart.show')}}">Корзина</a>
