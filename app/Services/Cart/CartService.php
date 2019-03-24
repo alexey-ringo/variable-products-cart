@@ -51,7 +51,6 @@ class CartService implements Cart {
    
     private function getOrder()
     {
-        
         if ($this->_order == null) {
             $this->_order = Order::where(['id' => $this->getOrderId()])->firstOrFail();
         }
@@ -64,7 +63,7 @@ class CartService implements Cart {
         $order = new Order;
         if ($order->save()) {
             $this->_order = $order;
-            ClearCart::dispatch($order)->delay(now()->addMinutes(2));
+            //ClearCart::dispatch($order)->delay(now()->addMinutes(2));
             //ClearCart::dispatch('send message about queue start');
             return true;
         }
@@ -73,6 +72,11 @@ class CartService implements Cart {
 
     private function getOrderId()
     {
+        if ($this->req->user()) {
+            $orderForUser = Order::where('user_id', $this->req->user()->id)->firstOrFail();
+            return $orderForUser->id;
+        }
+        
         if (!$this->req->session()->has(self::SESSION_KEY)) {
             if ($this->createOrder()) {
                 $this->req->session()->put(self::SESSION_KEY, $this->_order->id);
@@ -91,7 +95,7 @@ class CartService implements Cart {
         return $link->delete();
     }
     
-     //Получение массива товаров в корзине
+    //Получение массива товаров в корзине
     public function getItems(Request $request) 
     {
         $this->req = $request;
@@ -153,9 +157,16 @@ class CartService implements Cart {
     
     private function isEmpty()
     {
+        if ($this->req->user()) {
+            if (Order::where('user_id', $this->req->user()->id)->first()) {
+                return false;
+            }
+        }
+        
         if (!$this->req->session()->has(self::SESSION_KEY)) {
             return true;
         }
+        
         //return $this->order->productsQuantity ? false : true;
     }
     
