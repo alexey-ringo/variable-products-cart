@@ -25,9 +25,9 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\Cart\SessionDestroyListener'
             ],
             
-        'Illuminate\Auth\Events\Authenticated' => [
-            'App\Listeners\Cart\LogAuthenticated',
-            ],
+        //'Illuminate\Auth\Events\Authenticated' => [
+        //    'App\Listeners\Cart\LogAuthenticated',
+        //    ],
         'Illuminate\Auth\Events\Login' => [
             'App\Listeners\Cart\LogSuccessfulLogin',
             ],

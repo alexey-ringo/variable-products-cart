@@ -11,4 +11,7 @@ Interface Cart {
     public function getItems(Request $request);
     public function setItemQuantity(Request $request, int $productId, int $quantity);
     public function getStatus(Request $request);
+    public function getActOrderFromUser(int $userId); 
+    public function saveUserForOrder(int $userId, int $orderId);
+    public function saveNewOrderForUser(int $userId, int $newOrderId, int $oldOrderId); 
 }

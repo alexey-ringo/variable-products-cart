@@ -6,9 +6,9 @@ use Illuminate\Auth\Events\Login;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Http\Request;
+use App\Services\Cart\Cart;
+use App\Services\Cart\CartService;
 use App\Services\Cart\Models\Order;
-
-use Log;
 
 class LogSuccessfulLogin
 {
@@ -20,9 +20,10 @@ class LogSuccessfulLogin
      
     private $req;
     
-    public function __construct(Request $request)
+    public function __construct(Request $request, Cart $cart)
     {
         $this->req = $request;
+        $this->cart = $cart;
     }
 
     /**
@@ -33,19 +34,37 @@ class LogSuccessfulLogin
      */
     public function handle(Login $event)
     {
-        if(!$this->req->session()->has('order_id')) {
+        if($event->guard !== 'web') {
             return false;
         }
         
-        $order_id = $this->req->session()->get('order_id', '0');
-        $order = Order::where('id', $order_id)->first();
-        //найти последнюю запись о заказе от этого пользователя
-        //удалить все остальные записи о заказах этого пользователя
-        if(!$order->user_id) {
-            $order->user_id = $this->req->user()->id;
-            $order->save();   
-        }
+        $savedActOrderFromUser = $this->cart->getActOrderFromUser($event->user->id);
+        $sessionOrder = $this->req->session()->get('order_id', '0');
         
-        //Log::info('Login', ['request' => $this->req->session()->get('order_id', 'default')]);
+        //Если для залогиненного пользователя уже есть в базе ранее сохрененный ордер (под именем этого пользователя)
+        if($savedActOrderFromUser) {
+            //Если при логгировании данного пользователя, у этого пользователя уже существует новый ордер в сессии
+            if($this->req->session()->has('order_id')) {
+                //И номера этих ордеров отличаются
+                if($savedActOrderFromUser !== $sessionOrder) {
+                    //Актуальный ордер с именем залогинившегося пользователя (из актуальных данных из сессии) - маркируем как основной ордер для этого пользователя
+                    //Ордер с этим пользователем, который был сохранен в базе ранее - помечаем как "старый"
+                    $this->cart->saveNewOrderForUser($event->user->id, $sessionOrder, $savedActOrderFromUser);
+                }
+            }
+            //Если при логине данного пользователя у него в сессии еще нет никакого ордера
+            else {
+                //вставляем в сессию данного пользователя ордер, сохраненный ИМ в базе ранее
+                $this->req->session()->put('order_id', $savedActOrderFromUser);
+            }
+        }
+        //Если для залогиненного пользователя в базе еще не было ни одного сохрененого ордера
+        else {
+            //Но при этом при логине данного пользователя у него уже есть ордер в сессии
+            if($this->req->session()->has('order_id')) {
+                //Сохраняем пользователя к актуальному ордеру
+                $this->cart->saveUserForOrder($event->user->id, $sessionOrder);
+            }
+        }
     }
 }

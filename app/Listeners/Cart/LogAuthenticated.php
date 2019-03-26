@@ -29,6 +29,6 @@ class LogAuthenticated
     public function handle(Authenticated $event)
     {
         //
-        Log::info('Authenticated', ['event' => $event]);
+        
     }
 }

@@ -11,11 +11,14 @@ use App\Jobs\ClearCart;
 use Event;
 use App\Events\Cart\onAddItemEvent;
 
+use Log;
 
 class CartService implements Cart {
     const SESSION_KEY = 'order_id';
 
     private $_order;
+    private $_oldOrder;
+    private $_postponedOrder;
     private $req;
 
     public function add(Request $request, int $productId, int $quantity, Array $AddAttributes = null)
@@ -73,8 +76,9 @@ class CartService implements Cart {
     private function getOrderId()
     {
         if ($this->req->user()) {
-            $orderForUser = Order::where('user_id', $this->req->user()->id)->firstOrFail();
-            return $orderForUser->id;
+            //$orderForUser = Order::where('user_id', $this->req->user()->id)->firstOrFail();
+            //return $orderForUser->id;
+            return $this->getActOrderFromUser($this->req->user()->id);
         }
         
         if (!$this->req->session()->has(self::SESSION_KEY)) {
@@ -145,6 +149,7 @@ class CartService implements Cart {
     public function getStatus(Request $request)
     {
         $this->req = $request;
+        
         if ($this->isEmpty()) {
             return false;
         }
@@ -157,17 +162,66 @@ class CartService implements Cart {
     
     private function isEmpty()
     {
+        //Если пользователь залогинился 
         if ($this->req->user()) {
+            //и под его именем есть заказы в БД
             if (Order::where('user_id', $this->req->user()->id)->first()) {
                 return false;
             }
         }
         
+        //Если в БД нет заказов под залогиненым пользователем - проверка выше
+        //и в сессии нет поля заказа
         if (!$this->req->session()->has(self::SESSION_KEY)) {
             return true;
         }
-        
-        //return $this->order->productsQuantity ? false : true;
+        //В сессии есть поле заказа
+        else {
+            return false;
+        }
     }
     
+    public function getActOrderFromUser(int $userId) 
+    {
+        $actualOrderForUser = Order::where(['user_id' => $userId, 'status' => 1])->first(); //Что будет, если протзователя не найдется в таблице заказов?
+        return $actualOrderForUser->id ?? null;
+    }
+    
+    public function saveUserForOrder(int $userId, int $orderId) 
+    {
+        $order = Order::where('id', $orderId)->first();
+        //Если у данного ордера действительно еще нет пользователя
+        if(!$order->user_id) {
+            $order->user_id = $userId;
+            $order->save();   
+        }
+    }
+    
+    public function saveNewOrderForUser(int $userId, int $newOrderId, int $oldOrderId) 
+    {
+        //Удалить все ордера от переданного юзера со статусом 2, за исключением oldOrder (текущий сохраненный в БД ордер)
+        Order::where(['user_id' => $userId, 'status' => 2])->where('id', '<>', $oldOrderId)->delete();
+        
+        //текущий сохраненный в БД ордер для данного юзера
+        $oldOrder = Order::where('id', $oldOrderId)->first();
+        //Текущий ордер из сессии
+        $newOrder = Order::where('id', $newOrderId)->first();
+        
+        if($oldOrder && $newOrder) {
+            if($oldOrder->status == 1) {
+                //Ордер с этим пользователем, который был сохранен в базе ранее как актуальный - помечаем как "старый"
+                $oldOrder->status = 2;
+                $oldOrder->save();
+            }
+            if($newOrder->status == 2) {
+                $newOrder->status = 1;
+                $newOrder->save();
+            }
+            if(!$newOrder->user_id) {
+                //Новый актуальный ордер в БД для залогиненного юзера
+                $newOrder->user_id = $userId;
+                $newOrder->save();   
+            }
+        }
+    }
 }
