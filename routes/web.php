@@ -11,13 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 Route::get('/home', 'HomeController@index')->name('home.index');
 
 
-//Route::get('/', 'ShopController@index')->name('shop.index');
+Route::get('/', 'ShopController@index')->name('shop.index');
 //Route::get('/shop', 'ShopController@category')->name('shop.category');
 //Route::get('/shop/{groupproduct}', 'ShopController@show')->name('shop.show');
 Route::get('/shop', 'ShopController@categories')->name('shop.categories');
