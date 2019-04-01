@@ -27,22 +27,23 @@ class ShopController extends Controller
     public function categories()
     {
         return view('shop.category', [
-            'groupproducts' => Groupproduct::orderBy('id')->paginate(9)
+            'groupproducts' => Groupproduct::orderBy('id')->paginate(9),
+            'menu_categories' => Category::with('childrenCat')->where('parent_id', 0)/*->where('published', 1)*/->get()
             ]);
     }
     
     public function category(string $slug = null)
     {
-        $category = Category::where('slug', $slug)->get();
+        $category = Category::where('slug', $slug)->first();
         
         $groupproducts = Groupproduct::with('categories')->whereHas('categories', function($query) use($slug) {
             $query->where('slug', $slug);
         })->get();
         
-        //dd($category);
         return view('shop.category', [
             'groupproducts' => $groupproducts,
-            'category' => $category
+            'category' => $category,
+            'menu_categories' => Category::with('childrenCat')->where('parent_id', 0)/*->where('published', 1)*/->get()
             ]);
     }
 

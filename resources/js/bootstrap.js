@@ -10,13 +10,17 @@ window._ = require('lodash');
 try {
     window.Popper = require('popper.js').default;
     window.$ = window.jQuery = require('jquery');
+    //require('jquery-ui');
+    
+    require('jquery-ui/ui/widgets/slider.js');
 
     require('bootstrap');
-    //require('slicknav');
+    require('slicknav/dist/jquery.slicknav.min.js');
     require('owl.carousel');
     require('jquery.nicescroll');
-    require('jquery-zoom');
-    require('jquery-ui');
+    require('jquery-zoom/jquery.zoom.min.js');
+    
+    require("sweetalert");
     
     
 } catch (e) {}

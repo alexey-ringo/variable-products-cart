@@ -5,7 +5,7 @@
 @component('shop.components.breadcrumbs')
         @slot('title') Категории @endslot
         @slot('parent') Главная @endslot
-        @slot('active') Новости @endslot
+        @slot('active') {{$category->name ?? ''}} @endslot
 @endcomponent	
 	
 	<!-- Category section -->
@@ -14,8 +14,9 @@
 			<div class="row">
 				<div class="col-lg-3 order-2 order-lg-1">
 					<div class="filter-widget">
-						<h2 class="fw-title">Categories</h2>
+						<h2 class="fw-title">Категории</h2>
 						<ul class="category-menu">
+							@include('shop.components.menu', ['menu_categories' => $menu_categories])
 							<li><a href="#">Woman wear</a>
 								<ul class="sub-menu">
 									<li><a href="#">Midi Dresses <span>(2)</span></a></li>
@@ -31,10 +32,6 @@
 									<li><a href="#">Maxi Dresses<span>(56)</span></a></li>
 									<li><a href="#">Prom Dresses<span>(36)</span></a></li>
 								</ul></li>
-							<li><a href="#">Children</a></li>
-							<li><a href="#">Bags & Purses</a></li>
-							<li><a href="#">Eyewear</a></li>
-							<li><a href="#">Footwear</a></li>
 						</ul>
 					</div>
 					<div class="filter-widget mb-0">
@@ -163,7 +160,7 @@
 						</div>
 						@empty
 						
-						<div style="text-align: left">No items found</div>
+						<div style="text-align: left">Товаров в категории {{$category->name ?? '' }} не найдено</div>
 						
 						@endforelse
 						

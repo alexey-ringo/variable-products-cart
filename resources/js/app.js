@@ -81,10 +81,10 @@ const app = new Vue({
 });
 
 
-/*
+
 $(document).ready(function(){
   
-  $('#menu').slicknav();
+  //$('#menu').slicknav();
   
   $('.owl-carousel').owlCarousel({
    items: 1,
@@ -92,8 +92,12 @@ $(document).ready(function(){
     mouseDrag: false
   });
   
+  
+  $('.product-pic-zoom').zoom();
+  
+  
 });
-*/
+
 
 /* =================================
 ------------------------------------
@@ -106,26 +110,26 @@ $(document).ready(function(){
 //'use strict';
 
 
-$(window).on('load', function() {
+//$(window).on('load', function() {
 	/*------------------
 		Preloder
 	--------------------*/
-	$(".loader").fadeOut();
-	$("#preloder").delay(400).fadeOut("slow");
+//	$(".loader").fadeOut();
+//	$("#preloder").delay(400).fadeOut("slow");
 
-});
+//});
 
 (function($) {
 	/*------------------
 		Navigation
 	--------------------*/
-	/*
+	
 	$('.main-menu').slicknav({
 		prependTo:'.main-navbar .container',
 		closedSymbol: '<i class="flaticon-right-arrow"></i>',
 		openedSymbol: '<i class="flaticon-down-arrow"></i>'
 	});
-	*/
+	
 
 
 	/*------------------
@@ -299,26 +303,6 @@ $(window).on('load', function() {
 		}
 		$button.parent().find('input').val(newVal);
 	});
-
-
-
-	/*------------------
-		Single Product
-	--------------------*/
-	$('.product-thumbs-track > .pt').on('click', function(){
-		$('.product-thumbs-track .pt').removeClass('active');
-		$(this).addClass('active');
-		var imgurl = $(this).data('imgbigurl');
-		var bigImg = $('.product-big-img').attr('src');
-		if(imgurl != bigImg) {
-			$('.product-big-img').attr({src: imgurl});
-			$('.zoomImg').attr({src: imgurl});
-		}
-	});
-
-
-	$('.product-pic-zoom').zoom();
-
 
 
 })(jQuery);

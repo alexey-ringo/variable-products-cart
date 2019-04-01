@@ -2,14 +2,18 @@
     <div class="row">
 		<div class="col-lg-6">
 			<div class="product-pic-zoom">
-				<img class="product-big-img" v-bind:src="'/storage/' + currentImage1">
+				<img class="product-big-img" v-bind:src="'/storage/' + selectedImage">
 			</div>
 			<div class="product-thumbs" tabindex="1" style="overflow: hidden; outline: none;">
 				<div class="product-thumbs-track">
-					<div class="pt active" data-imgbigurl="img/single-product/1.jpg"><img v-bind:src="'/storage/' + currentImage1" alt=""></div>
-					<div class="pt" data-imgbigurl="img/single-product/2.jpg"><img v-bind:src="'/storage/' + currentImage2" alt=""></div>
-					<div class="pt" data-imgbigurl="img/single-product/3.jpg"><img v-bind:src="'/storage/' + currentImage3" alt=""></div>
-					<div class="pt" data-imgbigurl="img/single-product/4.jpg"><img v-bind:src="'/storage/' + currentImage4" alt=""></div>
+					<div
+					v-for="(currentImage, index) in currentImages"
+					class="pt"
+					v-on:click="selectImage(index)"
+					v-bind:class="{'active': selectedImageIndex === index}"
+					>
+						<img v-bind:src="'/storage/' + currentImage" alt="">
+					</div>
 				</div>
 			</div>
 		</div>
@@ -28,12 +32,12 @@
 			<div class="p-review">
 				<a href="">3 reviews</a>|<a href="">Add your review</a>
 			</div>
-				<h3>Color</h3>
-				
-			<ul class="list-group">
+			
+			<h4>Цвет</h4>
+			<ul class="list-group-product">
 				<li
 				v-for="(color, index) in colors"
-				class="list-group-item list-group-item-action pointer"
+				class="list-group-item-product list-group-item-action pointer"
 				v-on:click="selectColor(index)"
 				v-bind:class="{'active': selectedColorIndex === index}"
 				>
@@ -41,20 +45,12 @@
 				</li>
 			</ul>
 				
-			<div class="fw-size-choose">
-				<p>Size</p>
-				
-				<div class="sc-item">
-					<input type="radio" name="sc" id="xs-size">
-					<label for="xs-size"></label>
-				</div>
-					
-			</div>
-					
-			<ul class="list-group">
+			
+			<h4>Размер</h4>		
+			<ul class="list-group-product">
 				<li
 				v-for="(currentSize, index) in currentSizes"
-				class="list-group-item list-group-item-action pointer"
+				class="list-group-item-product list-group-item-action pointer"
 				v-on:click="selectSize(index)"
 				v-bind:class="{'active': selectedSizeIndex === index}"
 				>
@@ -65,10 +61,10 @@
 					
 					
 					<div class="quantity">
-						<p>Quantity</p>
+						<p>Количество</p>
                         <div class="pro-qty"><input type="text" value="1"></div>
                     </div>
-					<a href="#" class="site-btn" v-on:click="addCart">SHOP NOW</a>
+					<a href="#" class="site-btn" v-on:click="addCart">Купить</a>
 					<div id="accordion" class="accordion-area">
 						<div class="panel">
 							<div class="panel-header" id="headingOne">
@@ -119,6 +115,8 @@
 </template>
 
 <script>
+	import swal from 'sweetalert';
+
     export default {
         props: [
             'initialProducts'
@@ -130,11 +128,9 @@
                 selectedColorIndex: 0,
                 selectedSize: 'default',
                 selectedSizeIndex: 0,
-                currentImage1: 'default',
-                currentImage2: 'default',
-                currentImage3: 'default',
-                currentImage4: 'default'
-                
+                selectedImage: 'default',
+                selectedImageIndex: 0,
+                currentImages: [0]
             }
         },
         mounted() {
@@ -144,27 +140,29 @@
             update: function() {
             	this.selectedColor = this.defaultColor;
                 this.selectedSize = this.defaultSize;
-                //this.currentImage1 = this.selectedProduct.images.image1;
-                this.currentImage1 = this.selectedProduct.images.image1;
-                this.currentImage2 = this.selectedProduct.images.image2;
-                this.currentImage3 = this.selectedProduct.images.image3;
-                this.currentImage4 = this.selectedProduct.images.image4;
+                this.selectedImage = this.selectedProduct.images[0]; //Переделать!
+                this.getCurrentImages();
             },
+            
             selectColor: function(index) {            	
             	this.selectedColor = this.colors[index];
             	this.selectedColorIndex = index;
             	this.getCurrentImages();
+            	this.selectImage(0); //Переделать! Где реактивность?!
             },
+            
             selectSize: function(index) {
             	this.selectedSize = this.currentSizes[index];
             	this.selectedSizeIndex = index;
             },
             
+            selectImage: function(index) {
+            	this.selectedImage = this.currentImages[index];
+            	this.selectedImageIndex = index;
+            },
+            
             getCurrentImages: function() {
-            	this.currentImage1 = this.selectedProduct.images.image1;
-            	this.currentImage2 = this.selectedProduct.images.image2;
-            	this.currentImage3 = this.selectedProduct.images.image3;
-            	this.currentImage4 = this.selectedProduct.images.image4;
+            	this.currentImages = this.selectedProduct.images;
             },
             
             addCart: function(event) {
@@ -174,8 +172,9 @@
             		quantity: 1
             		})
             		.then((response) => {
-                    	console.log(response);
+                    	console.log(response.data.response.add_attributes);
                     	this.$emit("addcartevent", 1);
+                    	swal(response.data.response.add_attributes.groupproduct.name, "успешно добавлен в корзину", "success");
                     	//this.urldata = response.data
                     	//this.is_refresh = false
                     	//this.id++
@@ -199,20 +198,7 @@
 				let result = Array.from(new Set(arr));
 				return result;
 			},
-			/*
-			sizesForColors: function () {
-    			var product = new Object();
-    			for(let j = 0; j < this.colors.length; j++) {
-    				product[this.colors[j]] = new Object();
-    				for(let k = 0; k < this.globalProducts.products.length; k++) {
-    					if(this.globalProducts.products[k].color.value == this.colors[j]) {
-    						product[this.colors[j]][k] = this.globalProducts.products[k].size.value;
-    					}
-    				}
-    			}
-				return product;
-			},
-			*/
+	
 			defaultColor: function() {
 				return this.colors[0];
 			},
@@ -223,7 +209,6 @@
 			
 			
 			currentSizes: function() {
-				//console.log('Sizes are updated');
 				let arr = [];
 				let j = 0;
     			for(let i = 0; i < this.globalProducts.products.length; i++) {
@@ -237,8 +222,7 @@
 				return arr;
 			},
 			selectedProduct: function() {
-				//console.log('Product is updated');
-    			for(let i = 0; i < this.globalProducts.products.length; i++) {
+	   			for(let i = 0; i < this.globalProducts.products.length; i++) {
     				if(this.globalProducts.products[i].color.value == this.selectedColor && this.globalProducts.products[i].size.value == this.selectedSize) {
     					return this.globalProducts.products[i];
     				}
