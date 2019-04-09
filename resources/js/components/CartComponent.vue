@@ -11,7 +11,7 @@
 			</thead>
 			<tbody>
 			    
-<cart-item-component v-for="(cartProduct, i) in cartProducts" v-bind:key="cartProduct.id" v-bind:product="cartProduct" v-bind:index="(i+1)"></cart-item-component>
+<cart-item v-for="(cartProduct, index) in cartProducts" v-bind:key="cartProduct.id" v-bind:product="cartProduct" v-bind:globalIndex="(index+1)"></cart-item>
 								
 			</tbody>
 		</table>
@@ -19,9 +19,12 @@
 </template>
 
 <script>
-//    import item from './CartItemComponent.vue';
+    import CartItem from './items/CartItemComponent.vue';
 
     export default {
+        components: {
+            'cart-item': CartItem
+        },
         //props: [
         //    'initialCartProducts'
         //    ],

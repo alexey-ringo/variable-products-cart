@@ -28,7 +28,8 @@ class ShopController extends Controller
     {
         return view('shop.category', [
             'groupproducts' => Groupproduct::orderBy('id')->paginate(9),
-            'menu_categories' => Category::with('childrenCat')->where('parent_id', 0)/*->where('published', 1)*/->get()
+            'menu_categories' => json_encode(Category::with('childrenCat')->where('parent_id', 0)/*->where('published', 1)*/->get()),
+            'current_category' => json_encode('')
             ]);
     }
     
@@ -43,7 +44,8 @@ class ShopController extends Controller
         return view('shop.category', [
             'groupproducts' => $groupproducts,
             'category' => $category,
-            'menu_categories' => Category::with('childrenCat')->where('parent_id', 0)/*->where('published', 1)*/->get()
+            'menu_categories' => json_encode(Category::with('childrenCat')->where('parent_id', 0)/*->where('published', 1)*/->get()),
+            'current_category' => json_encode($category)
             ]);
     }
 

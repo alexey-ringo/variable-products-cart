@@ -172,12 +172,8 @@
             		quantity: 1
             		})
             		.then((response) => {
-                    	console.log(response.data.response.add_attributes);
                     	this.$emit("addcartevent", 1);
                     	swal(response.data.response.add_attributes.groupproduct.name, "успешно добавлен в корзину", "success");
-                    	//this.urldata = response.data
-                    	//this.is_refresh = false
-                    	//this.id++
                     })
                     .catch(e => {
                     	console.log(e);

@@ -21,9 +21,11 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('category-component', require('./components/CategoryComponent.vue').default);
+//Vue.component('category-item-component', require('./components/items/CategoryItemComponent.vue').default);
 Vue.component('product-component', require('./components/ProductComponent.vue').default);
 Vue.component('cart-component', require('./components/CartComponent.vue').default);
-Vue.component('cart-item-component', require('./components/CartItemComponent.vue').default);
+//Vue.component('cart-item-component', require('./components/items/CartItemComponent.vue').default);
 Vue.component('cart-info-component', require('./components/CartInfoComponent.vue').default);
 
 
@@ -52,9 +54,7 @@ const app = new Vue({
         getStatusCart: function() {
             axios.get('/status-cart')
            		.then((response) => {
-                	//console.log(response);
                    	this.totalCartQuantity = response.data.cartStatus.totalQuantity;
-                   	//this.resp = response;
                 })
                 .catch(e => {
                	console.log(e);
@@ -62,19 +62,18 @@ const app = new Vue({
         },
         addcartevent: function(id) {
             	this.getStatusCart();
-            	//alert(id);
-            }
-            //getProductsInCart: function() {
-            //    axios.get('/products-in-cart')
-            //		.then((response) => {
-            //        	console.log(response);
-            //        	this.productsInCart = response.data.itemsInOrder;
-                    	//this.resp = response;
-            //        })
-            //        .catch(e => {
-            //        	console.log(e);
-            //        });
-            //},
+        },
+        //getProductsInCart: function() {
+        //    axios.get('/products-in-cart')
+        //		.then((response) => {
+        //        	console.log(response);
+        //        	this.productsInCart = response.data.itemsInOrder;
+                  	//this.resp = response;
+        //        })
+        //        .catch(e => {
+        //        	console.log(e);
+        //        });
+        //},
     	
     }
     
@@ -84,16 +83,14 @@ const app = new Vue({
 
 $(document).ready(function(){
   
-  //$('#menu').slicknav();
-  
-  $('.owl-carousel').owlCarousel({
-   items: 1,
-   URLhashListener:true,
-    mouseDrag: false
-  });
+	$('.owl-carousel').owlCarousel({
+		items: 1,
+		URLhashListener:true,
+    	mouseDrag: false
+	});
   
   
-  $('.product-pic-zoom').zoom();
+	$('.product-pic-zoom').zoom();
   
   
 });
@@ -145,6 +142,7 @@ $(document).ready(function(){
 	/*------------------
 		Category menu
 	--------------------*/
+	/*
 	$('.category-menu > li').hover( function(e) {
 		$(this).addClass('active');
 		e.preventDefault();
@@ -153,7 +151,19 @@ $(document).ready(function(){
 		$('.category-menu li').removeClass('active');
 		e.preventDefault();
 	});
-
+	*/
+	/*
+	$('.category-menu > li').click( function(e) {
+		if(!$(this).hasClass('active')) {
+			$(this).addClass('active');
+			e.preventDefault();
+		}
+		else {
+			$('.category-menu li').removeClass('active');
+			e.preventDefault();
+		}
+	});
+*/
 
 	/*------------------
 		Background Set

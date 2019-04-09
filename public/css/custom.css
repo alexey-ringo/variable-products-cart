@@ -59,3 +59,21 @@
   background-color: #413a3a;
   border-color: #413a3a;
 }
+
+/* --------------
+  Category page
+------------------*/
+
+.category-menu li .sub-menu li.active > a {
+  color: #f51167;
+}
+
+.category-menu li .sub-menu li.active > a:after {
+  color: #f51167;
+  background: #f51167;
+}
+
+.category-menu li .sub-menu li > a:after {
+  
+  
+}

@@ -20,7 +20,7 @@ try {
     require('jquery.nicescroll');
     require('jquery-zoom/jquery.zoom.min.js');
     
-    require("sweetalert");
+    require('sweetalert');
     
     
 } catch (e) {}

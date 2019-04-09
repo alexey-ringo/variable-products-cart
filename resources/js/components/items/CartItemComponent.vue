@@ -1,7 +1,7 @@
 <template>
 	<tr>
 		<td class="product-col">
-			<img src="img/cart/1.jpg" alt="">
+			<img v-bind:src="'/storage/' + product.add_attributes.product.images[0]" alt="">
 			<div class="pc-title">
 				<h4>{{product.add_attributes.groupproduct.name}}</h4>
 				<p>{{product.add_attributes.product.name}}</p>
@@ -23,7 +23,7 @@
     export default {
         props: [
             'product',
-            'index',
+            'globalIndex',
             ],
         data: function() {
             return {
