@@ -172,8 +172,10 @@
             		quantity: 1
             		})
             		.then((response) => {
-                    	this.$emit("addcartevent", 1);
-                    	swal(response.data.response.add_attributes.groupproduct.name, "успешно добавлен в корзину", "success");
+            			if(response) {
+                    		this.$emit("addcartevent", 1);
+                    		swal(response.data.response.add_attributes.groupproduct.name, "успешно добавлен в корзину", "success");
+            			}
                     })
                     .catch(e => {
                     	console.log(e);
@@ -181,7 +183,7 @@
                     
                     
                 //this.$emit("addcartevent", 1);
-            }
+            },
             
         },
         computed: {

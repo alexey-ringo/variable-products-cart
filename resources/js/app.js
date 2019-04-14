@@ -40,21 +40,21 @@ const app = new Vue({
     el: '#app',
     data: {
     	productsInCart: [],
-    	totalCartQuantity: 0
+    	totalCartQuantity: 0,
+    	totalCartAmount: 0
     },
     mounted() {
             this.update()
         },
     methods: {
     	update: function() {
-    		this.getStatusCart(),
-    		//this.getProductsInCart()
-           	console.log(this.totalCartQuantity);
+    		this.getStatusCart();
            },
         getStatusCart: function() {
             axios.get('/status-cart')
            		.then((response) => {
-                   	this.totalCartQuantity = response.data.cartStatus.totalQuantity;
+                   	this.totalCartQuantity = response.data.totalQuantity;
+                   	this.totalCartAmount = response.data.totalAmount;
                 })
                 .catch(e => {
                	console.log(e);
@@ -63,18 +63,6 @@ const app = new Vue({
         addcartevent: function(id) {
             	this.getStatusCart();
         },
-        //getProductsInCart: function() {
-        //    axios.get('/products-in-cart')
-        //		.then((response) => {
-        //        	console.log(response);
-        //        	this.productsInCart = response.data.itemsInOrder;
-                  	//this.resp = response;
-        //        })
-        //        .catch(e => {
-        //        	console.log(e);
-        //        });
-        //},
-    	
     }
     
 });

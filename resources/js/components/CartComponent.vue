@@ -1,20 +1,46 @@
 <template>
-	<div class="cart-table-warp">
-		<table>
-			<thead>
-				<tr>
-					<th class="product-th">Product</th>
-					<th class="quy-th">Quantity</th>
-					<th class="size-th">SizeSize</th>
-					<th class="total-th">Price</th>
-				</tr>
-			</thead>
-			<tbody>
+    <div class="row" v-if="totalCartQuantity">
+        <div class="col-lg-8">
+		    <div class="cart-table">
+			    <h3>Корзина</h3>
+	            <div class="cart-table-warp">
+		            <table>
+			            <thead>
+				            <tr>
+					            <th class="product-th">Product</th>
+					            <th class="quy-th">Кол-во</th>
+					            <th class="size-th">Удалить</th>
+					            <th class="size-th">Отложить</th>
+					            <th class="total-th">Стоимость</th>
+				            </tr>
+			            </thead>
+			            <tbody>
 			    
-<cart-item v-for="(cartProduct, index) in cartProducts" v-bind:key="cartProduct.id" v-bind:product="cartProduct" v-bind:globalIndex="(index+1)"></cart-item>
+                            <cart-item v-for="(cartProduct, index) in cartProducts" 
+                                        v-bind:key="cartProduct.id" 
+                                        v-bind:product="cartProduct" 
+                                        v-bind:globalIndex="(index+1)"
+                                        v-on:changecartevent="changecartevent"
+                                        >
+                            </cart-item>
 								
-			</tbody>
-		</table>
+			            </tbody>
+		            </table>
+	            </div>
+	            <div class="total-cost">
+				    <h6>Total <span>{{ totalCartAmount }} Руб.</span></h6>
+			    </div>
+		    </div>
+	    </div>
+	    
+	    <div class="col-lg-4 card-right">
+			<form class="promo-code-form">
+				<input type="text" placeholder="Enter promo code">
+				<button>Submit</button>
+			</form>
+			<a href="" class="site-btn">Proceed to checkout</a>
+			<a href="" class="site-btn sb-dark">Continue shopping</a>
+		</div>
 	</div>
 </template>
 
@@ -23,15 +49,18 @@
 
     export default {
         components: {
-            'cart-item': CartItem
+            'cart-item': CartItem,
         },
-        //props: [
-        //    'initialCartProducts'
-        //    ],
+        props: [
+            'totalCartQuantity',
+            'totalCartAmount'
+            ],
         data: function() {
             return {
             //    cartProducts: this.initialCartProducts
-            	cartProducts: []
+            	cartProducts: [],
+            	oldCartProducts: [],
+            	holdCartProducts: []
                 
             }
         },
@@ -40,21 +69,41 @@
         },
         methods: {
             update: function() {
-            	//console.log(this.initialCartProducts);
-            	this.getProductsInCart()
+            	this.getProductsInCart();
+            	this.getOldCart();
+            	this.getHoldCart();
             },
             getProductsInCart: function() {
                 axios.get('/products-in-cart')
             		.then((response) => {
-                    	//console.log(response);
                     	this.cartProducts = response.data.itemsInOrder;
-                    	//this.resp = response;
                     })
                     .catch(e => {
                     	console.log(e);
                     });
-            }
-           
+            },
+            getOldCart: function() {
+                axios.get('/get-old-cart')
+            		.then((response) => {
+                    	this.oldCartProducts = response.data.itemsInOldOrder;
+                    })
+                    .catch(e => {
+                    	console.log(e);
+                    });
+            },
+            getHoldCart: function() {
+                axios.get('/get-hold-cart')
+            		.then((response) => {
+                    	this.holdCartProducts = response.data.itemsInHoldOrder;
+                    })
+                    .catch(e => {
+                    	console.log(e);
+                    });
+            },
+            changecartevent: function(id) {
+                this.$emit("addcartevent", 1);
+                this.getProductsInCart();
+            },
     	}
     }
 </script>

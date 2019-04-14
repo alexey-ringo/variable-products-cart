@@ -7,49 +7,17 @@ use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Collection;
 use App\Services\Cart\Cart;
-use App\Services\Cart\CartService;
+
 
 use Session;
 
 class CartController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        
-    }
-    
-    
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
+     * Create and add item into Cart
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        
-        
-    }
-    
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Services\Cart\Cart  $cart
      * @return \Illuminate\Http\Response
      */
     public function addCart(Request $request, Cart $cart)
@@ -72,81 +40,111 @@ class CartController extends Controller
         //    $query->where('id', $productId);
         //})->first();
         
-        //dd($groupproduct);
-        
         $result = $cart->add($request, $productId, $quantity, $addOptions);
         
-        
-        return response()->json(['response' => $result]);
-        //return json_encode(['response' => $cart->add($request, $productId, $quantity)]);
-        
-        
+        if($result) {
+            return response()->json(['response' => $result]);
+        }
+        else {
+            return response()->json(0);
+        }
     }
 
     /**
-     * Display the specified resource.
+     * Display the Cart page with vue-cart-component.
      *
-     * @param  null
+     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Services\Cart\Cart  $cart
      * @return \Illuminate\Http\Response
      */
     public function showCart(Request $request, Cart $cart)
     {
-        //$itemsInOrder = $this->toArray($cart->getItems($request));
-        //$cartStatus = $cart->getStatus($request);
-        return view('shop.cart'/*, [
-            'itemsInOrder' => json_encode($itemsInOrder),
-            'cartStatus' => json_encode($cartStatus),
-            ]*/);
+        return view('shop.cart');
 
     }
     
     public function statusCart(Request $request, Cart $cart)
     {
-        return response()->json(['cartStatus' => $cart->getStatus($request)]);
+        return response()->json([
+            'totalQuantity' => $cart->getTotalQuantity($request),
+            'totalAmount' => $cart->getTotalAmount($request),
+            ]);
 
     }
     
-    public function productsCart(Request $request, Cart $cart)
+    /**
+     * Get all products in cart as Collection into json
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Services\Cart\Cart  $cart
+     * @return \Illuminate\Http\Response
+     */
+    public function productsInCart(Request $request, Cart $cart)
     {
         return response()->json([
-            'itemsInOrder' => $this->toArray($cart->getItems($request)),
-            'cartStatus' => $cart->getStatus($request)
+            'itemsInOrder' => $this->toArray($cart->getItems($request))
+            ]);
+
+    }
+    
+    /**
+     * Get Amount of single Cart Item.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Services\Cart\Cart  $cart
+     * @return \Illuminate\Http\Response
+     */
+    public function itemAmount(Request $request, Cart $cart)
+    {
+        $productId = $request->input('product');
+        $result = $cart->getItemAmount($request, $productId);
+        
+        if($result) {
+            return response()->json(['itemAmount' => $result]);
+        }
+        else {
+            return response()->json(0);
+        }
+
+    }
+    
+    public function productsInOldCart(Request $request, Cart $cart)
+    {
+        return response()->json([
+            'itemsInOldOrder' => $this->toArray($cart->getOldOrderItems($request))
+            ]);
+
+    }
+    
+    public function productsInHoldCart(Request $request, Cart $cart)
+    {
+        return response()->json([
+            'itemsInHoldOrder' => $this->toArray($cart->getHoldOrderItems($request))
             ]);
 
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Category  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Category $category)
-    {
-        //
-    }
 
     /**
-     * Update the specified resource in storage.
+     * Remove Cart Item.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Category  $category
+     * @param  App\Services\Cart\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function updateCart(Request $request, Cart $cart)
+    public function deleteCart(Request $request, Cart $cart)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Category  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Category $category)
-    {
-        //
+        if (!$request->isMethod('post')){  
+            return false;
+        }
+        
+        $productId = $request->input('product');
+        if($cart->delete($request, $productId)) {
+            return response()->json(1);
+        }
+        else {
+            return response()->json(0);
+        }
     }
     
     private function toArray(Collection $collection) {

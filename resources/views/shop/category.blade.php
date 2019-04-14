@@ -10,7 +10,7 @@
 @section('content')	
 
 @component('shop.components.breadcrumbs')
-        @slot('title') Категории @endslot
+        @slot('title') <a href="{{route('shop.categories')}}">Категории</a> / @endslot
         @slot('parent') Главная @endslot
         @slot('active') {{$category->name ?? ''}} @endslot
 @endcomponent	

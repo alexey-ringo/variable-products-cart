@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Services\Cart;
 
@@ -20,39 +21,51 @@ class CartService implements Cart {
     private $_oldOrder;
     private $_postponedOrder;
     private $req;
-
-    public function add(Request $request, int $productId, int $quantity, Array $AddAttributes = null)
+    
+    /**
+     * Add order to Cart
+     *
+     * @param  Illuminate\Http\Request $request
+     * @param  int $productId
+     * @param  int $quantiry
+     * @param  array $addAttributes | null
+     * 
+     * @return App\Services\Cart\Models\OrderItem | null
+     */
+    public function add(Request $request, int $productId, int $quantity, array $addAttributes = null): ?OrderItem
     {
         $this->req = $request;
         /*
         $link = OrderItem::where(['product_id' => $productId, 'order_id' => $this->getOrder()->id])->first();
             
         if (!$link) {
-            $link = new OrderProduct();
             $link = new OrderItem();
         }
-        */
-        
-        $link = OrderItem::firstOrNew(['product_id' => $productId, 'order_id' => $this->getOrder()->id]);
-        
-        /*
         $link->product_id = $productId;
         $link->order_id = $this->getOrder()->id;
         */
         
+        $link = OrderItem::firstOrNew(['product_id' => $productId, 'order_id' => $this->getOrder()->id]);
+        
         $link->order_price = $link->getProductPrice();
         $link->quantity = $link->quantity + $quantity;
-        $link->add_attributes = $AddAttributes;
+        $link->add_attributes = $addAttributes;
         
         if($link->save()) {
             Event::fire(new onAddItemEvent($link));
             return $link;
         }
-        return false;
+        return null;
     }
-   
-   
-    private function getOrder()
+    
+    /**
+     * Get current order.
+     *
+     * @param  void
+     * 
+     * @return App\Services\Cart\Models\Order
+     */
+    private function getOrder(): Order
     {
         if ($this->_order == null) {
             $this->_order = Order::where(['id' => $this->getOrderId()])->firstOrFail();
@@ -60,8 +73,14 @@ class CartService implements Cart {
         return $this->_order;
     }
    
-    
-    private function createOrder()
+    /**
+     * Create new order.
+     *
+     * @param  void
+     * 
+     * @return bool
+     */
+    private function createOrder(): bool
     {
         $order = new Order;
         if ($order->save()) {
@@ -72,12 +91,17 @@ class CartService implements Cart {
         }
         return false;
     }
-
-    private function getOrderId()
+    
+    /**
+     * Get current order id.
+     *
+     * @param  void
+     * 
+     * @return int | null
+     */
+    private function getOrderId(): ?int
     {
         if ($this->req->user()) {
-            //$orderForUser = Order::where('user_id', $this->req->user()->id)->firstOrFail();
-            //return $orderForUser->id;
             return $this->getActOrderFromUser($this->req->user()->id);
         }
         
@@ -85,29 +109,59 @@ class CartService implements Cart {
             if ($this->createOrder()) {
                 $this->req->session()->put(self::SESSION_KEY, $this->_order->id);
             }
+            else {
+                return null;
+            }
         }
         return $this->req->session()->get(self::SESSION_KEY);
     }
+    
+    /**
+     * Delete item in Cart
+     *
+     * @param  Illuminate\Http\Request $request
+     * @param  int $productId
+     *  
+     * @return bool
+     */
 
-    public function delete(Request $request, int $productId)
+    public function delete(Request $request, int $productId): bool
     {
         $this->req = $request;
         $link = OrderItem::where(['product_id' => $productId, 'order_id' => $this->getOrderId()])->first();
         if (!$link) {
             return false;
         }
-        return $link->delete();
+        
+        if($link->delete()) {
+            return true;
+        }
+        return false;
     }
     
-    //Получение массива товаров в корзине
-    public function getItems(Request $request) 
+    
+    /**
+     * Get all items for current order.
+     *
+     * @param  Request $request
+     * 
+     * @return Illuminate\Database\Eloquent\Collection
+     */
+    public function getItems(Request $request): \Illuminate\Database\Eloquent\Collection
     {
         $this->req = $request;
         return $this->getOrder()->orderItems;
     }
     
-
-    public function setItemQuantity(Request $request, int $productId, int $quantity)
+    /**
+     * Set product quantity for target item.
+     *
+     * @param  Request $request
+     * @param  int $productId
+     * @param  int $quantity
+     * @return bool
+     */
+    public function setItemQuantity(Request $request, int $productId, int $quantity): bool
     {
         $this->req = $request;
         $link = OrderItem::where(['product_id' => $productId, 'order_id' => $this->getOrderId()])->first();
@@ -134,33 +188,71 @@ class CartService implements Cart {
     */
     
     //Получение суммы в корзине по одному товару
-    /*
-    public function getItemAmount(Request $request, int $productId) 
+    
+    /**
+     * Get amount from target item.
+     *
+     * @param  Request $request
+     * @param  int $productId
+     * 
+     * @return float | null
+     */
+    public function getItemAmount(Request $request, int $productId): ?float 
     {
         $this->req = $request;
         $link = OrderItem::where(['product_id' => $productId, 'order_id' => $this->getOrderId()])->first();
         if (!$link) {
             return false;
         }
-        return $link->itemAmount;
+        return $link->getItemAmount() ?? null;
     }
-    */
-
-    public function getStatus(Request $request)
+    
+    
+     /**
+     * Get Total Cart Quantity
+     *
+     * @param  Request $request
+     * 
+     * @return int | null
+     */
+    public function getTotalQuantity(Request $request): ?int
     {
         $this->req = $request;
         
         if ($this->isEmpty()) {
-            return false;
+            return null;
         }
         
-        $result['totalQuantity'] = $this->getOrder()->totalQuantity();
-        $result['totalAmount'] = $this->getOrder()->totalAmount();
-        
-        return $result;
+       return $this->getOrder()->totalQuantity();
     }
     
-    private function isEmpty()
+     /**
+     * Get Total Cart Amount
+     *
+     * @param  Request $request
+     * 
+     * @return float | null
+     */
+    public function getTotalAmount(Request $request): ?float
+    {
+        $this->req = $request;
+        
+        if ($this->isEmpty()) {
+            return null;
+        }
+        
+        return $this->getOrder()->totalAmount() ?? null;
+    }
+    
+    
+    
+    /**
+     * Check Cart for enmty status.
+     *
+     * @param  void 
+     * @return bool
+     */
+    private function isEmpty(): bool
     {
         //Если пользователь залогинился 
         if ($this->req->user()) {
@@ -181,23 +273,49 @@ class CartService implements Cart {
         }
     }
     
-    public function getActOrderFromUser(int $userId) 
+    /**
+     * Get orderId with status=1 for current User.
+     *
+     * @param  int  $userId 
+     * @return int | null
+     */
+    public function getActOrderFromUser(int $userId): ?int 
     {
         $actualOrderForUser = Order::where(['user_id' => $userId, 'status' => 1])->first(); //Что будет, если протзователя не найдется в таблице заказов?
         return $actualOrderForUser->id ?? null;
     }
     
-    public function saveUserForOrder(int $userId, int $orderId) 
+    /**
+     * Saving $userId into current actual Order while User is logging.
+     *
+     * @param  int  $userId
+     * @param  int  $orderId
+     * 
+     * @return bool
+     */
+    public function saveUserForOrder(int $userId, int $orderId): bool 
     {
         $order = Order::where('id', $orderId)->first();
         //Если у данного ордера действительно еще нет пользователя
         if(!$order->user_id) {
             $order->user_id = $userId;
-            $order->save();   
+            if($order->save()) {
+                return true;
+            }   
         }
+        return false;
     }
     
-    public function saveNewOrderForUser(int $userId, int $newOrderId, int $oldOrderId) 
+    /**
+     * Change acrual status for last Order & new Order for current User.
+     *
+     * @param  int  $userId
+     * @param  int  $newOrderId
+     * @param  int  $oldOrderId
+     * 
+     * @return bool
+     */
+    public function saveNewOrderForUser(int $userId, int $newOrderId, int $oldOrderId): bool 
     {
         //Удалить все ордера от переданного юзера со статусом 2, за исключением oldOrder (текущий сохраненный в БД ордер)
         Order::where(['user_id' => $userId, 'status' => 2])->where('id', '<>', $oldOrderId)->delete();
@@ -211,17 +329,38 @@ class CartService implements Cart {
             if($oldOrder->status == 1) {
                 //Ордер с этим пользователем, который был сохранен в базе ранее как актуальный - помечаем как "старый"
                 $oldOrder->status = 2;
-                $oldOrder->save();
+                if($oldOrder->save()) {
+                    return true;
+                }
             }
             if($newOrder->status == 2) {
                 $newOrder->status = 1;
-                $newOrder->save();
+                if($newOrder->save()) {
+                    return true;
+                }
             }
             if(!$newOrder->user_id) {
                 //Новый актуальный ордер в БД для залогиненного юзера
                 $newOrder->user_id = $userId;
-                $newOrder->save();   
+                if($newOrder->save()) {
+                    return true;
+                } 
             }
+            return false;
         }
+        return false;
     }
+    
+    public function getOldOrderItems(Request $request) 
+    {
+        
+    }
+
+    
+    public function getHoldOrderItems(Request $request) 
+    {
+        
+    }
+    
+
 }

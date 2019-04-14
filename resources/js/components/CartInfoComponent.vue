@@ -10,13 +10,6 @@
         props: [
             'totalCartQuantity'
             ],
-        //data: function() {
-        //    return {
-        //    totalQuantity: 0,
-            //resp: null
-                
-        //    }
-        //},
         mounted() {
             this.update()
         },
@@ -33,20 +26,6 @@
                 //    });
             	
             },
-            statusCart: function() {
-                
-            	axios.get('/status-cart')
-            		.then((response) => {
-                    	//console.log(response);
-                    	//this.urldata = response.data
-                    	//this.is_refresh = false
-                    	//this.id++
-                    })
-                    .catch(e => {
-                    	//console.log(e);
-                    });
-            }
-           
     	}
     }
 </script>

@@ -14,8 +14,13 @@
 				</div>
 			</div>
 		</td>
-		<td class="size-col"><h4>{{product.quantity}}</h4></td>
-		<td class="total-col"><h4>{{product.order_price}}</h4></td>
+		<td class="size-col">
+		    <button type="button" class="btn btn-outline-danger" v-on:click="delItem">Удалить</button>
+		</td>
+		<td class="size-col">
+		    <button type="button" class="btn btn-outline-dark">Отложить</button>
+		</td>
+		<td class="total-col"><h4>{{itemAmount}}</h4></td>
 	</tr>
 </template>
 
@@ -27,8 +32,8 @@
             ],
         data: function() {
             return {
-            	
-                
+                productId: this.product.add_attributes.product.id,
+                itemAmount: 0
             }
         },
         mounted() {
@@ -36,7 +41,38 @@
         },
         methods: {
             update: function() {
-            	console.log(this.index);
+            	this.getItemAmount();
+            },
+            delItem: function(event) {
+            	event.preventDefault();
+            	axios.post('/delete-cart', {
+            		product: this.productId,
+            		})
+            		.then((response) => {
+            		    if(response) {
+                    	    this.$emit("changecartevent", 1);
+            		    }
+                    })
+                    .catch(e => {
+                    	console.log(e);
+                    });
+                    
+                    
+                //this.$emit("addcartevent", 1);
+            },
+            getItemAmount: function() {
+                axios.get('/get-item-amount', {
+                    params: {
+                        product: this.productId
+                    }
+                })
+            	.then((response) => {
+            	    console.log(response.data);
+                	this.itemAmount = response.data.itemAmount;
+                })
+                .catch(e => {
+                	console.log(e);
+                });
             },
            
     	}

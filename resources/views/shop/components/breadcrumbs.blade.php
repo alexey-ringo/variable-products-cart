@@ -3,7 +3,7 @@
 		<div class="container">
 			<div class="site-pagination">
 				<a href="{{route('shop.index')}}">{{$parent}}</a> /
-				<a href="{{route('shop.categories')}}">{{$title}}</a> /
+				{{$title}}
 				{{$active}}
 			</div>
 		</div>

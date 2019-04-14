@@ -38,7 +38,7 @@ class OrderItem extends Model
     }
     */
     
-     public function getItemQuantity()
+    public function getItemQuantity()
     {
         return $this->quantity;
     }

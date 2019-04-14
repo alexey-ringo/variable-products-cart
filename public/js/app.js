@@ -1784,18 +1784,44 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     'cart-item': _items_CartItemComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  //props: [
-  //    'initialCartProducts'
-  //    ],
+  props: ['totalCartQuantity', 'totalCartAmount'],
   data: function data() {
     return {
       //    cartProducts: this.initialCartProducts
-      cartProducts: []
+      cartProducts: [],
+      oldCartProducts: [],
+      holdCartProducts: []
     };
   },
   mounted: function mounted() {
@@ -1803,18 +1829,40 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     update: function update() {
-      //console.log(this.initialCartProducts);
       this.getProductsInCart();
+      this.getOldCart();
+      this.getHoldCart();
     },
     getProductsInCart: function getProductsInCart() {
       var _this = this;
 
       axios.get('/products-in-cart').then(function (response) {
-        //console.log(response);
-        _this.cartProducts = response.data.itemsInOrder; //this.resp = response;
+        _this.cartProducts = response.data.itemsInOrder;
       }).catch(function (e) {
         console.log(e);
       });
+    },
+    getOldCart: function getOldCart() {
+      var _this2 = this;
+
+      axios.get('/get-old-cart').then(function (response) {
+        _this2.oldCartProducts = response.data.itemsInOldOrder;
+      }).catch(function (e) {
+        console.log(e);
+      });
+    },
+    getHoldCart: function getHoldCart() {
+      var _this3 = this;
+
+      axios.get('/get-hold-cart').then(function (response) {
+        _this3.holdCartProducts = response.data.itemsInHoldOrder;
+      }).catch(function (e) {
+        console.log(e);
+      });
+    },
+    changecartevent: function changecartevent(id) {
+      this.$emit("addcartevent", 1);
+      this.getProductsInCart();
     }
   }
 });
@@ -1839,12 +1887,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['totalCartQuantity'],
-  //data: function() {
-  //    return {
-  //    totalQuantity: 0,
-  //resp: null
-  //    }
-  //},
   mounted: function mounted() {
     this.update();
   },
@@ -1858,14 +1900,6 @@ __webpack_require__.r(__webpack_exports__);
       //    .catch(e => {
       //    	console.log(e);
       //    });
-    },
-    statusCart: function statusCart() {
-      axios.get('/status-cart').then(function (response) {//console.log(response);
-        //this.urldata = response.data
-        //this.is_refresh = false
-        //this.id++
-      }).catch(function (e) {//console.log(e);
-      });
     }
   }
 });
@@ -2240,9 +2274,11 @@ __webpack_require__.r(__webpack_exports__);
         product: this.selectedProduct.id,
         quantity: 1
       }).then(function (response) {
-        _this.$emit("addcartevent", 1);
+        if (response) {
+          _this.$emit("addcartevent", 1);
 
-        sweetalert__WEBPACK_IMPORTED_MODULE_0___default()(response.data.response.add_attributes.groupproduct.name, "успешно добавлен в корзину", "success");
+          sweetalert__WEBPACK_IMPORTED_MODULE_0___default()(response.data.response.add_attributes.groupproduct.name, "успешно добавлен в корзину", "success");
+        }
       }).catch(function (e) {
         console.log(e);
       }); //this.$emit("addcartevent", 1);
@@ -2322,17 +2358,53 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['product', 'globalIndex'],
   data: function data() {
-    return {};
+    return {
+      productId: this.product.add_attributes.product.id,
+      itemAmount: 0
+    };
   },
   mounted: function mounted() {
     this.update();
   },
   methods: {
     update: function update() {
-      console.log(this.index);
+      this.getItemAmount();
+    },
+    delItem: function delItem(event) {
+      var _this = this;
+
+      event.preventDefault();
+      axios.post('/delete-cart', {
+        product: this.productId
+      }).then(function (response) {
+        if (response) {
+          _this.$emit("changecartevent", 1);
+        }
+      }).catch(function (e) {
+        console.log(e);
+      }); //this.$emit("addcartevent", 1);
+    },
+    getItemAmount: function getItemAmount() {
+      var _this2 = this;
+
+      axios.get('/get-item-amount', {
+        params: {
+          product: this.productId
+        }
+      }).then(function (response) {
+        console.log(response.data);
+        _this2.itemAmount = response.data.itemAmount;
+      }).catch(function (e) {
+        console.log(e);
+      });
     }
   }
 });
@@ -46334,22 +46406,42 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "cart-table-warp" }, [
-    _c("table", [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "tbody",
-        _vm._l(_vm.cartProducts, function(cartProduct, index) {
-          return _c("cart-item", {
-            key: cartProduct.id,
-            attrs: { product: cartProduct, globalIndex: index + 1 }
-          })
-        }),
-        1
-      )
-    ])
-  ])
+  return _vm.totalCartQuantity
+    ? _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-lg-8" }, [
+          _c("div", { staticClass: "cart-table" }, [
+            _c("h3", [_vm._v("Корзина")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "cart-table-warp" }, [
+              _c("table", [
+                _vm._m(0),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.cartProducts, function(cartProduct, index) {
+                    return _c("cart-item", {
+                      key: cartProduct.id,
+                      attrs: { product: cartProduct, globalIndex: index + 1 },
+                      on: { changecartevent: _vm.changecartevent }
+                    })
+                  }),
+                  1
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "total-cost" }, [
+              _c("h6", [
+                _vm._v("Total "),
+                _c("span", [_vm._v(_vm._s(_vm.totalCartAmount) + " Руб.")])
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _vm._m(1)
+      ])
+    : _vm._e()
 }
 var staticRenderFns = [
   function() {
@@ -46360,11 +46452,35 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", { staticClass: "product-th" }, [_vm._v("Product")]),
         _vm._v(" "),
-        _c("th", { staticClass: "quy-th" }, [_vm._v("Quantity")]),
+        _c("th", { staticClass: "quy-th" }, [_vm._v("Кол-во")]),
         _vm._v(" "),
-        _c("th", { staticClass: "size-th" }, [_vm._v("SizeSize")]),
+        _c("th", { staticClass: "size-th" }, [_vm._v("Удалить")]),
         _vm._v(" "),
-        _c("th", { staticClass: "total-th" }, [_vm._v("Price")])
+        _c("th", { staticClass: "size-th" }, [_vm._v("Отложить")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "total-th" }, [_vm._v("Стоимость")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-lg-4 card-right" }, [
+      _c("form", { staticClass: "promo-code-form" }, [
+        _c("input", {
+          attrs: { type: "text", placeholder: "Enter promo code" }
+        }),
+        _vm._v(" "),
+        _c("button", [_vm._v("Submit")])
+      ]),
+      _vm._v(" "),
+      _c("a", { staticClass: "site-btn", attrs: { href: "" } }, [
+        _vm._v("Proceed to checkout")
+      ]),
+      _vm._v(" "),
+      _c("a", { staticClass: "site-btn sb-dark", attrs: { href: "" } }, [
+        _vm._v("Continue shopping")
       ])
     ])
   }
@@ -47156,15 +47272,38 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("td", { staticClass: "size-col" }, [
-      _c("h4", [_vm._v(_vm._s(_vm.product.quantity))])
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-outline-danger",
+          attrs: { type: "button" },
+          on: { click: _vm.delItem }
+        },
+        [_vm._v("Удалить")]
+      )
     ]),
     _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
     _c("td", { staticClass: "total-col" }, [
-      _c("h4", [_vm._v(_vm._s(_vm.product.order_price))])
+      _c("h4", [_vm._v(_vm._s(_vm.itemAmount))])
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", { staticClass: "size-col" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-outline-dark", attrs: { type: "button" } },
+        [_vm._v("Отложить")]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -58526,39 +58665,29 @@ var app = new Vue({
   el: '#app',
   data: {
     productsInCart: [],
-    totalCartQuantity: 0
+    totalCartQuantity: 0,
+    totalCartAmount: 0
   },
   mounted: function mounted() {
     this.update();
   },
   methods: {
     update: function update() {
-      this.getStatusCart(), //this.getProductsInCart()
-      console.log(this.totalCartQuantity);
+      this.getStatusCart();
     },
     getStatusCart: function getStatusCart() {
       var _this = this;
 
       axios.get('/status-cart').then(function (response) {
-        _this.totalCartQuantity = response.data.cartStatus.totalQuantity;
+        _this.totalCartQuantity = response.data.totalQuantity;
+        _this.totalCartAmount = response.data.totalAmount;
       }).catch(function (e) {
         console.log(e);
       });
     },
     addcartevent: function addcartevent(id) {
       this.getStatusCart();
-    } //getProductsInCart: function() {
-    //    axios.get('/products-in-cart')
-    //		.then((response) => {
-    //        	console.log(response);
-    //        	this.productsInCart = response.data.itemsInOrder;
-    //this.resp = response;
-    //        })
-    //        .catch(e => {
-    //        	console.log(e);
-    //        });
-    //},
-
+    }
   }
 });
 $(document).ready(function () {

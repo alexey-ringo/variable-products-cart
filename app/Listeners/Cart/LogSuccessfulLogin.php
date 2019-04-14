@@ -48,8 +48,8 @@ class LogSuccessfulLogin
                 //И номера этих ордеров отличаются
                 if($savedActOrderFromUser !== $sessionOrder) {
                     //Актуальный ордер с именем залогинившегося пользователя (из актуальных данных из сессии) - маркируем как основной ордер для этого пользователя
-                    //Ордер с этим пользователем, который был сохранен в базе ранее - помечаем как "старый"
-                    $this->cart->saveNewOrderForUser($event->user->id, $sessionOrder, $savedActOrderFromUser);
+                    //предидущий Ордер с этим пользователем, который был сохранен в базе ранее - помечаем как "старый"
+                    $this->cart->saveNewOrderForUser($event->user->id, $sessionOrder, $savedActOrderFromUser);//!!!Проработать реагирование на возврат false!!!
                 }
             }
             //Если при логине данного пользователя у него в сессии еще нет никакого ордера
@@ -63,7 +63,7 @@ class LogSuccessfulLogin
             //Но при этом при логине данного пользователя у него уже есть ордер в сессии
             if($this->req->session()->has('order_id')) {
                 //Сохраняем пользователя к актуальному ордеру
-                $this->cart->saveUserForOrder($event->user->id, $sessionOrder);
+                $this->cart->saveUserForOrder($event->user->id, $sessionOrder); //!!!Проработать реагирование на возврат false!!!
             }
         }
     }
