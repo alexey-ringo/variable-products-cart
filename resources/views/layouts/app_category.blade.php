@@ -25,21 +25,13 @@
 </head>
 <body>
     <div id="app">
-        
-        <!-- Page Preloder -->
-	    {{-- <div id="preloder">
-		    <div class="loader"></div>
-	    </div> --}}
 	    
-	    @include('layouts.header')
-
-        
-        <main class="py-4">
+	    
             @yield('content')
-        </main>
         
         
-        @include('layouts.footer')
+        
+        {{--@include('layouts.footer')--}}
         
         
         

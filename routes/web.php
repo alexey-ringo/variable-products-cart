@@ -16,10 +16,8 @@ Route::get('/home', 'HomeController@index')->name('home.index');
 
 
 Route::get('/', 'ShopController@index')->name('shop.index');
-//Route::get('/shop', 'ShopController@category')->name('shop.category');
-//Route::get('/shop/{groupproduct}', 'ShopController@show')->name('shop.show');
-Route::get('/shop', 'ShopController@categories')->name('shop.categories');
-Route::get('/shop/{slug?}', 'ShopController@category')->name('shop.category');
+Route::get('/shop-ajax', 'ShopController@categoriesAjax')->name('shop.catajax');
+Route::get('/shop/{slug?}', 'ShopController@categories')->name('shop.categories');//исправить имя рута!!!
 Route::get('/products/{slug}', 'ShopController@show')->name('shop.product');
 Route::post('/add-cart', 'CartController@addCart')->name('cart.add');
 Route::get('/products-in-cart', 'CartController@productsInCart')->name('cart.products');

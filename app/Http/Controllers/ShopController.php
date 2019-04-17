@@ -19,18 +19,12 @@ class ShopController extends Controller
         return view('shop.index');
     }
     
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    
+    /*
     public function categories()
     {
-        return view('shop.category', [
-            'groupproducts' => Groupproduct::orderBy('id')->paginate(9),
-            'menu_categories' => json_encode(Category::with('childrenCat')->where('parent_id', 0)/*->where('published', 1)*/->get()),
-            'current_category' => json_encode('')
-            ]);
+        return view('shop.category');
     }
     
     public function category(string $slug = null)
@@ -44,8 +38,53 @@ class ShopController extends Controller
         return view('shop.category', [
             'groupproducts' => $groupproducts,
             'category' => $category,
+            'menu_categories' => json_encode(Category::with('childrenCat')->where('parent_id', 0)->get()),
+            'current_category' => json_encode($category)
+            ]);
+    }
+    */
+    
+    public function categories() {
+        $category = null;
+        
+        if(request()->slug) {
+            $slug = request()->slug;
+            $category = Category::where('slug', $slug)->first();
+            $groupproducts = Groupproduct::with('categories')->whereHas('categories', function($query) use($slug) {
+                $query->where('slug', $slug);
+            })->get();
+        }
+        else {
+            $groupproducts = Groupproduct::orderBy('id')->get();
+        }
+        
+        return view('shop.category', [
+            'groupproducts' => json_encode($groupproducts),
             'menu_categories' => json_encode(Category::with('childrenCat')->where('parent_id', 0)/*->where('published', 1)*/->get()),
             'current_category' => json_encode($category)
+            ]);
+    }
+    
+    
+    public function categoriesAjax()
+    {
+        $category = null;
+        
+        if(request()->slug) {
+            $slug = request()->slug;
+            $category = Category::where('slug', $slug)->first();
+            $groupproducts = Groupproduct::with('categories')->whereHas('categories', function($query) use($slug) {
+                $query->where('slug', $slug);
+            })->get();
+        }
+        else {
+            $groupproducts = Groupproduct::orderBy('id')->get();
+        }
+        
+        return response()->json([
+            'groupproducts' => $groupproducts,
+            'menu_categories' => Category::with('childrenCat')->where('parent_id', 0)/*->where('published', 1)*/->get(),
+            'current_category' => $category ?? ''
             ]);
     }
 

@@ -3,7 +3,7 @@
     @if ($menu_category->childrenCat->count())
     {{--Если у категории есть вложенный и опубликованный пункт, тогда отрисовать вот так:--}}
         <li>
-            <a href="{{ route('shop.category', $menu_category->slug) }}">
+            <a href="{{ route('shop.categories', $menu_category->slug) }}">
                 {{ $menu_category->name ?? '' }}
             </a>
             <ul class="sub-menu">
@@ -18,14 +18,14 @@
         @isset ($isChild)
             {{--Если да - отображаем ссылки для вложенных - будут отображаться во вложенном <ul></ul>--}}
             <li>
-                <a href="{{ route('shop.category', $menu_category->slug) }}">{{ $menu_category->name ?? '' }}</a>
+                <a href="{{ route('shop.categories', $menu_category->slug) }}">{{ $menu_category->name ?? '' }}</a>
             </li>
             {{--Покидаем текущий цикл - следующие вложенные каты будут загружены при следующем проходе--}}
             @continue
         @endif
         {{--Разметка для пунктов без вложенных пунктов--}}
         <li>             
-            <a href="{{ route('shop.category', $menu_category->slug) }}">{{ $menu_category->name ?? '' }}</a>
+            <a href="{{ route('shop.categories', $menu_category->slug) }}">{{ $menu_category->name ?? '' }}</a>
         </li>
     @endif
     

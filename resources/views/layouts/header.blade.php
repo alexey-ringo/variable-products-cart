@@ -44,6 +44,13 @@
 			    <div class="container">
 				    <!-- menu -->
 				    <ul class="main-menu">
+				    	<ul class="main-menu">
+						<li>
+	    					<a href="{{route('shop.index')}}">Главная</a>
+	    				</li>
+	    				<li>
+	    					<a href="{{route('shop.categories')}}">Витрина</a>
+	    				</li>
 					    @include('layouts.menu', ['menu_categories' => $menu_categories])
 				    </ul>
 			    </div>
