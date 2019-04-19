@@ -1,14 +1,25 @@
 <template>
-    <div class="shopping-card">
-		<i class="flaticon-bag"></i>
-		<span>{{totalCartQuantity}}</span>
+    <div class="up-item">
+        <div class="shopping-card">
+		    <i class="flaticon-bag"></i>
+		    <span>{{totalCartQuantity}}</span>
+		</div>
+		<ul class="cart-dropdown-menu">
+		    <cart-dropdown></cart-dropdown>
+		</ul>
 	</div>
 </template>
 
 <script>
+    import CartDropdown from './items/CartDropdownComponent.vue';
+
     export default {
+        components: {
+            'cart-dropdown': CartDropdown,
+        },
         props: [
-            'totalCartQuantity'
+            'totalCartQuantity',
+            'totalCartAmount'
             ],
         mounted() {
             this.update()

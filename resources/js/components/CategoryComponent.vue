@@ -9,8 +9,8 @@
 					<div class="row">
 						<div class="col-lg-2 text-center text-lg-left">
 							<!-- logo -->
-							<a href="./index.html" class="site-logo">
-								<img src="img/logo.png" alt="">
+							<a v-bind:href="'/'" class="site-logo">
+								<img v-bind:src="'/img/template/logo.png'" alt="">
 							</a>
 						</div>
 						<div class="col-xl-6 col-lg-5">
@@ -23,15 +23,17 @@
 							<div class="user-panel">
 								<div class="up-item">
 									<i class="flaticon-profile"></i>
-									<a href="#">Sign</a> In or <a href="#">Create Account</a>
+									<a v-bind:href="'/login'">Войти</a> или <a v-bind:href="'/register'">Зарегистрироваться</a>
 								</div>
-								<div class="up-item">
-									<div class="shopping-card">
-										<i class="flaticon-bag"></i>
-										<span>0</span>
-									</div>
-									<a href="#">Shopping Cart</a>
-								</div>
+								
+									<cart-info-component 
+										v-bind:totalCartQuantity="totalCartQuantity"
+										v-bind:totalCartAmount="totalCartAmount"
+										>
+										
+									</cart-info-component>
+								    
+								
 							</div>
 						</div>
 					</div>
@@ -374,7 +376,9 @@
         props: [
         	'initialGroupproducts',
             'initialCategories',
-            'initialCurrentCategory'
+            'initialCurrentCategory',
+            'totalCartQuantity',
+            'totalCartAmount',
             ],
         data: function() {
             return {
