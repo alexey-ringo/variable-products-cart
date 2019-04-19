@@ -2293,6 +2293,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2306,9 +2307,9 @@ __webpack_require__.r(__webpack_exports__);
       categories: [],
       selectedMenuItem: 0,
       products: [],
-      //currentCategory: [],
-      //или
-      currentCategory: this.initialCurrentCategory
+      currentCategory: [] //или
+      //currentCategory: this.initialCurrentCategory
+
     };
   },
   mounted: function mounted() {
@@ -2320,6 +2321,8 @@ __webpack_require__.r(__webpack_exports__);
       this.products = this.initialGroupproducts; //this.getProducts();
       //Только в случае currentCategory: []
       //this.currentCategory = this.initialCurrentCategory;
+
+      this.currentCategory = this.computedCurrentCategory;
     },
     getProducts: function getProducts(slug) {
       var _this = this;
@@ -2336,13 +2339,21 @@ __webpack_require__.r(__webpack_exports__);
         console.log(e);
       });
     },
-    getProductsInCategory: function getProductsInCategory() {},
+    resetCurrentCategory: function resetCurrentCategory() {
+      this.currentCategory = [];
+      this.selectedMenuItem = 0;
+    },
     selectMenuItem: function selectMenuItem(menuItem) {
       this.selectedMenuItem = menuItem;
     },
     selectCategory: function selectCategory(subCategory) {
       this.getProducts(subCategory.slug);
       this.currentCategory = subCategory;
+    }
+  },
+  computed: {
+    computedCurrentCategory: function computedCurrentCategory() {
+      return this.initialCurrentCategory ? this.initialCurrentCategory : [];
     }
   }
 });
@@ -2878,6 +2889,7 @@ __webpack_require__.r(__webpack_exports__);
     update: function update() {},
     onClickCategory: function onClickCategory(subCategory) {
       this.$emit("selectCategory", subCategory);
+      this.$emit("selectMenu", this.globalIndex);
       this.styleSubMenu = 'hidden';
     },
     onSubMenuHover: function onSubMenuHover() {
@@ -47026,12 +47038,18 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "li",
+                {
+                  on: {
+                    click: function($event) {
+                      _vm.getProducts("")
+                      _vm.resetCurrentCategory()
+                    }
+                  }
+                },
                 [
-                  _c(
-                    "router-link",
-                    { attrs: { to: { name: "category", params: "" } } },
-                    [_vm._v("Витрина")]
-                  )
+                  _c("router-link", { attrs: { to: { name: "category" } } }, [
+                    _vm._v("Витрина")
+                  ])
                 ],
                 1
               ),
@@ -47040,7 +47058,10 @@ var render = function() {
                 return _c("main-category-item", {
                   key: category.id,
                   attrs: { category: category, globalIndex: index + 1 },
-                  on: { selectCategory: _vm.selectCategory }
+                  on: {
+                    selectCategory: _vm.selectCategory,
+                    selectMenu: _vm.selectMenuItem
+                  }
                 })
               })
             ],
@@ -48287,10 +48308,7 @@ var render = function() {
                         }
                       }
                     },
-                    [
-                      _vm._v(_vm._s(subCategory.name)),
-                      _c("span", [_vm._v("(2)")])
-                    ]
+                    [_vm._v(_vm._s(subCategory.name))]
                   )
                 ],
                 1

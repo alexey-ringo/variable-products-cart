@@ -10,7 +10,7 @@
 			    v-bind:class="{'active': subCategory.slug === initialCurrentCategory.slug}"
 			    v-on:click.stop="onClickCategory(subCategory)"
 			>
-			    <router-link :to="{ name: 'category', params: { slug: subCategory.slug }}">{{subCategory.name}}<span>(2)</span></router-link>
+			    <router-link :to="{ name: 'category', params: { slug: subCategory.slug }}">{{subCategory.name}}</router-link>
 			        
 			    
 			</li>

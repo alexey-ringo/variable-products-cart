@@ -32,6 +32,7 @@
             },
             onClickCategory: function(subCategory) {
                 this.$emit("selectCategory", subCategory);
+                this.$emit("selectMenu", this.globalIndex);
                 this.styleSubMenu = 'hidden';
             },
             onSubMenuHover: function() {

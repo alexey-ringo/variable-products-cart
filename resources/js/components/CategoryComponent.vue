@@ -46,8 +46,8 @@
 						<li>
 	    					<a v-bind:href="'/'">Главная</a>
 	    				</li>
-	    				<li>
-	    					<router-link :to="{ name: 'category', params: ''}">Витрина</router-link>
+	    				<li v-on:click="getProducts(''); resetCurrentCategory()">
+	    					<router-link :to="{ name: 'category'}">Витрина</router-link>
 	    				</li>
 						<main-category-item
 							v-for="(category, index) in categories"
@@ -55,6 +55,7 @@
 							v-bind:category="category"
 							v-bind:globalIndex="(index+1)"
 							v-on:selectCategory="selectCategory"
+							v-on:selectMenu="selectMenuItem"
 						></main-category-item>
 					</ul>
 				</div>
@@ -385,9 +386,9 @@
                 categories: [],
                 selectedMenuItem: 0,
                 products: [],
-                //currentCategory: [],
+                currentCategory: [],
                 //или
-                currentCategory: this.initialCurrentCategory
+                //currentCategory: this.initialCurrentCategory
             }
         },
         mounted() {
@@ -400,6 +401,7 @@
             	//this.getProducts();
             	//Только в случае currentCategory: []
             	//this.currentCategory = this.initialCurrentCategory;
+            	this.currentCategory = this.computedCurrentCategory;
             },
             getProducts: function(slug) {
             	axios.get('/shop-ajax', {
@@ -416,8 +418,9 @@
                 	console.log(e);
                 });
             },
-            getProductsInCategory: function() {
-            	
+            resetCurrentCategory: function() {
+            	this.currentCategory = [];
+            	this.selectedMenuItem = 0;
             },
             selectMenuItem: function(menuItem) {
             	this.selectedMenuItem = menuItem;
@@ -428,6 +431,11 @@
             },
             
             
+    	},
+    	computed: {
+    		computedCurrentCategory: function() {
+    			return this.initialCurrentCategory ? this.initialCurrentCategory : [];
+    		}
     	}
     }
 </script>
