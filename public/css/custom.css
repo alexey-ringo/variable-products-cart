@@ -1,3 +1,11 @@
+/* --------------
+  Breadcrumbs
+------------------*/
+.site-pagination a {
+  color: #f51167;
+}
+
+
 .spad {
   padding-top: 30px;
   padding-bottom: 30px;

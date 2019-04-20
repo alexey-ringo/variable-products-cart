@@ -2,8 +2,7 @@
 	<div class="page-top-info">
 		<div class="container">
 			<div class="site-pagination">
-				<a href="{{route('shop.index')}}">{{$parent}}</a> /
-				{{$title}}
+				{{$previous}}
 				{{$active}}
 			</div>
 		</div>

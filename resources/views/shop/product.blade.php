@@ -3,9 +3,13 @@
 @section('content')	
 
 @component('shop.components.breadcrumbs')
-        @slot('title') Товар @endslot
-        @slot('parent') Категории @endslot
-        @slot('active') Новости @endslot
+        @slot('previous') <a href="{{url()->previous()}}">Назад</a> / @endslot
+        @slot('active') 
+        	@php
+        		$productName = json_decode($result, true);
+        		echo $productName['groupproduct']['name'];
+        	@endphp
+        @endslot
 @endcomponent	
 
 	<!-- product section -->

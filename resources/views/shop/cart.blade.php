@@ -3,8 +3,7 @@
 @section('content')	
 
 @component('shop.components.breadcrumbs')
-        @slot('title')@endslot
-        @slot('parent') Главная @endslot
+        @slot('previous') <a href="{{url()->previous()}}">Назад</a> / @endslot
         @slot('active') Корзина @endslot
 @endcomponent	
 
