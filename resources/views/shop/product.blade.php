@@ -16,7 +16,7 @@
 	<section class="product-section">
 		<div class="container">
 			
-			<product-component v-bind:initial-products="{{$result}}" v-on:addcartevent="addcartevent"></product-component>
+			<product-component v-bind:initial-products="{{$result}}" v-on:changecartevent="changecartevent"></product-component>
 			
 		</div>
 	</section>

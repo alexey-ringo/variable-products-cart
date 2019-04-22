@@ -15,7 +15,7 @@
         <cart-component {{--v-bind:initial-cart-products="{{$itemsInOrder}}"--}}
         				v-bind:total-cart-quantity="totalCartQuantity"
         				v-bind:total-cart-amount="totalCartAmount"
-        				v-on:addcartevent="addcartevent"
+        				v-on:changecartevent="changecartevent"
         >
         </cart-component>
 				

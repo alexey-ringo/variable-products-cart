@@ -76,7 +76,7 @@ const app = new Vue({
                	console.log(e);
             });
         },
-        addcartevent: function(id) {
+        changecartevent: function(id) {
             	this.getStatusCart();
         },
     }

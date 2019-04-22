@@ -170,7 +170,10 @@ class CartService implements Cart {
         }
         
         $link->quantity = $quantity;
-        return $link->save();
+        if($link->save()) {
+            return true;
+        }
+        return false;
     }
     
    

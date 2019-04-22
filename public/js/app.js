@@ -1861,7 +1861,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     changecartevent: function changecartevent(id) {
-      this.$emit("addcartevent", 1);
+      this.$emit("changecartevent", 1);
       this.getProductsInCart();
     }
   }
@@ -2519,12 +2519,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['initialProducts'],
   data: function data() {
     return {
       globalProducts: this.initialProducts,
+      quantity: 1,
       selectedColor: 'default',
       selectedColorIndex: 0,
       selectedSize: 'default',
@@ -2550,10 +2555,13 @@ __webpack_require__.r(__webpack_exports__);
       this.selectedColorIndex = index;
       this.getCurrentImages();
       this.selectImage(0); //Переделать! Где реактивность?!
+
+      this.quantity = 1;
     },
     selectSize: function selectSize(index) {
       this.selectedSize = this.currentSizes[index];
       this.selectedSizeIndex = index;
+      this.quantity = 1;
     },
     selectImage: function selectImage(index) {
       this.selectedImage = this.currentImages[index];
@@ -2568,16 +2576,24 @@ __webpack_require__.r(__webpack_exports__);
       event.preventDefault();
       axios.post('/add-cart', {
         product: this.selectedProduct.id,
-        quantity: 1
+        quantity: this.quantity
       }).then(function (response) {
         if (response) {
-          _this.$emit("addcartevent", 1);
+          _this.$emit("changecartevent", 1);
 
           sweetalert__WEBPACK_IMPORTED_MODULE_0___default()(response.data.response.add_attributes.groupproduct.name, "успешно добавлен в корзину", "success");
         }
       }).catch(function (e) {
         console.log(e);
-      }); //this.$emit("addcartevent", 1);
+      });
+    },
+    onQtyAdd: function onQtyAdd() {
+      this.quantity++;
+    },
+    onQtyDel: function onQtyDel() {
+      if (this.quantity > 1) {
+        this.quantity--;
+      }
     }
   },
   computed: {
@@ -2748,7 +2764,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       productId: this.product.add_attributes.product.id,
-      itemAmount: 0
+      itemAmount: 0,
+      quantity: this.product.quantity
     };
   },
   mounted: function mounted() {
@@ -2770,7 +2787,7 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).catch(function (e) {
         console.log(e);
-      }); //this.$emit("addcartevent", 1);
+      });
     },
     getItemAmount: function getItemAmount() {
       var _this2 = this;
@@ -2785,22 +2802,41 @@ __webpack_require__.r(__webpack_exports__);
         console.log(e);
       });
     },
-    onQtyAdd: function onQtyAdd(event, qty) {
+    onQtyAdd: function onQtyAdd(event) {
       var _this3 = this;
 
       event.preventDefault();
-      axios.post('/add-cart', {
-        product: this.selectedProduct.id,
-        quantity: 1
+      this.quantity++;
+      axios.post('/update-cart', {
+        productId: this.productId,
+        quantity: this.quantity
       }).then(function (response) {
         if (response) {
-          _this3.$emit("addcartevent", 1);
-
-          swal(response.data.response.add_attributes.groupproduct.name, "успешно добавлен в корзину", "success");
+          _this3.$emit("changecartevent", 1);
         }
       }).catch(function (e) {
         console.log(e);
-      }); //this.$emit("addcartevent", 1);
+      });
+    },
+    onQtyDel: function onQtyDel(event) {
+      var _this4 = this;
+
+      event.preventDefault();
+
+      if (this.quantity > 1) {
+        this.quantity--;
+      }
+
+      axios.post('/update-cart', {
+        productId: this.productId,
+        quantity: this.quantity
+      }).then(function (response) {
+        if (response) {
+          _this4.$emit("changecartevent", 1);
+        }
+      }).catch(function (e) {
+        console.log(e);
+      });
     }
   }
 });
@@ -47864,7 +47900,28 @@ var render = function() {
         0
       ),
       _vm._v(" "),
-      _vm._m(3),
+      _c("div", { staticClass: "quantity" }, [
+        _c("p", [_vm._v("Количество")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "pro-qty" }, [
+          _c(
+            "span",
+            { staticClass: "dec qtybtn", on: { click: _vm.onQtyDel } },
+            [_vm._v("-")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            attrs: { type: "text" },
+            domProps: { value: _vm.quantity }
+          }),
+          _vm._v(" "),
+          _c(
+            "span",
+            { staticClass: "inc qtybtn", on: { click: _vm.onQtyAdd } },
+            [_vm._v("+")]
+          )
+        ])
+      ]),
       _vm._v(" "),
       _c(
         "a",
@@ -47876,9 +47933,9 @@ var render = function() {
         [_vm._v("Купить")]
       ),
       _vm._v(" "),
-      _vm._m(4),
+      _vm._m(3),
       _vm._v(" "),
-      _vm._m(5)
+      _vm._m(4)
     ])
   ])
 }
@@ -47916,18 +47973,6 @@ var staticRenderFns = [
       _c("a", { attrs: { href: "" } }, [_vm._v("3 reviews")]),
       _vm._v("|"),
       _c("a", { attrs: { href: "" } }, [_vm._v("Add your review")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "quantity" }, [
-      _c("p", [_vm._v("Количество")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "pro-qty" }, [
-        _c("input", { attrs: { type: "text", value: "1" } })
-      ])
     ])
   },
   function() {
@@ -48232,32 +48277,18 @@ var render = function() {
         _c("div", { staticClass: "pro-qty" }, [
           _c(
             "span",
-            {
-              staticClass: "dec qtybtn",
-              on: {
-                click: function($event) {
-                  _vm.onQtyDel(_vm.product.quantity)
-                }
-              }
-            },
+            { staticClass: "dec qtybtn", on: { click: _vm.onQtyDel } },
             [_vm._v("-")]
           ),
           _vm._v(" "),
           _c("input", {
             attrs: { type: "text" },
-            domProps: { value: _vm.product.quantity }
+            domProps: { value: _vm.quantity }
           }),
           _vm._v(" "),
           _c(
             "span",
-            {
-              staticClass: "inc qtybtn",
-              on: {
-                click: function($event) {
-                  _vm.onQtyAdd(_vm.product.quantity)
-                }
-              }
-            },
+            { staticClass: "inc qtybtn", on: { click: _vm.onQtyAdd } },
             [_vm._v("+")]
           )
         ])
@@ -62449,7 +62480,7 @@ var app = new Vue({
         console.log(e);
       });
     },
-    addcartevent: function addcartevent(id) {
+    changecartevent: function changecartevent(id) {
       this.getStatusCart();
     }
   }

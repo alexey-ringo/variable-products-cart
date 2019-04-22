@@ -62,7 +62,11 @@
 					
 					<div class="quantity">
 						<p>Количество</p>
-                        <div class="pro-qty"><input type="text" value="1"></div>
+                        <div class="pro-qty">
+                        	<span class="dec qtybtn" v-on:click="onQtyDel">-</span>
+							<input type="text" :value="quantity">
+							<span class="inc qtybtn" v-on:click="onQtyAdd">+</span>
+                        </div>
                     </div>
 					<a href="#" class="site-btn" v-on:click="addCart">Купить</a>
 					<div id="accordion" class="accordion-area">
@@ -124,6 +128,7 @@
         data: function() {
             return {
             	globalProducts: this.initialProducts,
+            	quantity: 1,
                 selectedColor: 'default',
                 selectedColorIndex: 0,
                 selectedSize: 'default',
@@ -149,11 +154,13 @@
             	this.selectedColorIndex = index;
             	this.getCurrentImages();
             	this.selectImage(0); //Переделать! Где реактивность?!
+            	this.quantity = 1;
             },
             
             selectSize: function(index) {
             	this.selectedSize = this.currentSizes[index];
             	this.selectedSizeIndex = index;
+            	this.quantity = 1;
             },
             
             selectImage: function(index) {
@@ -169,20 +176,25 @@
             	event.preventDefault();
             	axios.post('/add-cart', {
             		product: this.selectedProduct.id,
-            		quantity: 1
+            		quantity: this.quantity
             		})
             		.then((response) => {
             			if(response) {
-                    		this.$emit("addcartevent", 1);
+                    		this.$emit("changecartevent", 1);
                     		swal(response.data.response.add_attributes.groupproduct.name, "успешно добавлен в корзину", "success");
             			}
                     })
                     .catch(e => {
                     	console.log(e);
                     });
-                    
-                    
-                //this.$emit("addcartevent", 1);
+            },
+            onQtyAdd: function() {
+            	this.quantity ++;
+            },
+            onQtyDel: function() {
+            	if(this.quantity > 1) {
+            	    this.quantity --;
+            	}
             },
             
         },

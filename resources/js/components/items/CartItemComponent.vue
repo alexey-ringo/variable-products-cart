@@ -10,9 +10,9 @@
 		<td class="quy-col">
 			<div class="quantity">
                 <div class="pro-qty">
-                    <span class="dec qtybtn" v-on:click="onQtyDel(product.quantity)">-</span>
-					<input type="text" :value="product.quantity">
-					<span class="inc qtybtn" v-on:click="onQtyAdd(product.quantity)">+</span>
+                    <span class="dec qtybtn" v-on:click="onQtyDel">-</span>
+					<input type="text" :value="quantity">
+					<span class="inc qtybtn" v-on:click="onQtyAdd">+</span>
 				</div>
 			</div>
 		</td>
@@ -35,7 +35,8 @@
         data: function() {
             return {
                 productId: this.product.add_attributes.product.id,
-                itemAmount: 0
+                itemAmount: 0,
+                quantity: this.product.quantity
             }
         },
         mounted() {
@@ -58,9 +59,6 @@
                     .catch(e => {
                     	console.log(e);
                     });
-                    
-                    
-                //this.$emit("addcartevent", 1);
             },
             getItemAmount: function() {
                 axios.get('/get-item-amount', {
@@ -75,26 +73,40 @@
                 	console.log(e);
                 });
             },
-            onQtyAdd: function(event, qty) {
+            onQtyAdd: function(event) {
             	event.preventDefault();
-            	axios.post('/add-cart', {
-            		product: this.selectedProduct.id,
-            		quantity: 1
+            	this.quantity ++;
+            	axios.post('/update-cart', {
+            		productId: this.productId,
+            		quantity: this.quantity
             		})
             		.then((response) => {
             			if(response) {
-                    		this.$emit("addcartevent", 1);
-                    		swal(response.data.response.add_attributes.groupproduct.name, "успешно добавлен в корзину", "success");
+                    		this.$emit("changecartevent", 1);
             			}
                     })
                     .catch(e => {
                     	console.log(e);
                     });
-                    
-                    
-                //this.$emit("addcartevent", 1);
             },
-           
+            onQtyDel: function(event) {
+            	event.preventDefault();
+            	if(this.quantity > 1) {
+            	    this.quantity --;
+            	}
+            	axios.post('/update-cart', {
+            		productId: this.productId,
+            		quantity: this.quantity
+            		})
+            		.then((response) => {
+            			if(response) {
+                    		this.$emit("changecartevent", 1);
+            			}
+                    })
+                    .catch(e => {
+                    	console.log(e);
+                    });
+            },
     	}
     }
 </script>

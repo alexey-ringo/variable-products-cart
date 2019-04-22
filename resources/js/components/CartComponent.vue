@@ -101,7 +101,7 @@
                     });
             },
             changecartevent: function(id) {
-                this.$emit("addcartevent", 1);
+                this.$emit("changecartevent", 1);
                 this.getProductsInCart();
             },
     	}

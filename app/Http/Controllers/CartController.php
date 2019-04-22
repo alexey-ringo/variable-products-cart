@@ -123,6 +123,30 @@ class CartController extends Controller
             ]);
 
     }
+    
+    
+    /**
+     * Update Cart Item Quantity.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Services\Cart\Cart  $cart
+     * @return \Illuminate\Http\Response
+     */
+    public function updateCart(Request $request, Cart $cart)
+    {
+        if (!$request->isMethod('post')){  
+            return false;
+        }
+        
+        $productId = $request->input('productId');
+        $qty = $request->input('quantity');
+        if($cart->setItemQuantity($request, $productId, $qty)) {
+            return response()->json(1);
+        }
+        else {
+            return response()->json(0);
+        }
+    }
 
 
     /**
