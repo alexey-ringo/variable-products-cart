@@ -137,8 +137,8 @@
 .cart-dropdown-menu .sub-menu {
   position: absolute;
   list-style: none;
-  width: 300px;
-  right: 0;
+  width: 320px;
+  right: -20%;
   top: 100%;
   padding: 20px 0;
   visibility: hidden;
@@ -176,7 +176,13 @@
 
 .dropcart-item-text {
   display: inline-block;
-  width: 120px;
+  width: 180px;
+  position: relative;
+  cursor: pointer;
+}
+.dropcart-item-price {
+  display: inline-block;
+  width: 40px;
   position: relative;
   cursor: pointer;
 }

@@ -70,9 +70,8 @@
 			<div class="page-top-info">
 				<div class="container">
 					<div class="site-pagination">
-						<a href="#">Parent</a> /
-						Title
-						Active
+						Категории /
+						{{ currentCategory.name ? currentCategory.name : '' }}
 					</div>
 				</div>
 			</div>

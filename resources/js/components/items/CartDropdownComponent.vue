@@ -9,8 +9,11 @@
 			        <img v-bind:src="'/storage/' + cartProduct.add_attributes.product.images[0]" alt="">
 			    </div>
 			    <div class="dropcart-item-text">
-				    <h5>{{cartProduct.add_attributes.groupproduct.name}}</h5>
+				    <h6>{{cartProduct.add_attributes.groupproduct.name}}</h6>
 				    <p>{{cartProduct.add_attributes.product.name}}</p>
+			    </div>
+			    <div class="dropcart-item-price">
+				    <p>{{cartProduct.quantity}} шт.</p>
 			    </div>
 			</li>
 		</ul>
@@ -32,6 +35,7 @@
             update: function() {
                 
             },
+            
             getProductsInCart: function() {
                 axios.get('/products-in-cart')
             		.then((response) => {
@@ -41,6 +45,7 @@
                     	console.log(e);
                     });
             },
+            
             //onClickCartList: function(subCategory) {
             //    this.$emit("selectCategory", subCategory);
             //    this.styleCartList = 'hidden';
@@ -52,7 +57,6 @@
             onLeaveCartList: function() {
                 this.styleCartList = 'hidden';
             },
-            
     	},
     	/*
     	computed: {

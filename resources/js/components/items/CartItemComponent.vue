@@ -10,7 +10,9 @@
 		<td class="quy-col">
 			<div class="quantity">
                 <div class="pro-qty">
+                    <span class="dec qtybtn" v-on:click="onQtyDel(product.quantity)">-</span>
 					<input type="text" :value="product.quantity">
+					<span class="inc qtybtn" v-on:click="onQtyAdd(product.quantity)">+</span>
 				</div>
 			</div>
 		</td>
@@ -67,12 +69,30 @@
                     }
                 })
             	.then((response) => {
-            	    console.log(response.data);
                 	this.itemAmount = response.data.itemAmount;
                 })
                 .catch(e => {
                 	console.log(e);
                 });
+            },
+            onQtyAdd: function(event, qty) {
+            	event.preventDefault();
+            	axios.post('/add-cart', {
+            		product: this.selectedProduct.id,
+            		quantity: 1
+            		})
+            		.then((response) => {
+            			if(response) {
+                    		this.$emit("addcartevent", 1);
+                    		swal(response.data.response.add_attributes.groupproduct.name, "успешно добавлен в корзину", "success");
+            			}
+                    })
+                    .catch(e => {
+                    	console.log(e);
+                    });
+                    
+                    
+                //this.$emit("addcartevent", 1);
             },
            
     	}

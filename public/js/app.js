@@ -2293,7 +2293,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2653,6 +2652,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2739,6 +2741,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['product', 'globalIndex'],
   data: function data() {
@@ -2776,11 +2780,27 @@ __webpack_require__.r(__webpack_exports__);
           product: this.productId
         }
       }).then(function (response) {
-        console.log(response.data);
         _this2.itemAmount = response.data.itemAmount;
       }).catch(function (e) {
         console.log(e);
       });
+    },
+    onQtyAdd: function onQtyAdd(event, qty) {
+      var _this3 = this;
+
+      event.preventDefault();
+      axios.post('/add-cart', {
+        product: this.selectedProduct.id,
+        quantity: 1
+      }).then(function (response) {
+        if (response) {
+          _this3.$emit("addcartevent", 1);
+
+          swal(response.data.response.add_attributes.groupproduct.name, "успешно добавлен в корзину", "success");
+        }
+      }).catch(function (e) {
+        console.log(e);
+      }); //this.$emit("addcartevent", 1);
     }
   }
 });
@@ -47072,7 +47092,19 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("main", { staticClass: "py-4" }, [
-      _vm._m(1),
+      _c("div", { staticClass: "page-top-info" }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "site-pagination" }, [
+            _vm._v(
+              "\n\t\t\t\t\t\tКатегории /\n\t\t\t\t\t\t" +
+                _vm._s(
+                  _vm.currentCategory.name ? _vm.currentCategory.name : ""
+                ) +
+                "\n\t\t\t\t\t"
+            )
+          ])
+        ])
+      ]),
       _vm._v(" "),
       _c("section", { staticClass: "category-section spad" }, [
         _c("div", { staticClass: "container" }, [
@@ -47105,13 +47137,13 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
+              _vm._m(1),
+              _vm._v(" "),
               _vm._m(2),
               _vm._v(" "),
               _vm._m(3),
               _vm._v(" "),
-              _vm._m(4),
-              _vm._v(" "),
-              _vm._m(5)
+              _vm._m(4)
             ]),
             _vm._v(" "),
             _c(
@@ -47144,7 +47176,7 @@ var render = function() {
                               ]
                             ),
                             _vm._v(" "),
-                            _vm._m(6, true)
+                            _vm._m(5, true)
                           ]),
                           _vm._v(" "),
                           _c("div", { staticClass: "pi-text" }, [
@@ -47166,7 +47198,7 @@ var render = function() {
                         ])
                       : _vm._e(),
                     _vm._v(" "),
-                    _vm._m(7)
+                    _vm._m(6)
                   ],
                   2
                 )
@@ -47177,7 +47209,7 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _vm._m(8)
+    _vm._m(7)
   ])
 }
 var staticRenderFns = [
@@ -47192,19 +47224,6 @@ var staticRenderFns = [
         }),
         _vm._v(" "),
         _c("button", [_c("i", { staticClass: "flaticon-search" })])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "page-top-info" }, [
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "site-pagination" }, [
-          _c("a", { attrs: { href: "#" } }, [_vm._v("Parent")]),
-          _vm._v(" /\n\t\t\t\t\t\tTitle\n\t\t\t\t\t\tActive\n\t\t\t\t\t")
-        ])
       ])
     ])
   },
@@ -48148,13 +48167,17 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "dropcart-item-text" }, [
-                  _c("h5", [
+                  _c("h6", [
                     _vm._v(_vm._s(cartProduct.add_attributes.groupproduct.name))
                   ]),
                   _vm._v(" "),
                   _c("p", [
                     _vm._v(_vm._s(cartProduct.add_attributes.product.name))
                   ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "dropcart-item-price" }, [
+                  _c("p", [_vm._v(_vm._s(cartProduct.quantity) + " шт.")])
                 ])
               ])
             }),
@@ -48207,10 +48230,36 @@ var render = function() {
     _c("td", { staticClass: "quy-col" }, [
       _c("div", { staticClass: "quantity" }, [
         _c("div", { staticClass: "pro-qty" }, [
+          _c(
+            "span",
+            {
+              staticClass: "dec qtybtn",
+              on: {
+                click: function($event) {
+                  _vm.onQtyDel(_vm.product.quantity)
+                }
+              }
+            },
+            [_vm._v("-")]
+          ),
+          _vm._v(" "),
           _c("input", {
             attrs: { type: "text" },
             domProps: { value: _vm.product.quantity }
-          })
+          }),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              staticClass: "inc qtybtn",
+              on: {
+                click: function($event) {
+                  _vm.onQtyAdd(_vm.product.quantity)
+                }
+              }
+            },
+            [_vm._v("+")]
+          )
         ])
       ])
     ]),
@@ -62599,26 +62648,26 @@ $(document).ready(function () {
   	Quantity change
   --------------------- */
 
-  var proQty = $('.pro-qty');
+  /*
+     var proQty = $('.pro-qty');
   proQty.prepend('<span class="dec qtybtn">-</span>');
   proQty.append('<span class="inc qtybtn">+</span>');
   proQty.on('click', '.qtybtn', function () {
-    var $button = $(this);
-    var oldValue = $button.parent().find('input').val();
-
-    if ($button.hasClass('inc')) {
-      var newVal = parseFloat(oldValue) + 1;
-    } else {
-      // Don't allow decrementing below zero
-      if (oldValue > 0) {
-        var newVal = parseFloat(oldValue) - 1;
-      } else {
-        newVal = 0;
-      }
-    }
-
-    $button.parent().find('input').val(newVal);
+  	var $button = $(this);
+  	var oldValue = $button.parent().find('input').val();
+  	if ($button.hasClass('inc')) {
+  		var newVal = parseFloat(oldValue) + 1;
+  	} else {
+  		// Don't allow decrementing below zero
+  		if (oldValue > 0) {
+  			var newVal = parseFloat(oldValue) - 1;
+  		} else {
+  			newVal = 0;
+  		}
+  	}
+  	$button.parent().find('input').val(newVal);
   });
+  */
 })(jQuery);
 
 /***/ }),
