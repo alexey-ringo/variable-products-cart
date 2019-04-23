@@ -183,6 +183,24 @@
                     		this.$emit("changecartevent", 1);
                     		swal(response.data.response.add_attributes.groupproduct.name, "успешно добавлен в корзину", "success");
             			}
+            			else {
+            				swal({
+								title: "Страница устарела!",
+								text: "Обновите пожалуйста страницу товара, используя кнопку ниже",
+								icon: "warning",
+								buttons: true,
+								dangerMode: true,
+							})
+							.then((willDelete) => {
+								if (willDelete) {
+    								swal("Poof! Your imaginary file has been deleted!", {
+    									icon: "success",
+    								});
+								} else {
+    								swal("Your imaginary file is safe!");
+								}
+							});
+            			}
                     })
                     .catch(e => {
                     	console.log(e);

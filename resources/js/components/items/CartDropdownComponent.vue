@@ -45,11 +45,6 @@
                     	console.log(e);
                     });
             },
-            
-            //onClickCartList: function(subCategory) {
-            //    this.$emit("selectCategory", subCategory);
-            //    this.styleCartList = 'hidden';
-            //},
             onHoverCartList: function() {
                 this.getProductsInCart();
                 this.styleCartList = 'visible';
@@ -58,18 +53,5 @@
                 this.styleCartList = 'hidden';
             },
     	},
-    	/*
-    	computed: {
-    	    styleSubMenu: {
-    	        get: function () {
-                    return {
-                        visibility: 'hidden'
-                    }
-    	        },
-                set: function(val) {
-                    { visibility: "val"}
-                }
-            },
-        },*/
     }
 </script>

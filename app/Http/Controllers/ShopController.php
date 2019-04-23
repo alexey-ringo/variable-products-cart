@@ -20,39 +20,13 @@ class ShopController extends Controller
     }
     
 
-    
-    /*
-    public function categories()
-    {
-        return view('shop.category');
-    }
-    
-    public function category(string $slug = null)
-    {
-        $category = Category::where('slug', $slug)->first();
-        
-        $groupproducts = Groupproduct::with('categories')->whereHas('categories', function($query) use($slug) {
-            $query->where('slug', $slug);
-        })->get();
-        
-        return view('shop.category', [
-            'groupproducts' => $groupproducts,
-            'category' => $category,
-            'menu_categories' => json_encode(Category::with('childrenCat')->where('parent_id', 0)->get()),
-            'current_category' => json_encode($category)
-            ]);
-    }
-    */
-    
     public function categories() {
         $category = null;
         
         if(request()->slug) {
             $slug = request()->slug;
             $category = Category::where('slug', $slug)->first();
-            $groupproducts = Groupproduct::with('categories')->whereHas('categories', function($query) use($slug) {
-                $query->where('slug', $slug);
-            })->get();
+            $groupproducts = Groupproduct::groupproductsInCategory($slug)->get();
         }
         else {
             $groupproducts = Groupproduct::orderBy('id')->get();
@@ -73,9 +47,7 @@ class ShopController extends Controller
         if(request()->slug) {
             $slug = request()->slug;
             $category = Category::where('slug', $slug)->first();
-            $groupproducts = Groupproduct::with('categories')->whereHas('categories', function($query) use($slug) {
-                $query->where('slug', $slug);
-            })->get();
+            $groupproducts = Groupproduct::groupproductsInCategory($slug)->get();
         }
         else {
             $groupproducts = Groupproduct::orderBy('id')->get();
@@ -88,26 +60,7 @@ class ShopController extends Controller
             ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        
-    }
 
     /**
      * Display the specified resource.
@@ -119,12 +72,14 @@ class ShopController extends Controller
     {
         $groupproduct = Groupproduct::where('slug', $slug)->firstOrFail();
         $products = $groupproduct->products()->with('color', 'size')->get();
+        $relatedProducts = Groupproduct::relatedProducts($slug)->get();
         
         $result['groupproduct'] = $groupproduct->toArray();
         $result['products'] = $products->toArray();
         
         return view('shop.product', [
-            'result' => json_encode($result)
+            'result' => json_encode($result),
+            'relatedProducts' => $relatedProducts
             ]);
     }
 }

@@ -2582,6 +2582,22 @@ __webpack_require__.r(__webpack_exports__);
           _this.$emit("changecartevent", 1);
 
           sweetalert__WEBPACK_IMPORTED_MODULE_0___default()(response.data.response.add_attributes.groupproduct.name, "успешно добавлен в корзину", "success");
+        } else {
+          sweetalert__WEBPACK_IMPORTED_MODULE_0___default()({
+            title: "Страница устарела!",
+            text: "Обновите пожалуйста страницу товара, используя кнопку ниже",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true
+          }).then(function (willDelete) {
+            if (willDelete) {
+              sweetalert__WEBPACK_IMPORTED_MODULE_0___default()("Poof! Your imaginary file has been deleted!", {
+                icon: "success"
+              });
+            } else {
+              sweetalert__WEBPACK_IMPORTED_MODULE_0___default()("Your imaginary file is safe!");
+            }
+          });
         }
       }).catch(function (e) {
         console.log(e);
@@ -2692,10 +2708,6 @@ __webpack_require__.r(__webpack_exports__);
         console.log(e);
       });
     },
-    //onClickCartList: function(subCategory) {
-    //    this.$emit("selectCategory", subCategory);
-    //    this.styleCartList = 'hidden';
-    //},
     onHoverCartList: function onHoverCartList() {
       this.getProductsInCart();
       this.styleCartList = 'visible';
@@ -2704,20 +2716,6 @@ __webpack_require__.r(__webpack_exports__);
       this.styleCartList = 'hidden';
     }
   }
-  /*
-  computed: {
-      styleSubMenu: {
-          get: function () {
-                 return {
-                     visibility: 'hidden'
-                 }
-          },
-             set: function(val) {
-                 { visibility: "val"}
-             }
-         },
-     },*/
-
 });
 
 /***/ }),
