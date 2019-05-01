@@ -10,28 +10,22 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-//use App\Services\Cart\Cart;
-//use App\Services\Cart\Models\Order;
-use App\Services\OrderItem;
+use App\Order;
 
-class onAddItemEvent
+class onCheckoutEvent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
     
     public $order;
-    public $product;
-    public $quantity;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(/*Cart $cart, Order $order, */OrderItem $orderItem)
+    public function __construct(/*Order $order*/)
     {
-        $this->order = $orderItem->order_id;
-        $this->product = $orderItem->product_id;
-        $this->quantity = $orderItem->quantity;
+        //$this->order = $order;
     }
 
     /**

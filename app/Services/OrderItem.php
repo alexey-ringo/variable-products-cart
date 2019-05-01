@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Cart\Models;
+namespace App\Services;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Product;
@@ -17,7 +17,7 @@ class OrderItem extends Model
     
     public function order()
     {
-        $this->belongsTo('App\Services\Cart\Models\Order');
+        $this->belongsTo('App\Services\Order');
     }
     
     public function product() 

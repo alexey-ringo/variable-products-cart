@@ -7,8 +7,8 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
 use Session;
-use App\Services\Cart\Models\Order;
-use App\Services\Cart\Models\OrderItem;
+use App\Services\Order;
+use App\Services\OrderItem;
 use Log;
 
 class SessionDestroyListener

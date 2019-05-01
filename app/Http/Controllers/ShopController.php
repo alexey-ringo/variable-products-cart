@@ -20,46 +20,35 @@ class ShopController extends Controller
     }
     
 
-    public function categories() {
+    public function categories(Request $request, $slug = false) {
         $category = null;
         
-        if(request()->slug) {
-            $slug = request()->slug;
-            $category = Category::where('slug', $slug)->first();
+        if($request->slug) {
+            $category = Category::where('slug', $request->slug)->first();
             $groupproducts = Groupproduct::groupproductsInCategory($slug)->get();
         }
         else {
             $groupproducts = Groupproduct::orderBy('id')->get();
         }
         
-        return view('shop.category', [
-            'groupproducts' => json_encode($groupproducts),
-            'menu_categories' => json_encode(Category::with('childrenCat')->where('parent_id', 0)/*->where('published', 1)*/->get()),
-            'current_category' => json_encode($category)
-            ]);
-    }
-    
-    
-    public function categoriesAjax()
-    {
-        $category = null;
-        
-        if(request()->slug) {
-            $slug = request()->slug;
-            $category = Category::where('slug', $slug)->first();
-            $groupproducts = Groupproduct::groupproductsInCategory($slug)->get();
-        }
-        else {
-            $groupproducts = Groupproduct::orderBy('id')->get();
-        }
-        
-        return response()->json([
+        if($request->ajax()) {
+            return response()->json([
             'groupproducts' => $groupproducts,
             'menu_categories' => Category::with('childrenCat')->where('parent_id', 0)/*->where('published', 1)*/->get(),
             'current_category' => $category ?? ''
             ]);
+        }
+        else {
+            return view('shop.category', [
+            'groupproducts' => json_encode($groupproducts),
+            'menu_categories' => json_encode(Category::with('childrenCat')->where('parent_id', 0)/*->where('published', 1)*/->get()),
+            'current_category' => json_encode($category)
+            ]);
+        }
+        
     }
-
+    
+   
 
 
     /**

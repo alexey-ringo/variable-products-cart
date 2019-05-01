@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Services\Cart\Models\OrderItem;
+use App\Services\OrderItem;
 use Log;
 
 class AppServiceProvider extends ServiceProvider

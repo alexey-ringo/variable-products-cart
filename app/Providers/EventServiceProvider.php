@@ -24,7 +24,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\System\onSessionDestroyEvent' => [
             'App\Listeners\Cart\SessionDestroyListener'
             ],
-            
+        'App\Events\Cart\onCheckoutEvent' => [
+            'App\Listeners\Cart\CheckoutListener'
+            ],
         //'Illuminate\Auth\Events\Authenticated' => [
         //    'App\Listeners\Cart\LogAuthenticated',
         //    ],

@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Collection;
 use App\Services\Cart\Cart;
 
-
+use Event;
+use App\Events\Cart\onAddItemEvent;
 use Session;
 
 class CartController extends Controller
@@ -43,6 +44,7 @@ class CartController extends Controller
         $result = $cart->add($request, $productId, $quantity, $addOptions);
         
         if($result) {
+            Event::fire(new onAddItemEvent($result));
             return response()->json(['response' => $result]);
         }
         else {

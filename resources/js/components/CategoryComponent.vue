@@ -403,7 +403,7 @@
             	this.currentCategory = this.computedCurrentCategory;
             },
             getProducts: function(slug) {
-            	axios.get('/shop-ajax', {
+            	axios.get('/shop', {
                     params: {
                         slug: slug
                     }

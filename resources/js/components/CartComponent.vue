@@ -38,8 +38,8 @@
 				<input type="text" placeholder="Enter promo code">
 				<button>Submit</button>
 			</form>
-			<a href="" class="site-btn">Proceed to checkout</a>
-			<a href="" class="site-btn sb-dark">Continue shopping</a>
+			<a v-bind:href="'/checkout'" class="site-btn">Оформление заказа</a>
+			<a v-bind:href="'/'" class="site-btn sb-dark">Вернуться в магазин</a>
 		</div>
 	</div>
 </template>
@@ -70,8 +70,8 @@
         methods: {
             update: function() {
             	this.getProductsInCart();
-            	this.getOldCart();
-            	this.getHoldCart();
+            	//this.getOldCart();
+            	//this.getHoldCart();
             },
             getProductsInCart: function() {
                 axios.get('/products-in-cart')
@@ -82,6 +82,7 @@
                     	console.log(e);
                     });
             },
+            /*
             getOldCart: function() {
                 axios.get('/get-old-cart')
             		.then((response) => {
@@ -100,6 +101,7 @@
                     	console.log(e);
                     });
             },
+            */
             changecartevent: function(id) {
                 this.$emit("changecartevent", 1);
                 this.getProductsInCart();

@@ -16,7 +16,7 @@ Route::get('/home', 'HomeController@index')->name('home.index');
 
 
 Route::get('/', 'ShopController@index')->name('shop.index');
-Route::get('/shop-ajax', 'ShopController@categoriesAjax')->name('shop.catajax');
+//Route::get('/shop-ajax', 'ShopController@categoriesAjax')->name('shop.catajax');
 Route::get('/shop/{slug?}', 'ShopController@categories')->name('shop.categories');//исправить имя рута!!!
 Route::get('/products/{slug}', 'ShopController@show')->name('shop.product');
 
@@ -29,6 +29,8 @@ Route::get('/get-item-amount', 'CartController@itemAmount')->name('cart.itemamou
 Route::get('/get-old-cart', 'CartController@productsInOldCart')->name('cart.old');
 Route::get('/get-hold-cart', 'CartController@productsInHoldCart')->name('cart.hold');
 Route::get('/status-cart', 'CartController@statusCart')->name('cart.status');
+Route::get('/checkout', 'CheckoutController@index')->name('checkout.index');
+Route::post('/start-checkout', 'CheckoutController@checkout')->name('checkout.checkout');
 
 Route::get('/queue', function() {
     App\Jobs\ClearCart::dispatch("Send test queue message");

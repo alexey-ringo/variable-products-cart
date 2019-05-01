@@ -179,6 +179,7 @@ return [
         App\Providers\CustomSessionServiceProvider::class,
         App\Providers\FrontendServiceProvider::class,
         App\Providers\CartServiceProvider::class,
+        App\Providers\PurchaseServiceProvider::class,
 
     ],
 

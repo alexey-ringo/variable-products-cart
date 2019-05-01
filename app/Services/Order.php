@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Cart\Models;
+namespace App\Services;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,7 +12,17 @@ class Order extends Model
     //
     public function orderItems()
     {
-        return $this->hasMany('App\Services\Cart\Models\OrderItem');
+        return $this->hasMany('App\Services\OrderItem')/*->withDefault()*/;
+    }
+    
+    //public function purchase()
+    //{
+    //    $this->belongsTo('App\Services\Purchase');
+    //}
+    
+    public function purchase()
+    {
+        $this->hasOne('App\Services\Purchase');
     }
     
     public function totalQuantity()

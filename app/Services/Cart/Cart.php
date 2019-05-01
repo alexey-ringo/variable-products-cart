@@ -3,8 +3,9 @@ declare(strict_types=1);
 namespace App\Services\Cart;
 
 use Illuminate\Http\Request;
-use App\Services\Cart\Models\Order;
-use App\Services\Cart\Models\OrderItem;
+use App\User;
+use App\Services\Order;
+use App\Services\OrderItem;
 use Illuminate\Database\Eloquent\Collection;
 
 Interface Cart {
@@ -15,9 +16,10 @@ Interface Cart {
     public function getItemAmount(Request $request, int $productId): ?float;
     public function getTotalQuantity(Request $request): ?int;
     public function getTotalAmount(Request $request): ?float;
-    public function getActOrderFromUser(int $userId): ?int; 
-    public function saveUserForOrder(int $userId, int $orderId): bool;
-    public function saveNewOrderForUser(int $userId, int $newOrderId, int $oldOrderId): bool;
+    public function getActOrderByUser(User $user): ?int; 
+    public function saveUserForOrder(User $user, int $orderId): bool;
+    public function saveNewOrderForUser(User $user, int $newOrderId, int $oldOrderId): bool;
     public function getOldOrderItems(Request $request);
     public function getHoldOrderItems(Request $request);
+    public function getOrderForPurchase(Request $request): Order;
 }

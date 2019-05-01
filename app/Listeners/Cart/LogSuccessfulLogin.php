@@ -8,7 +8,8 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Http\Request;
 use App\Services\Cart\Cart;
 use App\Services\Cart\CartService;
-use App\Services\Cart\Models\Order;
+use App\Services\Order;
+use Log;
 
 class LogSuccessfulLogin
 {
@@ -37,8 +38,8 @@ class LogSuccessfulLogin
         if($event->guard !== 'web') {
             return false;
         }
-        
-        $savedActOrderFromUser = $this->cart->getActOrderFromUser($event->user->id);
+       
+        $savedActOrderFromUser = $this->cart->getActOrderByUser($event->user);
         $sessionOrder = $this->req->session()->get('order_id', '0');
         
         //Если для залогиненного пользователя уже есть в базе ранее сохрененный ордер (под именем этого пользователя)
@@ -49,7 +50,7 @@ class LogSuccessfulLogin
                 if($savedActOrderFromUser !== $sessionOrder) {
                     //Актуальный ордер с именем залогинившегося пользователя (из актуальных данных из сессии) - маркируем как основной ордер для этого пользователя
                     //предидущий Ордер с этим пользователем, который был сохранен в базе ранее - помечаем как "старый"
-                    $this->cart->saveNewOrderForUser($event->user->id, $sessionOrder, $savedActOrderFromUser);//!!!Проработать реагирование на возврат false!!!
+                    $this->cart->saveNewOrderForUser($event->user, $sessionOrder, $savedActOrderFromUser);//!!!Проработать реагирование на возврат false!!!
                 }
             }
             //Если при логине данного пользователя у него в сессии еще нет никакого ордера
@@ -63,7 +64,7 @@ class LogSuccessfulLogin
             //Но при этом при логине данного пользователя у него уже есть ордер в сессии
             if($this->req->session()->has('order_id')) {
                 //Сохраняем пользователя к актуальному ордеру
-                $this->cart->saveUserForOrder($event->user->id, $sessionOrder); //!!!Проработать реагирование на возврат false!!!
+                $this->cart->saveUserForOrder($event->user, $sessionOrder); //!!!Проработать реагирование на возврат false!!!
             }
         }
     }

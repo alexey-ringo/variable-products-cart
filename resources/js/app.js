@@ -40,6 +40,7 @@ Vue.component('category-component', require('./components/CategoryComponent.vue'
 //Vue.component('category-item-component', require('./components/items/CategoryItemComponent.vue').default);
 Vue.component('product-component', require('./components/ProductComponent.vue').default);
 Vue.component('cart-component', require('./components/CartComponent.vue').default);
+Vue.component('checkout-component', require('./components/CheckoutComponent.vue').default);
 //Vue.component('cart-item-component', require('./components/items/CartItemComponent.vue').default);
 Vue.component('cart-info-component', require('./components/CartInfoComponent.vue').default);
 
@@ -73,7 +74,8 @@ const app = new Vue({
                    	this.totalCartAmount = response.data.totalAmount;
                 })
                 .catch(e => {
-               	console.log(e);
+               	//console.log(e);
+               	swal('Ошибка', "Внутренняя ошибка сервера", "error");
             });
         },
         changecartevent: function(id) {

@@ -179,11 +179,14 @@
             		quantity: this.quantity
             		})
             		.then((response) => {
-            			if(response) {
+            			if(response.data) {
                     		this.$emit("changecartevent", 1);
                     		swal(response.data.response.add_attributes.groupproduct.name, "успешно добавлен в корзину", "success");
             			}
             			else {
+            				this.$emit("changecartevent", 1);
+            				swal('Товар не добавлен', "Что то пошло не так...", "error");
+            				/*
             				swal({
 								title: "Страница устарела!",
 								text: "Обновите пожалуйста страницу товара, используя кнопку ниже",
@@ -200,10 +203,11 @@
     								swal("Your imaginary file is safe!");
 								}
 							});
-            			}
+            			*/}
                     })
                     .catch(e => {
                     	console.log(e);
+               			swal('Ошибка', "Внутренняя ошибка сервера", "error");
                     });
             },
             onQtyAdd: function() {

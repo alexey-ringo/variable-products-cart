@@ -42,7 +42,8 @@
                     	this.cartProducts = response.data.itemsInOrder;
                     })
                     .catch(e => {
-                    	console.log(e);
+                    	//console.log(e);
+               	        swal('Ошибка', "Внутренняя ошибка сервера", "error");
                     });
             },
             onHoverCartList: function() {
