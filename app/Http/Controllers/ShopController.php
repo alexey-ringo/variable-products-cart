@@ -20,11 +20,12 @@ class ShopController extends Controller
     }
     
 
-    public function categories(Request $request, $slug = false) {
+    public function categories(Request $request) {
         $category = null;
+        $slug = $request->slug;
         
-        if($request->slug) {
-            $category = Category::where('slug', $request->slug)->first();
+        if($slug) {
+            $category = Category::where('slug', $slug)->first();
             $groupproducts = Groupproduct::groupproductsInCategory($slug)->get();
         }
         else {

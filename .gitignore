@@ -6,11 +6,12 @@
 /storage/*.key
 /vendor
 .env
+composer.phar
+package-lock.json
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
-MY_README.md
-CART_README.md
+
 
