@@ -37,12 +37,10 @@
             },
             onSubMenuHover: function() {
                 this.styleSubMenu = 'visible';
-                console.log(this.styleSubMenu);
             },
             onSubMenuLeave: function() {
                 this.styleSubMenu = 'hidden';
             },
-            
     	},
     	/*
     	computed: {

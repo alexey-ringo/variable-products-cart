@@ -52,12 +52,17 @@
             		product: this.productId,
             		})
             		.then((response) => {
-            		    if(response) {
+            		    if(response.data) {
                     	    this.$emit("changecartevent", 1);
+            		    }
+            		    else {
+            		        this.$emit("changecartevent", 1);
+            				swal('Товар не удален!', "Что то пошло не так...", "error");
             		    }
                     })
                     .catch(e => {
-                    	console.log(e);
+                    	//console.log(e);
+                    	swal('Ошибка', "Внутренняя ошибка сервера", "error");
                     });
             },
             getItemAmount: function() {
@@ -70,7 +75,8 @@
                 	this.itemAmount = response.data.itemAmount;
                 })
                 .catch(e => {
-                	console.log(e);
+                	//console.log(e);
+                	swal('Ошибка', "Внутренняя ошибка сервера", "error");
                 });
             },
             onQtyAdd: function(event) {
@@ -81,12 +87,17 @@
             		quantity: this.quantity
             		})
             		.then((response) => {
-            			if(response) {
+            			if(response.data) {
                     		this.$emit("changecartevent", 1);
+            			}
+            			else {
+            			    this.$emit("changecartevent", 1);
+            				swal('Количество товара не изменено!', "Что то пошло не так...", "error");
             			}
                     })
                     .catch(e => {
-                    	console.log(e);
+                    	//console.log(e);
+               			swal('Ошибка', "Внутренняя ошибка сервера", "error");
                     });
             },
             onQtyDel: function(event) {
@@ -99,8 +110,12 @@
             		quantity: this.quantity
             		})
             		.then((response) => {
-            			if(response) {
+            			if(response.data) {
                     		this.$emit("changecartevent", 1);
+            			}
+            			else {
+            			    this.$emit("changecartevent", 1);
+            				swal('Количество товара не изменено!', "Что то пошло не так...", "error");
             			}
                     })
                     .catch(e => {

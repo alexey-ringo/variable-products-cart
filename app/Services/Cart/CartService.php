@@ -402,7 +402,7 @@ class CartService implements Cart {
         
     }
     
-    public function getOrderForPurchase(Request $request): Order 
+    public function getOrderForPurchase(Request $request): ?Order 
     {
         $this->req = $request;
         return $this->getOrder();

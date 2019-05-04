@@ -59,5 +59,10 @@ class PurchaseService implements PurchaseInterface {
         }
         return null;
     }
+    
+    public function checkDoubleCheckout ()
+    {
+        
+    }
    
 }

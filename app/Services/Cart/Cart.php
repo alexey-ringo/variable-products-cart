@@ -21,5 +21,5 @@ Interface Cart {
     public function saveNewOrderForUser(User $user, int $newOrderId, int $oldOrderId): bool;
     public function getOldOrderItems(Request $request);
     public function getHoldOrderItems(Request $request);
-    public function getOrderForPurchase(Request $request): Order;
+    public function getOrderForPurchase(Request $request): ?Order;
 }

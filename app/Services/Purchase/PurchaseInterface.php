@@ -11,4 +11,5 @@ use Illuminate\Database\Eloquent\Collection;
 
 Interface PurchaseInterface {
     public function checkout(Request $requers, Order $order): ?Purchase;
+    public function checkDoubleCheckout ();
 }

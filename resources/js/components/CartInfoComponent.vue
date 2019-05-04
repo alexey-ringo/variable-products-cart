@@ -2,7 +2,7 @@
     <div class="up-item">
         <div class="shopping-card">
 		    <i class="flaticon-bag"></i>
-		    <span>{{totalCartQuantity}}</span>
+		    <span v-if="totalCartQuantity">{{totalCartQuantity}}</span>
 		</div>
 		<ul class="cart-dropdown-menu">
 		    <cart-dropdown></cart-dropdown>

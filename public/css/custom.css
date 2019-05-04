@@ -218,6 +218,9 @@
   .user-panel .up-item:first-child {
     margin-right: 20px;
   }
+  .slicknav_nav ul.sub-menu {
+    visibility: visible !important;
+  }
   
 }
 
@@ -225,6 +228,9 @@
 @media only screen and (min-width: 576px) and (max-width: 766px) {
   .user-panel .up-item:first-child {
     margin-right: 10px;
+  }
+  .slicknav_nav ul.sub-menu {
+    visibility: visible !important;
   }
 
 }
@@ -234,5 +240,7 @@
   .user-panel .up-item:first-child {
     margin-right: 10px;
   }
-
+  .slicknav_nav ul.sub-menu {
+    visibility: visible !important;
+  }
 }

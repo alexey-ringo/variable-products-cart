@@ -29,6 +29,6 @@ class CheckoutListener
     public function handle(onCheckoutEvent $event)
     {
         //
-        Mail::to('superats@yandex.ru')->send(new OrderPlaced);
+        Mail::to($event->purchase->email)->send(new OrderPlaced);
     }
 }

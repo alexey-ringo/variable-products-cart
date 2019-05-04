@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Collection;
 //use Illuminate\Support\Facades\Mail;
 //use App\Mail\OrderPlaced;
-//use Event;
-//use App\Events\Cart\onCheckoutEvent;
+use Event;
+use App\Events\Cart\onCheckoutEvent;
 
 //use App\Http\Requests\CheckoutRequest;
 use App\Services\Cart\Cart;
@@ -63,12 +63,12 @@ class CheckoutController extends Controller
         $resultPurchase = $purchase->checkout($request, $cart->getOrderForPurchase($request));
         
         if($resultPurchase) {
+            if(!Event::fire(new onCheckoutEvent($resultPurchase))) {
+                return response()->json(0);
+            }
             return response()->json(['purchase' => $resultPurchase]);
         }
-        else {
-            return response()->json(0);
-        }
-        
+        return response()->json(0);
     }
 
 }
