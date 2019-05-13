@@ -41,7 +41,7 @@ class CartController extends Controller
         //    $query->where('id', $productId);
         //})->first();
         
-        $result = $cart->add($request, $productId, $quantity, $addOptions);
+        $result = $cart->addItem($request, $productId, $quantity, $addOptions);
         
         if($result) {
             Event::fire(new onAddItemEvent($result));
@@ -83,10 +83,13 @@ class CartController extends Controller
      */
     public function productsInCart(Request $request, Cart $cart)
     {
-        return response()->json([
-            'itemsInOrder' => $this->toArray($cart->getItems($request))
-            ]);
-
+        $result = $cart->getItems($request);
+        if ($result) {
+            return response()->json(['itemsInOrder' => $this->toArray($result)]);
+        }
+        else {
+            return response()->json(0);
+        }
     }
     
     /**
@@ -165,7 +168,29 @@ class CartController extends Controller
         }
         
         $productId = $request->input('product');
-        if($cart->delete($request, $productId)) {
+        if($cart->deleteItem($request, $productId)) {
+            return response()->json(1);
+        }
+        else {
+            return response()->json(0);
+        }
+    }
+    
+    /**
+     * Hold Cart Item.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Services\Cart\Cart  $cart
+     * @return \Illuminate\Http\Response
+     */
+    public function holdCart(Request $request, Cart $cart)
+    {
+        if (!$request->isMethod('post')){  
+            return false;
+        }
+        
+        $productId = $request->input('product');
+        if($cart->holdItem($request, $productId)) {
             return response()->json(1);
         }
         else {

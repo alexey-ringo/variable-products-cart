@@ -48,4 +48,14 @@ class LoginController extends Controller
         return redirect('/shop');
         //return back()->withInput();
     }
+    
+    public function getUsername(): ?string
+    {
+        if(Auth::guard('web')->check()) {
+        
+            return response()->json(Auth::user()->name);
+        }
+        return null;
+        
+    }
 }

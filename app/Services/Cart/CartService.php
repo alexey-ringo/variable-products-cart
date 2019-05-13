@@ -31,10 +31,10 @@ class CartService implements Cart {
      * 
      * @return App\Services\Cart\Models\OrderItem | null
      */
-    public function add(Request $request, int $productId, int $quantity, array $addAttributes = null): ?OrderItem
+    public function addItem(Request $request, int $productId, int $quantity, array $addAttributes = null): ?OrderItem
     {
         $this->req = $request;
-        
+        //При добавлении первого товара создаем новый Ордер в сессии: getOrder() -- getOrderId() -- createOrder()
         $link = OrderItem::firstOrNew(['product_id' => $productId, 'order_id' => $this->getOrder()->id]);
         
         $link->order_price = $link->getProductPrice();
@@ -43,7 +43,7 @@ class CartService implements Cart {
         
         if($link->save()) {
             return $link;
-            }
+        }
         return null;
     }
     
@@ -54,19 +54,52 @@ class CartService implements Cart {
      * 
      * @return App\Services\Cart\Models\Order
      */
-    private function getOrder(): ?Order
+    private function getOrder(): Order
     {
         if ($this->_order == null) {
             $this->_order = Order::where(['id' => $this->getOrderId()])->first();
         }
+        $localOrder = $this->_order;
+        Log::info('getOrder()', ['localOrder' => $localOrder]);
         return $this->_order;
+    }
+    
+    /**
+     * Get current order id.
+     *
+     * @param  void
+     * 
+     * @return int | null
+     */
+    private function getOrderId(): int
+    {
+        /*
+        if (Auth::guard('web')->check()) {
+            $user = User::find($this->req->user()->id);
+            return $this->getActOrderByUser($user);
+        }
+        */
+        $this->checkOrderOfPurchase();
+        //Если в сессии нет ключа текущего Ордера
+        if (!$this->req->session()->has(self::SESSION_KEY)) {
+            //создаем новый Ордер и записываем его в кэш-переменнную.
+            if ($this->createOrder()) {
+                //Если при этом еще есть зарегистрированный пользователь
+                if ($this->req->user()) {
+                    $user = User::find($this->req->user()->id);
+                    $this->saveUserForOrder($user, $this->_order->id);
+                }
+                $this->req->session()->put(self::SESSION_KEY, $this->_order->id);
+            }
+        }
+        //Просто возвращаем тот ключ Ордера из сессии - котрый там был
+        return $this->req->session()->get(self::SESSION_KEY);
     }
    
     /**
      * Create new order.
      *
-     * @param  void
-     * 
+     * @param  void 
      * @return bool
      */
     private function createOrder(): bool
@@ -81,56 +114,26 @@ class CartService implements Cart {
         return false;
     }
     
-    /**
-     * Get current order id.
-     *
-     * @param  void
-     * 
-     * @return int | null
-     */
-    private function getOrderId(): ?int
-    {
-        /*
-        if ($this->req->user()) {
-            $user = User::find($this->req->user()->id);
-            return $this->getActOrderByUser($user);
-        }
-        */
-        if (Auth::guard('web')->check()) {
-            $user = User::find($this->req->user()->id);
-            return $this->getActOrderByUser($user) ?? null;
-        }
-        
-        if($this->checkOrderOfPurchase()){
-            return null;
-        }
-        
-        if (!$this->req->session()->has(self::SESSION_KEY)) {
-            if ($this->createOrder()) {
-                $this->req->session()->put(self::SESSION_KEY, $this->_order->id);
-            }
-            else {
-                return null;
-            }
-        }
-        return $this->req->session()->get(self::SESSION_KEY);
-    }
+
     
     private function checkOrderOfPurchase(): bool
     {
         //Проверяем - есть ли вообще Ордер в сессии? Если нет - действие всей функции завершается
         if (!$this->req->session()->has(self::SESSION_KEY)) {
-            Log::info('Test checkOrderOfPurchase - detect of session without key');
+            if($this->_order) {
+                $this->_order = null;
+            }
+            Log::info('CheckOrderOfPurchase() - ключ в сессии и кэш-переменная Ордера были и их удалили');
             return false;
         }
         
         //Проверяем Ордер на наличие у него статуса 4 в таблице Ордер
-        Log::info('Test checkOrderOfPurchase - get Order_id from session', ['Order_id' => $this->req->session()->get(self::SESSION_KEY)]);
+        Log::info('checkOrderOfPurchase() - сессия есть - получаем order_id', ['Order_id' => $this->req->session()->get(self::SESSION_KEY)]);
         $purchasedOrder = Order::where(['id' => $this->req->session()->get(self::SESSION_KEY)])->where('status', '=', 4)->first();
-        Log::info('Test checkOrderOfPurchase - get $purchasedOrder', ['purchasedOrder' => $purchasedOrder]);
+        Log::info('checkOrderOfPurchase() - по order_id в базе искали все ордера с этим id и статусом = 4 ', ['purchasedOrder' => $purchasedOrder]);
         if($purchasedOrder) {
             $this->req->session()->forget(self::SESSION_KEY);
-            $_order = null;
+            $this->_order = null;
             Log::info('Test checkOrderOfPurchase', ['_Order' => $_order]);
             return true;
         }
@@ -146,7 +149,7 @@ class CartService implements Cart {
      * @return bool
      */
 
-    public function delete(Request $request, int $productId): bool
+    public function deleteItem(Request $request, int $productId): bool
     {
         $this->req = $request;
         $link = OrderItem::where(['product_id' => $productId, 'order_id' => $this->getOrderId()])->first();
@@ -168,9 +171,12 @@ class CartService implements Cart {
      * 
      * @return Illuminate\Database\Eloquent\Collection
      */
-    public function getItems(Request $request): \Illuminate\Database\Eloquent\Collection
+    public function getItems(Request $request): ?\Illuminate\Database\Eloquent\Collection
     {
         $this->req = $request;
+        if ($this->isEmpty()) {
+            return null;
+        }
         return $this->getOrder()->orderItems;
     }
     
@@ -242,12 +248,9 @@ class CartService implements Cart {
     public function getTotalQuantity(Request $request): ?int
     {
         $this->req = $request;
-        
         if ($this->isEmpty()) {
             return null;
         }
-        //Почему то не работает '??' с getOrder() = null
-        //return $this->getOrder()->totalQuantity() ?? null;
         return $this->getOrder() ? $this->getOrder()->totalQuantity() : null;
     }
     
@@ -261,12 +264,10 @@ class CartService implements Cart {
     public function getTotalAmount(Request $request): ?float
     {
         $this->req = $request;
-        
         if ($this->isEmpty()) {
             return null;
         }
-        
-        return $this->getOrder()->totalAmount() ?? null;
+        return $this->getOrder() ? $this->getOrder()->totalAmount() : null;
     }
     
     
@@ -289,22 +290,21 @@ class CartService implements Cart {
         }
         */
         //Если пользователь залогинился
-        if(Auth::guard('web')->check()) {
-            //и под его именем есть заказы в БД
-            if (Order::where('user_id', $this->req->user()->id)->first()) {
-                return false;
-            }
-        }
+        //if(Auth::guard('web')->check()) {
+            //и под его именем есть актуальный (status == 1) заказ в БД
+        //    if (Order::where(['user_id' => $this->req->user()->id, 'status' => 1])->first()) {
+                
+        //        return false;
+        //    }
+        //}
         
-        //Если в БД нет заказов под залогиненым пользователем (это проверка выше),
-        //и в сессии нет поля заказа
+        //Если в БД нет актуальных заказов под залогиненым пользователем (это проверка выше),
+        
+        //и если в сессии нет поля заказа - т.е. нет актуального заказа
         if (!$this->req->session()->has(self::SESSION_KEY)) {
             return true;
         }
-        //В сессии есть поле заказа
-        else {
-            return false;
-        }
+        return false;
     }
     
     /**
@@ -315,13 +315,12 @@ class CartService implements Cart {
      */
     public function getActOrderByUser(User $user): ?int 
     {
-        //$actualOrderForUser = Order::where(['user_id' => $user->id, 'status' => 1])->first(); //Что будет, если протзователя не найдется в таблице заказов?
-        $actualOrderForUser = Order::where(['user_id' => $user->id])->where('status', '=', 1)->orWhere('status', '=', 4)->first();
+        $actualOrderForUser = Order::where(['user_id' => $user->id, 'status' => 1])->first(); //Что будет, если протзователя не найдется в таблице заказов?
+        //$actualOrderForUser = Order::where(['user_id' => $user->id])->where('status', '=', 1)->orWhere('status', '=', 4)->first();
         
-        if($actualOrderForUser->status == 4){
-            return null;
-        }
-        
+        //if($actualOrderForUser->status == 4){
+        //    return null;
+        //}
         return $actualOrderForUser->id ?? null;
     }
     
@@ -335,11 +334,15 @@ class CartService implements Cart {
      */
     public function saveUserForOrder(User $user, int $orderId): bool 
     {
-        $order = Order::where('id', $orderId)->first();
+        $order = Order::find($orderId);
+        if(!$order) {
+            return false;
+        }
         //Если у данного ордера действительно еще нет пользователя
         if(!$order->user_id) {
             $order->user_id = $user->id;
             if($order->save()) {
+                $this->_order->user_id = $order->user_id;
                 return true;
             }   
         }
@@ -402,9 +405,37 @@ class CartService implements Cart {
         
     }
     
-    public function getOrderForPurchase(Request $request): ?Order 
+    public function holdItem (Request $request, int $productId): bool
+    {
+        $this->req = $request;
+        $orderItem = OrderItem::where(['product_id' => $productId, 'order_id' => $this->getOrderId()])->first();
+        if (!$orderItem) {
+            return false;
+        }
+        
+       
+        
+    }
+    
+    public function getOrderForPurchase(Request $request): Order 
     {
         $this->req = $request;
         return $this->getOrder();
+    }
+    
+    public function setAfterPurchase (Request $request, int $orderId): bool 
+    {
+        $this->req = $request;
+        if($this->req->session()->has(self::SESSION_KEY)) {
+            if($this->req->session()->get(self::SESSION_KEY) === $orderId) {
+                $this->req->session()->forget(self::SESSION_KEY);
+                 Log::info('setAfterPurchase() - стерли сессию');
+            }
+        }
+        if($this->_order->id === $orderId) {
+            $this->_order = null;
+            Log::info('setAfterPurchase() - обнулили кэш Ордера');
+        }
+        return true;
     }
 }

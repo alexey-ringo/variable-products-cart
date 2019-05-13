@@ -47,10 +47,6 @@ class PurchaseService implements PurchaseInterface {
             
         
         if($purchase->save()) {
-            //$order->purchase_id = $purchase->id;
-            //if ($order->save()) {
-            //    return $purchase;
-            //}
             $order->status = 4;
             $order->purchase_id = $purchase->id;
             if ($order->save()) {

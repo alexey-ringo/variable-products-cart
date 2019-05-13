@@ -66,6 +66,7 @@ class CheckoutController extends Controller
             if(!Event::fire(new onCheckoutEvent($resultPurchase))) {
                 return response()->json(0);
             }
+            $cart->setAfterPurchase($request, $resultPurchase->order_id);
             return response()->json(['purchase' => $resultPurchase]);
         }
         return response()->json(0);

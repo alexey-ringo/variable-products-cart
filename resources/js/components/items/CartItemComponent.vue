@@ -1,7 +1,7 @@
 <template>
 	<tr>
 		<td class="product-col">
-			<img v-bind:src="'/storage/' + product.add_attributes.product.images[0]" alt="">
+			<img v-bind:src="'/storage/' + product.add_attributes.product.images[0]" class="img-fluid" alt="">
 			<div class="pc-title">
 				<h4>{{product.add_attributes.groupproduct.name}}</h4>
 				<p>{{product.add_attributes.product.name}}</p>
@@ -20,7 +20,7 @@
 		    <button type="button" class="btn btn-outline-danger" v-on:click="delItem">Удалить</button>
 		</td>
 		<td class="size-col">
-		    <button type="button" class="btn btn-outline-dark">Отложить</button>
+		    <button type="button" class="btn btn-outline-dark" v-on:click="holdItem">Отложить</button>
 		</td>
 		<td class="total-col"><h4>{{itemAmount}}</h4></td>
 	</tr>
@@ -58,6 +58,25 @@
             		    else {
             		        this.$emit("changecartevent", 1);
             				swal('Товар не удален!', "Что то пошло не так...", "error");
+            		    }
+                    })
+                    .catch(e => {
+                    	//console.log(e);
+                    	swal('Ошибка', "Внутренняя ошибка сервера", "error");
+                    });
+            },
+            holdItem: function(event) {
+            	event.preventDefault();
+            	axios.post('/hold-cart', {
+            		product: this.productId,
+            		})
+            		.then((response) => {
+            		    if(response.data) {
+                    	    this.$emit("changecartevent", 1);
+            		    }
+            		    else {
+            		        this.$emit("changecartevent", 1);
+            				swal('Товар не удалось отложить!', "Что то пошло не так...", "error");
             		    }
                     })
                     .catch(e => {

@@ -58,7 +58,8 @@ const app = new Vue({
     data: {
     	productsInCart: [],
     	totalCartQuantity: 0,
-    	totalCartAmount: 0
+    	totalCartAmount: 0,
+    	username: null
     },
     mounted() {
             this.update()
@@ -66,6 +67,7 @@ const app = new Vue({
     methods: {
     	update: function() {
     		this.getStatusCart();
+    		this.getUsername();
            },
         getStatusCart: function() {
             axios.get('/status-cart')
@@ -80,6 +82,21 @@ const app = new Vue({
         },
         changecartevent: function(id) {
             	this.getStatusCart();
+        },
+        getUsername: function() {
+            	axios.get('/get-username'/*, {
+                    params: {
+                        slug: slug
+                    }
+                }*/)
+            	.then((response) => {
+            	    console.log(response.data);
+                	//this.username = response.data.menu_categories;
+                })
+                .catch(e => {
+                	console.log(e);
+                	swal('Ошибка', "Внутренняя ошибка сервера", "error");
+                });
         },
     }
     
@@ -111,11 +128,13 @@ $(document).ready(function(){
 	/*------------------
 		ScrollBar
 	--------------------*/
-	$(".cart-table-warp, .product-thumbs").niceScroll({
-		cursorborder:"",
-		cursorcolor:"#afafaf",
-		boxzoom:false
-	});
+	setTimeout(function () {
+		$(".cart-table-warp, .product-thumbs").niceScroll({
+			cursorborder:"",
+			cursorcolor:"#afafaf",
+			boxzoom:false
+		});
+	}, 1000); // время в мс
   
   
 });

@@ -60,12 +60,11 @@
             //    cartProducts: this.initialCartProducts
             	cartProducts: [],
             	oldCartProducts: [],
-            	holdCartProducts: []
-                
+            	holdCartProducts: [],
             }
         },
         mounted() {
-            this.update()
+            this.update();
         },
         methods: {
             update: function() {
@@ -79,7 +78,8 @@
                     	this.cartProducts = response.data.itemsInOrder;
                     })
                     .catch(e => {
-                    	console.log(e);
+                    	//console.log(e);
+                    	swal('Ошибка', "Внутренняя ошибка сервера", "error");
                     });
             },
             /*

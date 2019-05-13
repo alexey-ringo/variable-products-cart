@@ -6,6 +6,7 @@ use App\Category;
 use App\Groupproduct;
 use App\Product;
 use Illuminate\Http\Request;
+use Auth;
 
 class ShopController extends Controller
 {

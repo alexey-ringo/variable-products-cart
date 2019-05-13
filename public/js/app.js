@@ -1838,7 +1838,8 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('/products-in-cart').then(function (response) {
         _this.cartProducts = response.data.itemsInOrder;
       })["catch"](function (e) {
-        console.log(e);
+        //console.log(e);
+        swal('Ошибка', "Внутренняя ошибка сервера", "error");
       });
     },
 
@@ -3012,22 +3013,41 @@ __webpack_require__.r(__webpack_exports__);
         swal('Ошибка', "Внутренняя ошибка сервера", "error");
       });
     },
-    getItemAmount: function getItemAmount() {
+    holdItem: function holdItem(event) {
       var _this2 = this;
+
+      event.preventDefault();
+      axios.post('/hold-cart', {
+        product: this.productId
+      }).then(function (response) {
+        if (response.data) {
+          _this2.$emit("changecartevent", 1);
+        } else {
+          _this2.$emit("changecartevent", 1);
+
+          swal('Товар не удалось отложить!', "Что то пошло не так...", "error");
+        }
+      })["catch"](function (e) {
+        //console.log(e);
+        swal('Ошибка', "Внутренняя ошибка сервера", "error");
+      });
+    },
+    getItemAmount: function getItemAmount() {
+      var _this3 = this;
 
       axios.get('/get-item-amount', {
         params: {
           product: this.productId
         }
       }).then(function (response) {
-        _this2.itemAmount = response.data.itemAmount;
+        _this3.itemAmount = response.data.itemAmount;
       })["catch"](function (e) {
         //console.log(e);
         swal('Ошибка', "Внутренняя ошибка сервера", "error");
       });
     },
     onQtyAdd: function onQtyAdd(event) {
-      var _this3 = this;
+      var _this4 = this;
 
       event.preventDefault();
       this.quantity++;
@@ -3036,9 +3056,9 @@ __webpack_require__.r(__webpack_exports__);
         quantity: this.quantity
       }).then(function (response) {
         if (response.data) {
-          _this3.$emit("changecartevent", 1);
+          _this4.$emit("changecartevent", 1);
         } else {
-          _this3.$emit("changecartevent", 1);
+          _this4.$emit("changecartevent", 1);
 
           swal('Количество товара не изменено!', "Что то пошло не так...", "error");
         }
@@ -3048,7 +3068,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     onQtyDel: function onQtyDel(event) {
-      var _this4 = this;
+      var _this5 = this;
 
       event.preventDefault();
 
@@ -3061,9 +3081,9 @@ __webpack_require__.r(__webpack_exports__);
         quantity: this.quantity
       }).then(function (response) {
         if (response.data) {
-          _this4.$emit("changecartevent", 1);
+          _this5.$emit("changecartevent", 1);
         } else {
-          _this4.$emit("changecartevent", 1);
+          _this5.$emit("changecartevent", 1);
 
           swal('Количество товара не изменено!', "Что то пошло не так...", "error");
         }
@@ -49387,6 +49407,7 @@ var render = function() {
   return _c("tr", [
     _c("td", { staticClass: "product-col" }, [
       _c("img", {
+        staticClass: "img-fluid",
         attrs: {
           src: "/storage/" + _vm.product.add_attributes.product.images[0],
           alt: ""
@@ -49437,27 +49458,24 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
-    _vm._m(0),
+    _c("td", { staticClass: "size-col" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-outline-dark",
+          attrs: { type: "button" },
+          on: { click: _vm.holdItem }
+        },
+        [_vm._v("Отложить")]
+      )
+    ]),
     _vm._v(" "),
     _c("td", { staticClass: "total-col" }, [
       _c("h4", [_vm._v(_vm._s(_vm.itemAmount))])
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", { staticClass: "size-col" }, [
-      _c(
-        "button",
-        { staticClass: "btn btn-outline-dark", attrs: { type: "button" } },
-        [_vm._v("Отложить")]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -64487,7 +64505,8 @@ var app = new Vue({
   data: {
     productsInCart: [],
     totalCartQuantity: 0,
-    totalCartAmount: 0
+    totalCartAmount: 0,
+    username: null
   },
   mounted: function mounted() {
     this.update();
@@ -64495,6 +64514,7 @@ var app = new Vue({
   methods: {
     update: function update() {
       this.getStatusCart();
+      this.getUsername();
     },
     getStatusCart: function getStatusCart() {
       var _this = this;
@@ -64509,6 +64529,20 @@ var app = new Vue({
     },
     changecartevent: function changecartevent(id) {
       this.getStatusCart();
+    },
+    getUsername: function getUsername() {
+      axios.get('/get-username'
+      /*, {
+      params: {
+      slug: slug
+      }
+      }*/
+      ).then(function (response) {
+        console.log(response.data); //this.username = response.data.menu_categories;
+      })["catch"](function (e) {
+        console.log(e);
+        swal('Ошибка', "Внутренняя ошибка сервера", "error");
+      });
     }
   }
 });
@@ -64532,11 +64566,13 @@ $(document).ready(function () {
   	ScrollBar
   --------------------*/
 
-  $(".cart-table-warp, .product-thumbs").niceScroll({
-    cursorborder: "",
-    cursorcolor: "#afafaf",
-    boxzoom: false
-  });
+  setTimeout(function () {
+    $(".cart-table-warp, .product-thumbs").niceScroll({
+      cursorborder: "",
+      cursorcolor: "#afafaf",
+      boxzoom: false
+    });
+  }, 1000); // время в мс
 });
 /* =================================
 ------------------------------------
