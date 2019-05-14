@@ -38,7 +38,7 @@ Route::get('/queue', function() {
 });
 
 Route::get('/users/logout', 'Auth\LoginController@userLogout')->name('user.logout');
-Route::get('/get-username', 'Auth\LoginController@getUsername')->name('user.username');
+Route::get('/get-username', 'UserController@getUsername')->name('user.username');
 
 Route::prefix('a7dm0in3')->group(function() {
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');

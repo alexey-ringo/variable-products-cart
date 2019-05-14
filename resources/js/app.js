@@ -59,7 +59,7 @@ const app = new Vue({
     	productsInCart: [],
     	totalCartQuantity: 0,
     	totalCartAmount: 0,
-    	username: null
+    	userName: '',
     },
     mounted() {
             this.update()
@@ -84,14 +84,9 @@ const app = new Vue({
             	this.getStatusCart();
         },
         getUsername: function() {
-            	axios.get('/get-username'/*, {
-                    params: {
-                        slug: slug
-                    }
-                }*/)
+            	axios.get('/get-username')
             	.then((response) => {
-            	    console.log(response.data);
-                	//this.username = response.data.menu_categories;
+                	this.userName = response.data.userName;
                 })
                 .catch(e => {
                 	console.log(e);

@@ -118,11 +118,13 @@ class CartService implements Cart {
     
     private function checkOrderOfPurchase(): bool
     {
-        //Проверяем - есть ли вообще Ордер в сессии? Если нет - действие всей функции завершается
+        //Проверяем - есть ли вообще Ордер в сессии? 
         if (!$this->req->session()->has(self::SESSION_KEY)) {
+            //и в кэш-переменной Ордера?
             if($this->_order) {
                 $this->_order = null;
             }
+            //Если нет - действие всей функции завершается
             Log::info('CheckOrderOfPurchase() - ключ в сессии и кэш-переменная Ордера были и их удалили');
             return false;
         }

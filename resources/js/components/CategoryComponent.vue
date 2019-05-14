@@ -21,17 +21,18 @@
 						</div>
 						<div class="col-xl-4 col-lg-5">
 							<div class="user-panel">
-								<div class="up-item">
-									<i class="flaticon-profile"></i>
-									<a v-bind:href="'/login'">Войти</a> или <a v-bind:href="'/register'">Зарегистрироваться</a>
-								</div>
 								
-									<cart-info-component 
-										v-bind:totalCartQuantity="totalCartQuantity"
-										v-bind:totalCartAmount="totalCartAmount"
-										>
-										
-									</cart-info-component>
+								<user-login
+									v-bind:userName="userName"
+									>
+								</user-login>
+								
+								<cart-info-component 
+									v-bind:totalCartQuantity="totalCartQuantity"
+									v-bind:totalCartAmount="totalCartAmount"
+									>
+									
+								</cart-info-component>
 								    
 								
 							</div>
@@ -367,11 +368,13 @@
 <script>
     import CategoryItem from './items/CategoryItemComponent.vue';
     import MainCategoryItem from './items/MainCategoryItemComponent.vue';
+    import UserLogin from './items/UserLoginComponent.vue';
 
     export default {
         components: {
             'category-item': CategoryItem,
-            'main-category-item': MainCategoryItem
+            'main-category-item': MainCategoryItem,
+            'user-login': UserLogin,
         },
         props: [
         	'initialGroupproducts',
@@ -379,6 +382,7 @@
             'initialCurrentCategory',
             'totalCartQuantity',
             'totalCartAmount',
+            'userName',
             ],
         data: function() {
             return {

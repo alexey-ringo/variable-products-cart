@@ -86,6 +86,16 @@
   
 }
 
+/* ----------------
+  User-Login component
+---------------------*/
+.inline-block {
+  display: inline-block;
+}
+.margin-right-30 {
+  margin-right: 30px;
+}
+
 /*-------------
   Cart DropDown menu
 ---------------------*/
