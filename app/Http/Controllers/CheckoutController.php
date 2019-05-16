@@ -42,6 +42,7 @@ class CheckoutController extends Controller
         //if (!$request->isMethod('post')){  
         //    return 0;
         //}
+        
         $validator = Validator::make(json_decode($request->getContent(), true), [
             'name' => 'required',
             'surname' => 'required',
@@ -49,10 +50,24 @@ class CheckoutController extends Controller
             'street' => 'required',
             'building' => 'required',
             'flat' => 'required',
-            'email' => 'required',
-            'phone' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required|digits:11',
 
         ]);
+        
+        /*
+        $rules = [
+            'name' => 'required',
+            'surname' => 'required',
+            'sity' => 'required',
+            'street' => 'required',
+            'building' => 'required',
+            'flat' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required|digits:11'
+        ];
+        */
+        //$validator = $this->validate($request, $rules/*, $messages*/);
         
         //$validator->passes()
         

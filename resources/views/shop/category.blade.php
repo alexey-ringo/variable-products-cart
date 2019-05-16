@@ -7,11 +7,7 @@
 @endsection
 
 
-@section('content')	
-
-
-	
-
+@section('content')
 	<category-component
 		v-bind:initial-groupproducts = "{{$groupproducts}}"
 		v-bind:initial-categories = "{{$menu_categories}}" 
@@ -20,8 +16,4 @@
 		v-bind:user-name = "userName"
 	>
 	</category-component>
-
-
-
-	
 @endsection

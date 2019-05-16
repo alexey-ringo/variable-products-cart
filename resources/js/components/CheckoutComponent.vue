@@ -42,39 +42,39 @@
 								<input type="text" v-model="checkoutForm.email" required placeholder="email">
 							</div>
 							<div class="col-md-6">
-								<input type="text" v-model="checkoutForm.phone" required placeholder="Телефон">
+								<input type="text" v-model="checkoutForm.phone" required placeholder="Телефон - 11 знаков (с '8' или '7') без '+'">
 							</div>
 						</div>
-						<div class="cf-title">Delievery Info</div>
+						<div class="cf-title">Доставка</div>
 						<div class="row shipping-btns">
 							<div class="col-6">
-								<h4>Standard</h4>
+								<h4>Самовывоз</h4>
 							</div>
 							<div class="col-6">
 								<div class="cf-radio-btns">
 									<div class="cfr-item">
 										<input type="radio" name="shipping" id="ship-1">
-										<label for="ship-1">Free</label>
+										<label for="ship-1">Бесплатно</label>
 									</div>
 								</div>
 							</div>
 							<div class="col-6">
-								<h4>Next day delievery  </h4>
+								<h4>Курьер</h4>
 							</div>
 							<div class="col-6">
 								<div class="cf-radio-btns">
 									<div class="cfr-item">
 										<input type="radio" name="shipping" id="ship-2">
-										<label for="ship-2">$3.45</label>
+										<label for="ship-2">500 Руб.</label>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="cf-title">Payment</div>
+						<div class="cf-title">Способ оплаты</div>
 						<ul class="payment-list">
 							<li>Paypal<a href="#"><img src="img/paypal.png" alt=""></a></li>
 							<li>Credit / Debit card<a href="#"><img src="img/mastercart.png" alt=""></a></li>
-							<li>Pay when you get the package</li>
+							<li>При получении заказа</li>
 						</ul>
 						<button class="site-btn submit-order-btn">Оформить заказ</button>
 					</form>
@@ -100,6 +100,8 @@
 
 <script>
     import CartCheckout from './items/CartCheckoutComponent.vue';
+    //import KladrApi from 'kladrapi-for-node';
+    import 'jquery.kladr';
 
     export default {
         components: {
@@ -135,7 +137,14 @@
         		}*/)
         		.then((response) => {
         			if(response.data) {
+        				if(response.data.error) {
+        					console.log(response.data.error);
+        					let errorsArray = response.data.error.join(', ');
+        					swal("Ошибка в заполнении полей", errorsArray, "error");
+        					return;
+        				}
                 		this.$emit("changecartevent", 1);
+                		console.log(response.data);
                 		swal("Заказ", "Ваш заказ принят!", "success");
             		}
             		else {/*
@@ -164,6 +173,14 @@
                		swal('Ошибка', "Внутренняя ошибка сервера", "error");
                 });
             },
+        getSuggestions: function(query){
+			const Kladr = new kladrApi();
+			let q = {query: query, contentType: 'city', withParent: 0};
+                        Kladr.getData(q, (err, result)=>{
+                                 console.log(err, result);
+                        });
+
+                },
     	}
     }
 </script>

@@ -22,7 +22,7 @@
 								    <i class="flaticon-profile"></i>
 								    <p>{{ Auth::user()->name }}</p>
 								 </div>
-								 <div class="up-item">
+								 <div class="up-item margin-right-30">
 								    <a href="{{route('user.logout')}}">Выйти</a>
 							    </div>
 							@else
@@ -31,14 +31,11 @@
 								    <a href="{{route('login')}}">Войти</a> или <a href="{{route('register')}}">Зарегистрироваться</a>
 							    </div>
 							@endif
-							    {{--<div class="up-item">--}}
-								    <cart-info-component 
-								    v-bind:total-cart-quantity="totalCartQuantity"
-								    v-bind:total-cart-amount="totalCartAmount"
-								    >
-								    </cart-info-component>
-								   {{-- <a href="{{route('cart.show')}}">Корзина</a> --}}
-							    {{--</div>--}}
+							    <cart-info-component 
+									v-bind:total-cart-quantity="totalCartQuantity"
+									v-bind:total-cart-amount="totalCartAmount"
+									>
+								</cart-info-component>
 						    </div>
 					    </div>
 				    </div>
