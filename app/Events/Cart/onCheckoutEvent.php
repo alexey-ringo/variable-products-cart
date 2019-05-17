@@ -11,13 +11,15 @@ use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
 use App\Services\Purchase;
-//use App\Order;
+use App\Services\Order;
 
 class onCheckoutEvent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
     
     public $purchase;
+    public $order;
+    
 
     /**
      * Create a new event instance.
@@ -27,6 +29,7 @@ class onCheckoutEvent
     public function __construct(Purchase $purchase/*, Order $order*/)
     {
         $this->purchase = $purchase;
+        $this->order = Order::find($purchase->order_id);
     }
 
     /**

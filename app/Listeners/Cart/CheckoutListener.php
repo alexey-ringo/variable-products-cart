@@ -29,6 +29,6 @@ class CheckoutListener
     public function handle(onCheckoutEvent $event)
     {
         //
-        Mail::to($event->purchase->email)->send(new OrderPlaced);
+        Mail::to($event->purchase->email)->send(new OrderPlaced($event));
     }
 }

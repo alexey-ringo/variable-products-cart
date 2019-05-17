@@ -136,7 +136,7 @@ class CartService implements Cart {
         if($purchasedOrder) {
             $this->req->session()->forget(self::SESSION_KEY);
             $this->_order = null;
-            Log::info('Test checkOrderOfPurchase', ['_Order' => $_order]);
+            Log::info('Test checkOrderOfPurchase', ['_Order' => $this->_order]);
             return true;
         }
         return false;
