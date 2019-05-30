@@ -3,6 +3,8 @@ import VueRouter from 'vue-router';
 //Импорт компонента
 import Profile from './components/adminlte/Profile';
 import Adminlte from './components/adminlte/Adminlte';
+import Login from './components/adminlte/Login';
+import Logout from './components/adminlte/Logout';
 import Products from './components/adminlte/lteitems/Products.vue';
 import Orders from './components/adminlte/lteitems/Orders.vue';
 import Purchases from './components/adminlte/lteitems/Purchases.vue';
@@ -25,7 +27,20 @@ export default new VueRouter({
         //    component : Products
         //},
         {
+            path: '/a7dm0in3/login',
+            //path: '/login',
+            name: 'login',
+            component: Login,
+        },
+        {
+            path: '/a7dm0in3/logout',
+            //path: '/logout',
+            name: 'logout',
+            component: Logout,
+        },
+        {
             path: '/a7dm0in3',
+            name: 'adminlte',
             component : Adminlte,
             
             children: [

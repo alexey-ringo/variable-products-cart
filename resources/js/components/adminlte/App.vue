@@ -4,8 +4,8 @@
 
 <script>
     export default {
-        mounted() {
-            console.log('App Component mounted.')
-        }
+        //mounted() {
+        //    console.log('App Component mounted.')
+        //}
     }
 </script>

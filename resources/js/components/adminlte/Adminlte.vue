@@ -489,6 +489,9 @@
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
+    <div class="p-3">
+      <router-link :to="{ name: 'logout' }" class="nav-link" v-if="isLoggedIn">Выход</router-link>
+    </div>
   </aside>
   <!-- /.control-sidebar -->
 </div>
@@ -507,8 +510,25 @@
             'orders': Orders,
             'purchases': Purchases,
         },
+        data(){
+            return {
+                isLoggedIn : null,
+                name : null
+            }
+        },
         mounted() {
-            console.log('AdminLte Component mounted.')
+            //console.log('AdminLte Component mounted.');
+            this.isLoggedIn = localStorage.getItem('jwt');
+            this.name = localStorage.getItem('user');
+        },
+        
+        beforeRouteEnter (to, from, next) { 
+            if (!localStorage.getItem('jwt')) {
+                return next({name: 'login'});
+            }
+
+            next();
         }
+        
     }
 </script>
