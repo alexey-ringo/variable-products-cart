@@ -25,6 +25,7 @@
     "vue-template-compiler": "^2.5.22"
   },
   "dependencies": {
+    "admin-lte": "^3.0.0-alpha.2",
     "jquery-ui": "^1.12.1",
     "jquery-zoom": "^1.7.21",
     "jquery.kladr": "^2.2.2",

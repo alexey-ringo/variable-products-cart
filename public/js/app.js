@@ -2872,6 +2872,1909 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/adminlte/Adminlte.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/adminlte/Adminlte.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _lteitems_Products_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lteitems/Products.vue */ "./resources/js/components/adminlte/lteitems/Products.vue");
+/* harmony import */ var _lteitems_Orders_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./lteitems/Orders.vue */ "./resources/js/components/adminlte/lteitems/Orders.vue");
+/* harmony import */ var _lteitems_Purchases_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./lteitems/Purchases.vue */ "./resources/js/components/adminlte/lteitems/Purchases.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    'products': _lteitems_Products_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    'orders': _lteitems_Orders_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    'purchases': _lteitems_Purchases_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  mounted: function mounted() {
+    console.log('AdminLte Component mounted.');
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/adminlte/lteitems/Orders.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/adminlte/lteitems/Orders.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    console.log('Component mounted.');
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/adminlte/lteitems/Products.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/adminlte/lteitems/Products.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    console.log('Component mounted.');
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/adminlte/lteitems/Purchases.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/adminlte/lteitems/Purchases.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    console.log('Component mounted.');
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/items/CartCheckoutComponent.vue?vue&type=script&lang=js&":
 /*!**************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/items/CartCheckoutComponent.vue?vue&type=script&lang=js& ***!
@@ -49351,6 +51254,3424 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/adminlte/Adminlte.vue?vue&type=template&id=0a06b6d4&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/adminlte/Adminlte.vue?vue&type=template&id=0a06b6d4& ***!
+  \********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "wrapper" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "aside",
+      { staticClass: "main-sidebar sidebar-dark-primary elevation-4" },
+      [
+        _vm._m(1),
+        _vm._v(" "),
+        _c("div", { staticClass: "sidebar" }, [
+          _vm._m(2),
+          _vm._v(" "),
+          _c("nav", { staticClass: "mt-2" }, [
+            _c(
+              "ul",
+              {
+                staticClass: "nav nav-pills nav-sidebar flex-column",
+                attrs: {
+                  "data-widget": "treeview",
+                  role: "menu",
+                  "data-accordion": "false"
+                }
+              },
+              [
+                _c("li", { staticClass: "nav-item has-treeview" }, [
+                  _vm._m(3),
+                  _vm._v(" "),
+                  _c("ul", { staticClass: "nav nav-treeview" }, [
+                    _c(
+                      "li",
+                      { staticClass: "nav-item" },
+                      [
+                        _c(
+                          "router-link",
+                          { attrs: { to: { name: "adminproducts" } } },
+                          [_vm._v("Товары")]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      { staticClass: "nav-item" },
+                      [
+                        _c(
+                          "router-link",
+                          { attrs: { to: { name: "adminorders" } } },
+                          [
+                            _c("i", { staticClass: "fa fa-circle-o nav-icon" }),
+                            _c("p", [_vm._v("Заказы")])
+                          ]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      { staticClass: "nav-item" },
+                      [
+                        _c(
+                          "router-link",
+                          { attrs: { to: { name: "adminpurchases" } } },
+                          [
+                            _c("i", { staticClass: "fa fa-circle-o nav-icon" }),
+                            _c("p", [_vm._v("Контракты")])
+                          ]
+                        )
+                      ],
+                      1
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm._m(4),
+                _vm._v(" "),
+                _vm._m(5),
+                _vm._v(" "),
+                _vm._m(6),
+                _vm._v(" "),
+                _vm._m(7),
+                _vm._v(" "),
+                _vm._m(8),
+                _vm._v(" "),
+                _c("li", { staticClass: "nav-header" }, [_vm._v("EXAMPLES")]),
+                _vm._v(" "),
+                _vm._m(9),
+                _vm._v(" "),
+                _vm._m(10),
+                _vm._v(" "),
+                _vm._m(11),
+                _vm._v(" "),
+                _vm._m(12),
+                _vm._v(" "),
+                _c("li", { staticClass: "nav-header" }, [
+                  _vm._v("MISCELLANEOUS")
+                ]),
+                _vm._v(" "),
+                _vm._m(13),
+                _vm._v(" "),
+                _c("li", { staticClass: "nav-header" }, [_vm._v("LABELS")]),
+                _vm._v(" "),
+                _vm._m(14),
+                _vm._v(" "),
+                _vm._m(15),
+                _vm._v(" "),
+                _vm._m(16)
+              ]
+            )
+          ])
+        ])
+      ]
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "content-wrapper" }, [
+      _vm._m(17),
+      _vm._v(" "),
+      _c("section", { staticClass: "content" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-12" }, [_c("router-view")], 1)
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _vm._m(18),
+    _vm._v(" "),
+    _c("aside", { staticClass: "control-sidebar control-sidebar-dark" })
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "nav",
+      {
+        staticClass:
+          "main-header navbar navbar-expand bg-white navbar-light border-bottom"
+      },
+      [
+        _c("ul", { staticClass: "navbar-nav" }, [
+          _c("li", { staticClass: "nav-item" }, [
+            _c(
+              "a",
+              {
+                staticClass: "nav-link",
+                attrs: { "data-widget": "pushmenu", href: "#" }
+              },
+              [_c("i", { staticClass: "fa fa-bars" })]
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "nav-item d-none d-sm-inline-block" }, [
+            _c(
+              "a",
+              { staticClass: "nav-link", attrs: { href: "../../index3.html" } },
+              [_vm._v("Home")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "nav-item d-none d-sm-inline-block" }, [
+            _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+              _vm._v("Contact")
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("form", { staticClass: "form-inline ml-3" }, [
+          _c("div", { staticClass: "input-group input-group-sm" }, [
+            _c("input", {
+              staticClass: "form-control form-control-navbar",
+              attrs: {
+                type: "search",
+                placeholder: "Search",
+                "aria-label": "Search"
+              }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "input-group-append" }, [
+              _c(
+                "button",
+                { staticClass: "btn btn-navbar", attrs: { type: "submit" } },
+                [_c("i", { staticClass: "fa fa-search" })]
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("ul", { staticClass: "navbar-nav ml-auto" }, [
+          _c("li", { staticClass: "nav-item dropdown" }, [
+            _c(
+              "a",
+              {
+                staticClass: "nav-link",
+                attrs: { "data-toggle": "dropdown", href: "#" }
+              },
+              [
+                _c("i", { staticClass: "fa fa-comments-o" }),
+                _vm._v(" "),
+                _c("span", { staticClass: "badge badge-danger navbar-badge" }, [
+                  _vm._v("3")
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "dropdown-menu dropdown-menu-lg dropdown-menu-right"
+              },
+              [
+                _c(
+                  "a",
+                  { staticClass: "dropdown-item", attrs: { href: "#" } },
+                  [
+                    _c("div", { staticClass: "media" }, [
+                      _c("img", {
+                        staticClass: "img-size-50 mr-3 img-circle",
+                        attrs: { src: "", alt: "User Avatar" }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "media-body" }, [
+                        _c("h3", { staticClass: "dropdown-item-title" }, [
+                          _vm._v(
+                            "\n                  Brad Diesel\n                  "
+                          ),
+                          _c(
+                            "span",
+                            { staticClass: "float-right text-sm text-danger" },
+                            [_c("i", { staticClass: "fa fa-star" })]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "text-sm" }, [
+                          _vm._v("Call me whenever you can...")
+                        ]),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "text-sm text-muted" }, [
+                          _c("i", { staticClass: "fa fa-clock-o mr-1" }),
+                          _vm._v(" 4 Hours Ago")
+                        ])
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "dropdown-divider" }),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  { staticClass: "dropdown-item", attrs: { href: "#" } },
+                  [
+                    _c("div", { staticClass: "media" }, [
+                      _c("img", {
+                        staticClass: "img-size-50 img-circle mr-3",
+                        attrs: { src: "", alt: "User Avatar" }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "media-body" }, [
+                        _c("h3", { staticClass: "dropdown-item-title" }, [
+                          _vm._v(
+                            "\n                  John Pierce\n                  "
+                          ),
+                          _c(
+                            "span",
+                            { staticClass: "float-right text-sm text-muted" },
+                            [_c("i", { staticClass: "fa fa-star" })]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "text-sm" }, [
+                          _vm._v("I got your message bro")
+                        ]),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "text-sm text-muted" }, [
+                          _c("i", { staticClass: "fa fa-clock-o mr-1" }),
+                          _vm._v(" 4 Hours Ago")
+                        ])
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "dropdown-divider" }),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  { staticClass: "dropdown-item", attrs: { href: "#" } },
+                  [
+                    _c("div", { staticClass: "media" }, [
+                      _c("img", {
+                        staticClass: "img-size-50 img-circle mr-3",
+                        attrs: { src: "", alt: "User Avatar" }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "media-body" }, [
+                        _c("h3", { staticClass: "dropdown-item-title" }, [
+                          _vm._v(
+                            "\n                  Nora Silvester\n                  "
+                          ),
+                          _c(
+                            "span",
+                            { staticClass: "float-right text-sm text-warning" },
+                            [_c("i", { staticClass: "fa fa-star" })]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "text-sm" }, [
+                          _vm._v("The subject goes here")
+                        ]),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "text-sm text-muted" }, [
+                          _c("i", { staticClass: "fa fa-clock-o mr-1" }),
+                          _vm._v(" 4 Hours Ago")
+                        ])
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "dropdown-divider" }),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "dropdown-item dropdown-footer",
+                    attrs: { href: "#" }
+                  },
+                  [_vm._v("See All Messages")]
+                )
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "nav-item dropdown" }, [
+            _c(
+              "a",
+              {
+                staticClass: "nav-link",
+                attrs: { "data-toggle": "dropdown", href: "#" }
+              },
+              [
+                _c("i", { staticClass: "fa fa-bell-o" }),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  { staticClass: "badge badge-warning navbar-badge" },
+                  [_vm._v("15")]
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "dropdown-menu dropdown-menu-lg dropdown-menu-right"
+              },
+              [
+                _c("span", { staticClass: "dropdown-item dropdown-header" }, [
+                  _vm._v("15 Notifications")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "dropdown-divider" }),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  { staticClass: "dropdown-item", attrs: { href: "#" } },
+                  [
+                    _c("i", { staticClass: "fa fa-envelope mr-2" }),
+                    _vm._v(" 4 new messages\n            "),
+                    _c(
+                      "span",
+                      { staticClass: "float-right text-muted text-sm" },
+                      [_vm._v("3 mins")]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "dropdown-divider" }),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  { staticClass: "dropdown-item", attrs: { href: "#" } },
+                  [
+                    _c("i", { staticClass: "fa fa-users mr-2" }),
+                    _vm._v(" 8 friend requests\n            "),
+                    _c(
+                      "span",
+                      { staticClass: "float-right text-muted text-sm" },
+                      [_vm._v("12 hours")]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "dropdown-divider" }),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  { staticClass: "dropdown-item", attrs: { href: "#" } },
+                  [
+                    _c("i", { staticClass: "fa fa-file mr-2" }),
+                    _vm._v(" 3 new reports\n            "),
+                    _c(
+                      "span",
+                      { staticClass: "float-right text-muted text-sm" },
+                      [_vm._v("2 days")]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "dropdown-divider" }),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "dropdown-item dropdown-footer",
+                    attrs: { href: "#" }
+                  },
+                  [_vm._v("See All Notifications")]
+                )
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "nav-item" }, [
+            _c(
+              "a",
+              {
+                staticClass: "nav-link",
+                attrs: {
+                  "data-widget": "control-sidebar",
+                  "data-slide": "true",
+                  href: "#"
+                }
+              },
+              [_c("i", { staticClass: "fa fa-th-large" })]
+            )
+          ])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      { staticClass: "brand-link", attrs: { href: "../../index3.html" } },
+      [
+        _c("img", {
+          staticClass: "brand-image img-circle elevation-3",
+          staticStyle: { opacity: ".8" },
+          attrs: { src: "", alt: "AdminLTE Logo" }
+        }),
+        _vm._v(" "),
+        _c("span", { staticClass: "brand-text font-weight-light" }, [
+          _vm._v("AdminLTE 3")
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "user-panel mt-3 pb-3 mb-3 d-flex" }, [
+      _c("div", { staticClass: "image" }, [
+        _c("img", {
+          staticClass: "img-circle elevation-2",
+          attrs: { src: "", alt: "User Image" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "info" }, [
+        _c("a", { staticClass: "d-block", attrs: { href: "#" } }, [
+          _vm._v("Alexander Pierce")
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+      _c("i", { staticClass: "nav-icon fa fa-dashboard" }),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v("\n                Dashboard\n                "),
+        _c("i", { staticClass: "right fa fa-angle-left" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item" }, [
+      _c("a", { staticClass: "nav-link", attrs: { href: "../widgets.html" } }, [
+        _c("i", { staticClass: "nav-icon fa fa-th" }),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v("\n                Widgets\n                "),
+          _c("span", { staticClass: "right badge badge-danger" }, [
+            _vm._v("New")
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item has-treeview" }, [
+      _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+        _c("i", { staticClass: "nav-icon fa fa-pie-chart" }),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v("\n                Charts\n                "),
+          _c("i", { staticClass: "right fa fa-angle-left" })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("ul", { staticClass: "nav nav-treeview" }, [
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link",
+              attrs: { href: "../charts/chartjs.html" }
+            },
+            [
+              _c("i", { staticClass: "fa fa-circle-o nav-icon" }),
+              _vm._v(" "),
+              _c("p", [_vm._v("ChartJS")])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            { staticClass: "nav-link", attrs: { href: "../charts/flot.html" } },
+            [
+              _c("i", { staticClass: "fa fa-circle-o nav-icon" }),
+              _vm._v(" "),
+              _c("p", [_vm._v("Flot")])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link",
+              attrs: { href: "../charts/inline.html" }
+            },
+            [
+              _c("i", { staticClass: "fa fa-circle-o nav-icon" }),
+              _vm._v(" "),
+              _c("p", [_vm._v("Inline")])
+            ]
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item has-treeview" }, [
+      _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+        _c("i", { staticClass: "nav-icon fa fa-tree" }),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v("\n                UI Elements\n                "),
+          _c("i", { staticClass: "fa fa-angle-left right" })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("ul", { staticClass: "nav nav-treeview" }, [
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            { staticClass: "nav-link", attrs: { href: "../UI/general.html" } },
+            [
+              _c("i", { staticClass: "fa fa-circle-o nav-icon" }),
+              _vm._v(" "),
+              _c("p", [_vm._v("General")])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            { staticClass: "nav-link", attrs: { href: "../UI/icons.html" } },
+            [
+              _c("i", { staticClass: "fa fa-circle-o nav-icon" }),
+              _vm._v(" "),
+              _c("p", [_vm._v("Icons")])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            { staticClass: "nav-link", attrs: { href: "../UI/buttons.html" } },
+            [
+              _c("i", { staticClass: "fa fa-circle-o nav-icon" }),
+              _vm._v(" "),
+              _c("p", [_vm._v("Buttons")])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            { staticClass: "nav-link", attrs: { href: "../UI/sliders.html" } },
+            [
+              _c("i", { staticClass: "fa fa-circle-o nav-icon" }),
+              _vm._v(" "),
+              _c("p", [_vm._v("Sliders")])
+            ]
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item has-treeview" }, [
+      _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+        _c("i", { staticClass: "nav-icon fa fa-edit" }),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v("\n                Forms\n                "),
+          _c("i", { staticClass: "fa fa-angle-left right" })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("ul", { staticClass: "nav nav-treeview" }, [
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link",
+              attrs: { href: "../forms/general.html" }
+            },
+            [
+              _c("i", { staticClass: "fa fa-circle-o nav-icon" }),
+              _vm._v(" "),
+              _c("p", [_vm._v("General Elements")])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link",
+              attrs: { href: "../forms/advanced.html" }
+            },
+            [
+              _c("i", { staticClass: "fa fa-circle-o nav-icon" }),
+              _vm._v(" "),
+              _c("p", [_vm._v("Advanced Elements")])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link",
+              attrs: { href: "../forms/editors.html" }
+            },
+            [
+              _c("i", { staticClass: "fa fa-circle-o nav-icon" }),
+              _vm._v(" "),
+              _c("p", [_vm._v("Editors")])
+            ]
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item has-treeview menu-open" }, [
+      _c("a", { staticClass: "nav-link active", attrs: { href: "#" } }, [
+        _c("i", { staticClass: "nav-icon fa fa-table" }),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v("\n                Tables\n                "),
+          _c("i", { staticClass: "fa fa-angle-left right" })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("ul", { staticClass: "nav nav-treeview" }, [
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link",
+              attrs: { href: "../tables/simple.html" }
+            },
+            [
+              _c("i", { staticClass: "fa fa-circle-o nav-icon" }),
+              _vm._v(" "),
+              _c("p", [_vm._v("Simple Tables")])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link active",
+              attrs: { href: "../tables/data.html" }
+            },
+            [
+              _c("i", { staticClass: "fa fa-circle-o nav-icon" }),
+              _vm._v(" "),
+              _c("p", [_vm._v("Data Tables")])
+            ]
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item" }, [
+      _c(
+        "a",
+        { staticClass: "nav-link", attrs: { href: "../calendar.html" } },
+        [
+          _c("i", { staticClass: "nav-icon fa fa-calendar" }),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v("\n                Calendar\n                "),
+            _c("span", { staticClass: "badge badge-info right" }, [_vm._v("2")])
+          ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item has-treeview" }, [
+      _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+        _c("i", { staticClass: "nav-icon fa fa-envelope-o" }),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v("\n                Mailbox\n                "),
+          _c("i", { staticClass: "fa fa-angle-left right" })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("ul", { staticClass: "nav nav-treeview" }, [
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link",
+              attrs: { href: "../mailbox/mailbox.html" }
+            },
+            [
+              _c("i", { staticClass: "fa fa-circle-o nav-icon" }),
+              _vm._v(" "),
+              _c("p", [_vm._v("Inbox")])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link",
+              attrs: { href: "../mailbox/compose.html" }
+            },
+            [
+              _c("i", { staticClass: "fa fa-circle-o nav-icon" }),
+              _vm._v(" "),
+              _c("p", [_vm._v("Compose")])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link",
+              attrs: { href: "../mailbox/read-mail.html" }
+            },
+            [
+              _c("i", { staticClass: "fa fa-circle-o nav-icon" }),
+              _vm._v(" "),
+              _c("p", [_vm._v("Read")])
+            ]
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item has-treeview" }, [
+      _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+        _c("i", { staticClass: "nav-icon fa fa-book" }),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v("\n                Pages\n                "),
+          _c("i", { staticClass: "fa fa-angle-left right" })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("ul", { staticClass: "nav nav-treeview" }, [
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link",
+              attrs: { href: "../examples/invoice.html" }
+            },
+            [
+              _c("i", { staticClass: "fa fa-circle-o nav-icon" }),
+              _vm._v(" "),
+              _c("p", [_vm._v("Invoice")])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link",
+              attrs: { href: "../examples/profile.html" }
+            },
+            [
+              _c("i", { staticClass: "fa fa-circle-o nav-icon" }),
+              _vm._v(" "),
+              _c("p", [_vm._v("Profile")])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link",
+              attrs: { href: "../examples/login.html" }
+            },
+            [
+              _c("i", { staticClass: "fa fa-circle-o nav-icon" }),
+              _vm._v(" "),
+              _c("p", [_vm._v("Login")])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link",
+              attrs: { href: "../examples/register.html" }
+            },
+            [
+              _c("i", { staticClass: "fa fa-circle-o nav-icon" }),
+              _vm._v(" "),
+              _c("p", [_vm._v("Register")])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link",
+              attrs: { href: "../examples/lockscreen.html" }
+            },
+            [
+              _c("i", { staticClass: "fa fa-circle-o nav-icon" }),
+              _vm._v(" "),
+              _c("p", [_vm._v("Lockscreen")])
+            ]
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item has-treeview" }, [
+      _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+        _c("i", { staticClass: "nav-icon fa fa-plus-square-o" }),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v("\n                Extras\n                "),
+          _c("i", { staticClass: "fa fa-angle-left right" })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("ul", { staticClass: "nav nav-treeview" }, [
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link",
+              attrs: { href: "../examples/404.html" }
+            },
+            [
+              _c("i", { staticClass: "fa fa-circle-o nav-icon" }),
+              _vm._v(" "),
+              _c("p", [_vm._v("Error 404")])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link",
+              attrs: { href: "../examples/500.html" }
+            },
+            [
+              _c("i", { staticClass: "fa fa-circle-o nav-icon" }),
+              _vm._v(" "),
+              _c("p", [_vm._v("Error 500")])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link",
+              attrs: { href: "../examples/blank.html" }
+            },
+            [
+              _c("i", { staticClass: "fa fa-circle-o nav-icon" }),
+              _vm._v(" "),
+              _c("p", [_vm._v("Blank Page")])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            { staticClass: "nav-link", attrs: { href: "../../starter.html" } },
+            [
+              _c("i", { staticClass: "fa fa-circle-o nav-icon" }),
+              _vm._v(" "),
+              _c("p", [_vm._v("Starter Page")])
+            ]
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item" }, [
+      _c(
+        "a",
+        {
+          staticClass: "nav-link",
+          attrs: { href: "https://adminlte.io/docs" }
+        },
+        [
+          _c("i", { staticClass: "nav-icon fa fa-file" }),
+          _vm._v(" "),
+          _c("p", [_vm._v("Documentation")])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item" }, [
+      _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+        _c("i", { staticClass: "nav-icon fa fa-circle-o text-danger" }),
+        _vm._v(" "),
+        _c("p", { staticClass: "text" }, [_vm._v("Important")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item" }, [
+      _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+        _c("i", { staticClass: "nav-icon fa fa-circle-o text-warning" }),
+        _vm._v(" "),
+        _c("p", [_vm._v("Warning")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item" }, [
+      _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+        _c("i", { staticClass: "nav-icon fa fa-circle-o text-info" }),
+        _vm._v(" "),
+        _c("p", [_vm._v("Informational")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "content-header" }, [
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "row mb-2" }, [
+          _c("div", { staticClass: "col-sm-6" }, [
+            _c("h1", [_vm._v("Data Tables")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-sm-6" }, [
+            _c("ol", { staticClass: "breadcrumb float-sm-right" }, [
+              _c("li", { staticClass: "breadcrumb-item" }, [
+                _c("a", { attrs: { href: "#" } }, [_vm._v("Home")])
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "breadcrumb-item active" }, [
+                _vm._v("Data Tables")
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("footer", { staticClass: "main-footer" }, [
+      _c("div", { staticClass: "float-right d-none d-sm-block" }, [
+        _c("b", [_vm._v("Version")]),
+        _vm._v(" 3.0.0-alpha\n    ")
+      ]),
+      _vm._v(" "),
+      _c("strong", [
+        _vm._v("Copyright © 2014-2018 "),
+        _c("a", { attrs: { href: "http://adminlte.io" } }, [
+          _vm._v("AdminLTE.io")
+        ]),
+        _vm._v(".")
+      ]),
+      _vm._v(" All rights\n    reserved.\n  ")
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/adminlte/lteitems/Orders.vue?vue&type=template&id=37e7840a&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/adminlte/lteitems/Orders.vue?vue&type=template&id=37e7840a& ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card" }, [
+      _c("div", { staticClass: "card-header" }, [
+        _c("h3", { staticClass: "card-title" }, [_vm._v("Заказы")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-body" }, [
+        _c(
+          "table",
+          {
+            staticClass: "table table-bordered table-striped",
+            attrs: { id: "example1" }
+          },
+          [
+            _c("thead", [
+              _c("tr", [
+                _c("th", [_vm._v("Rendering engine")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Browser")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Platform(s)")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Engine version")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("CSS grade")])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("tbody", [
+              _c("tr", [
+                _c("td", [_vm._v("Trident")]),
+                _vm._v(" "),
+                _c("td", [
+                  _vm._v("Internet\n          Explorer 4.0\n        ")
+                ]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v(" 4")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("X")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Trident")]),
+                _vm._v(" "),
+                _c("td", [
+                  _vm._v("Internet\n          Explorer 5.0\n        ")
+                ]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("C")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Trident")]),
+                _vm._v(" "),
+                _c("td", [
+                  _vm._v("Internet\n          Explorer 5.5\n        ")
+                ]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("5.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Trident")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Internet\n          Explorer 6\n        ")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 98+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("6")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Trident")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Internet Explorer 7")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win XP SP2+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("7")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Trident")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("AOL browser (AOL desktop)")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win XP")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("6")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Firefox 1.0")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 98+ / OSX.2+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.7")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Firefox 1.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 98+ / OSX.2+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.8")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Firefox 2.0")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 98+ / OSX.2+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.8")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Firefox 3.0")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 2k+ / OSX.3+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.9")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Camino 1.0")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("OSX.2+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.8")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Camino 1.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("OSX.3+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.8")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Netscape 7.2")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+ / Mac OS 8.6-9.2")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.7")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Netscape Browser 8")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 98SE+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.7")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Netscape Navigator 9")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 98+ / OSX.2+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.8")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Mozilla 1.0")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+ / OSX.1+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Mozilla 1.1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+ / OSX.1+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Mozilla 1.2")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+ / OSX.1+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.2")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Mozilla 1.3")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+ / OSX.1+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.3")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Mozilla 1.4")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+ / OSX.1+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.4")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Mozilla 1.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+ / OSX.1+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Mozilla 1.6")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+ / OSX.1+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.6")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Mozilla 1.7")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 98+ / OSX.1+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.7")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Mozilla 1.8")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 98+ / OSX.1+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.8")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Seamonkey 1.1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 98+ / OSX.2+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.8")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Epiphany 2.20")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Gnome")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.8")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Webkit")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Safari 1.2")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("OSX.3")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("125.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Webkit")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Safari 1.3")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("OSX.3")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("312.8")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Webkit")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Safari 2.0")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("OSX.4+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("419.3")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Webkit")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Safari 3.0")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("OSX.4+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("522.1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Webkit")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("OmniWeb 5.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("OSX.4+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("420")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Webkit")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("iPod Touch / iPhone")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("iPod")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("420.1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Webkit")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("S60")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("S60")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("413")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Presto")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Opera 7.0")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+ / OSX.1+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Presto")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Opera 7.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+ / OSX.2+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Presto")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Opera 8.0")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+ / OSX.2+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Presto")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Opera 8.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+ / OSX.2+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Presto")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Opera 9.0")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+ / OSX.3+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Presto")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Opera 9.2")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 88+ / OSX.3+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Presto")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Opera 9.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 88+ / OSX.3+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Presto")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Opera for Wii")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Wii")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Presto")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Nokia N800")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("N800")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Presto")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Nintendo DS browser")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Nintendo DS")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("8.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("C/A"), _c("sup", [_vm._v("1")])])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("KHTML")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Konqureror 3.1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("KDE 3.1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("3.1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("C")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("KHTML")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Konqureror 3.3")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("KDE 3.3")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("3.3")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("KHTML")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Konqureror 3.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("KDE 3.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("3.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Tasman")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Internet Explorer 4.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Mac OS 8-9")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("X")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Tasman")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Internet Explorer 5.1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Mac OS 7.6-9")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("C")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Tasman")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Internet Explorer 5.2")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Mac OS 8-X")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("C")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Misc")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("NetFront 3.1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Embedded devices")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("C")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Misc")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("NetFront 3.4")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Embedded devices")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Misc")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Dillo 0.8")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Embedded devices")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("X")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Misc")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Links")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Text only")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("X")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Misc")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Lynx")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Text only")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("X")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Misc")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("IE Mobile")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Windows Mobile 6")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("C")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Misc")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("PSP browser")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("PSP")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("C")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Other browsers")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("All others")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("U")])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("tfoot", [
+              _c("tr", [
+                _c("th", [_vm._v("Rendering engine")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Browser")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Platform(s)")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Engine version")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("CSS grade")])
+              ])
+            ])
+          ]
+        )
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/adminlte/lteitems/Products.vue?vue&type=template&id=64f28d7a&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/adminlte/lteitems/Products.vue?vue&type=template&id=64f28d7a& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card" }, [
+      _c("div", { staticClass: "card-header" }, [
+        _c("h3", { staticClass: "card-title" }, [
+          _vm._v("Товары (Группы товаров)")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-body" }, [
+        _c(
+          "table",
+          {
+            staticClass: "table table-bordered table-striped",
+            attrs: { id: "example1" }
+          },
+          [
+            _c("thead", [
+              _c("tr", [
+                _c("th", [_vm._v("Rendering engine")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Browser")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Platform(s)")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Engine version")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("CSS grade")])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("tbody", [
+              _c("tr", [
+                _c("td", [_vm._v("Trident")]),
+                _vm._v(" "),
+                _c("td", [
+                  _vm._v("Internet\n          Explorer 4.0\n        ")
+                ]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v(" 4")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("X")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Trident")]),
+                _vm._v(" "),
+                _c("td", [
+                  _vm._v("Internet\n          Explorer 5.0\n        ")
+                ]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("C")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Trident")]),
+                _vm._v(" "),
+                _c("td", [
+                  _vm._v("Internet\n          Explorer 5.5\n        ")
+                ]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("5.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Trident")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Internet\n          Explorer 6\n        ")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 98+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("6")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Trident")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Internet Explorer 7")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win XP SP2+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("7")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Trident")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("AOL browser (AOL desktop)")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win XP")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("6")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Firefox 1.0")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 98+ / OSX.2+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.7")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Firefox 1.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 98+ / OSX.2+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.8")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Firefox 2.0")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 98+ / OSX.2+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.8")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Firefox 3.0")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 2k+ / OSX.3+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.9")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Camino 1.0")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("OSX.2+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.8")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Camino 1.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("OSX.3+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.8")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Netscape 7.2")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+ / Mac OS 8.6-9.2")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.7")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Netscape Browser 8")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 98SE+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.7")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Netscape Navigator 9")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 98+ / OSX.2+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.8")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Mozilla 1.0")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+ / OSX.1+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Mozilla 1.1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+ / OSX.1+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Mozilla 1.2")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+ / OSX.1+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.2")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Mozilla 1.3")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+ / OSX.1+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.3")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Mozilla 1.4")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+ / OSX.1+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.4")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Mozilla 1.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+ / OSX.1+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Mozilla 1.6")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+ / OSX.1+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.6")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Mozilla 1.7")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 98+ / OSX.1+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.7")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Mozilla 1.8")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 98+ / OSX.1+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.8")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Seamonkey 1.1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 98+ / OSX.2+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.8")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Epiphany 2.20")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Gnome")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.8")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Webkit")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Safari 1.2")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("OSX.3")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("125.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Webkit")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Safari 1.3")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("OSX.3")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("312.8")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Webkit")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Safari 2.0")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("OSX.4+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("419.3")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Webkit")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Safari 3.0")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("OSX.4+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("522.1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Webkit")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("OmniWeb 5.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("OSX.4+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("420")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Webkit")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("iPod Touch / iPhone")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("iPod")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("420.1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Webkit")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("S60")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("S60")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("413")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Presto")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Opera 7.0")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+ / OSX.1+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Presto")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Opera 7.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+ / OSX.2+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Presto")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Opera 8.0")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+ / OSX.2+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Presto")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Opera 8.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+ / OSX.2+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Presto")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Opera 9.0")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+ / OSX.3+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Presto")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Opera 9.2")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 88+ / OSX.3+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Presto")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Opera 9.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 88+ / OSX.3+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Presto")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Opera for Wii")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Wii")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Presto")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Nokia N800")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("N800")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Presto")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Nintendo DS browser")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Nintendo DS")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("8.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("C/A"), _c("sup", [_vm._v("1")])])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("KHTML")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Konqureror 3.1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("KDE 3.1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("3.1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("C")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("KHTML")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Konqureror 3.3")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("KDE 3.3")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("3.3")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("KHTML")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Konqureror 3.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("KDE 3.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("3.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Tasman")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Internet Explorer 4.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Mac OS 8-9")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("X")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Tasman")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Internet Explorer 5.1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Mac OS 7.6-9")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("C")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Tasman")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Internet Explorer 5.2")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Mac OS 8-X")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("C")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Misc")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("NetFront 3.1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Embedded devices")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("C")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Misc")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("NetFront 3.4")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Embedded devices")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Misc")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Dillo 0.8")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Embedded devices")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("X")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Misc")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Links")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Text only")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("X")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Misc")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Lynx")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Text only")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("X")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Misc")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("IE Mobile")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Windows Mobile 6")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("C")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Misc")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("PSP browser")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("PSP")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("C")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Other browsers")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("All others")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("U")])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("tfoot", [
+              _c("tr", [
+                _c("th", [_vm._v("Rendering engine")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Browser")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Platform(s)")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Engine version")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("CSS grade")])
+              ])
+            ])
+          ]
+        )
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/adminlte/lteitems/Purchases.vue?vue&type=template&id=7a7e496c&":
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/adminlte/lteitems/Purchases.vue?vue&type=template&id=7a7e496c& ***!
+  \******************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card" }, [
+      _c("div", { staticClass: "card-header" }, [
+        _c("h3", { staticClass: "card-title" }, [_vm._v("Контракты")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-body" }, [
+        _c(
+          "table",
+          {
+            staticClass: "table table-bordered table-striped",
+            attrs: { id: "example1" }
+          },
+          [
+            _c("thead", [
+              _c("tr", [
+                _c("th", [_vm._v("Rendering engine")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Browser")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Platform(s)")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Engine version")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("CSS grade")])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("tbody", [
+              _c("tr", [
+                _c("td", [_vm._v("Trident")]),
+                _vm._v(" "),
+                _c("td", [
+                  _vm._v("Internet\n          Explorer 4.0\n        ")
+                ]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v(" 4")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("X")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Trident")]),
+                _vm._v(" "),
+                _c("td", [
+                  _vm._v("Internet\n          Explorer 5.0\n        ")
+                ]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("C")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Trident")]),
+                _vm._v(" "),
+                _c("td", [
+                  _vm._v("Internet\n          Explorer 5.5\n        ")
+                ]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("5.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Trident")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Internet\n          Explorer 6\n        ")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 98+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("6")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Trident")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Internet Explorer 7")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win XP SP2+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("7")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Trident")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("AOL browser (AOL desktop)")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win XP")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("6")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Firefox 1.0")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 98+ / OSX.2+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.7")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Firefox 1.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 98+ / OSX.2+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.8")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Firefox 2.0")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 98+ / OSX.2+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.8")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Firefox 3.0")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 2k+ / OSX.3+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.9")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Camino 1.0")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("OSX.2+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.8")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Camino 1.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("OSX.3+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.8")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Netscape 7.2")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+ / Mac OS 8.6-9.2")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.7")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Netscape Browser 8")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 98SE+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.7")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Netscape Navigator 9")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 98+ / OSX.2+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.8")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Mozilla 1.0")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+ / OSX.1+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Mozilla 1.1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+ / OSX.1+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Mozilla 1.2")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+ / OSX.1+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.2")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Mozilla 1.3")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+ / OSX.1+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.3")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Mozilla 1.4")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+ / OSX.1+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.4")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Mozilla 1.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+ / OSX.1+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Mozilla 1.6")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+ / OSX.1+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.6")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Mozilla 1.7")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 98+ / OSX.1+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.7")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Mozilla 1.8")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 98+ / OSX.1+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.8")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Seamonkey 1.1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 98+ / OSX.2+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.8")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Gecko")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Epiphany 2.20")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Gnome")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1.8")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Webkit")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Safari 1.2")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("OSX.3")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("125.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Webkit")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Safari 1.3")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("OSX.3")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("312.8")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Webkit")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Safari 2.0")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("OSX.4+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("419.3")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Webkit")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Safari 3.0")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("OSX.4+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("522.1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Webkit")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("OmniWeb 5.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("OSX.4+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("420")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Webkit")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("iPod Touch / iPhone")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("iPod")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("420.1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Webkit")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("S60")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("S60")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("413")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Presto")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Opera 7.0")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+ / OSX.1+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Presto")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Opera 7.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+ / OSX.2+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Presto")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Opera 8.0")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+ / OSX.2+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Presto")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Opera 8.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+ / OSX.2+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Presto")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Opera 9.0")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 95+ / OSX.3+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Presto")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Opera 9.2")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 88+ / OSX.3+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Presto")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Opera 9.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Win 88+ / OSX.3+")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Presto")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Opera for Wii")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Wii")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Presto")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Nokia N800")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("N800")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Presto")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Nintendo DS browser")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Nintendo DS")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("8.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("C/A"), _c("sup", [_vm._v("1")])])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("KHTML")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Konqureror 3.1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("KDE 3.1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("3.1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("C")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("KHTML")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Konqureror 3.3")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("KDE 3.3")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("3.3")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("KHTML")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Konqureror 3.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("KDE 3.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("3.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Tasman")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Internet Explorer 4.5")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Mac OS 8-9")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("X")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Tasman")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Internet Explorer 5.1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Mac OS 7.6-9")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("C")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Tasman")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Internet Explorer 5.2")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Mac OS 8-X")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("C")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Misc")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("NetFront 3.1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Embedded devices")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("C")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Misc")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("NetFront 3.4")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Embedded devices")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("A")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Misc")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Dillo 0.8")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Embedded devices")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("X")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Misc")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Links")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Text only")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("X")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Misc")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Lynx")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Text only")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("X")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Misc")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("IE Mobile")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Windows Mobile 6")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("C")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Misc")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("PSP browser")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("PSP")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("C")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [_vm._v("Other browsers")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("All others")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("U")])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("tfoot", [
+              _c("tr", [
+                _c("th", [_vm._v("Rendering engine")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Browser")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Platform(s)")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Engine version")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("CSS grade")])
+              ])
+            ])
+          ]
+        )
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/items/CartCheckoutComponent.vue?vue&type=template&id=a50cb226&":
 /*!******************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/items/CartCheckoutComponent.vue?vue&type=template&id=a50cb226& ***!
@@ -64574,7 +69895,7 @@ module.exports = function(module) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
-/* harmony import */ var _route_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./route.js */ "./resources/js/route.js");
+/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./router */ "./resources/js/router.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -64583,18 +69904,18 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+ //Импорт собственного маршрутизатора
 
-Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
-var routes = [{
-  path: '/shop/:slug?',
-  name: 'category',
-  component: __webpack_require__(/*! ./components/CategoryComponent.vue */ "./resources/js/components/CategoryComponent.vue")
-}];
-var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
-  mode: 'history',
-  routes: routes
-});
+Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]); //import route from './route.js';
+//let routes = [
+//	{path: '/shop/:slug?', name: 'category', component: require('./components/CategoryComponent.vue')}
+//	];
+//const router = new VueRouter({
+//	mode: 'history',
+//	routes
+//});
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -64621,7 +69942,7 @@ Vue.component('cart-info-component', __webpack_require__(/*! ./components/CartIn
 
 var app = new Vue({
   el: '#app',
-  router: router,
+  router: _router__WEBPACK_IMPORTED_MODULE_1__["default"],
   data: {
     productsInCart: [],
     totalCartQuantity: 0,
@@ -65366,6 +70687,314 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/adminlte/Adminlte.vue":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/adminlte/Adminlte.vue ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Adminlte_vue_vue_type_template_id_0a06b6d4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Adminlte.vue?vue&type=template&id=0a06b6d4& */ "./resources/js/components/adminlte/Adminlte.vue?vue&type=template&id=0a06b6d4&");
+/* harmony import */ var _Adminlte_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Adminlte.vue?vue&type=script&lang=js& */ "./resources/js/components/adminlte/Adminlte.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Adminlte_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Adminlte_vue_vue_type_template_id_0a06b6d4___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Adminlte_vue_vue_type_template_id_0a06b6d4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/adminlte/Adminlte.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/adminlte/Adminlte.vue?vue&type=script&lang=js&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/components/adminlte/Adminlte.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Adminlte_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Adminlte.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/adminlte/Adminlte.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Adminlte_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/adminlte/Adminlte.vue?vue&type=template&id=0a06b6d4&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/components/adminlte/Adminlte.vue?vue&type=template&id=0a06b6d4& ***!
+  \**************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Adminlte_vue_vue_type_template_id_0a06b6d4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Adminlte.vue?vue&type=template&id=0a06b6d4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/adminlte/Adminlte.vue?vue&type=template&id=0a06b6d4&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Adminlte_vue_vue_type_template_id_0a06b6d4___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Adminlte_vue_vue_type_template_id_0a06b6d4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/adminlte/Profile.vue":
+/*!******************************************************!*\
+  !*** ./resources/js/components/adminlte/Profile.vue ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/js/components/adminlte/Profile.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/adminlte/lteitems/Orders.vue":
+/*!**************************************************************!*\
+  !*** ./resources/js/components/adminlte/lteitems/Orders.vue ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Orders_vue_vue_type_template_id_37e7840a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Orders.vue?vue&type=template&id=37e7840a& */ "./resources/js/components/adminlte/lteitems/Orders.vue?vue&type=template&id=37e7840a&");
+/* harmony import */ var _Orders_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Orders.vue?vue&type=script&lang=js& */ "./resources/js/components/adminlte/lteitems/Orders.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Orders_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Orders_vue_vue_type_template_id_37e7840a___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Orders_vue_vue_type_template_id_37e7840a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/adminlte/lteitems/Orders.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/adminlte/lteitems/Orders.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/components/adminlte/lteitems/Orders.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Orders_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Orders.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/adminlte/lteitems/Orders.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Orders_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/adminlte/lteitems/Orders.vue?vue&type=template&id=37e7840a&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/components/adminlte/lteitems/Orders.vue?vue&type=template&id=37e7840a& ***!
+  \*********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Orders_vue_vue_type_template_id_37e7840a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Orders.vue?vue&type=template&id=37e7840a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/adminlte/lteitems/Orders.vue?vue&type=template&id=37e7840a&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Orders_vue_vue_type_template_id_37e7840a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Orders_vue_vue_type_template_id_37e7840a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/adminlte/lteitems/Products.vue":
+/*!****************************************************************!*\
+  !*** ./resources/js/components/adminlte/lteitems/Products.vue ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Products_vue_vue_type_template_id_64f28d7a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Products.vue?vue&type=template&id=64f28d7a& */ "./resources/js/components/adminlte/lteitems/Products.vue?vue&type=template&id=64f28d7a&");
+/* harmony import */ var _Products_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Products.vue?vue&type=script&lang=js& */ "./resources/js/components/adminlte/lteitems/Products.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Products_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Products_vue_vue_type_template_id_64f28d7a___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Products_vue_vue_type_template_id_64f28d7a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/adminlte/lteitems/Products.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/adminlte/lteitems/Products.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/adminlte/lteitems/Products.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Products_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Products.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/adminlte/lteitems/Products.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Products_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/adminlte/lteitems/Products.vue?vue&type=template&id=64f28d7a&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/components/adminlte/lteitems/Products.vue?vue&type=template&id=64f28d7a& ***!
+  \***********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Products_vue_vue_type_template_id_64f28d7a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Products.vue?vue&type=template&id=64f28d7a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/adminlte/lteitems/Products.vue?vue&type=template&id=64f28d7a&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Products_vue_vue_type_template_id_64f28d7a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Products_vue_vue_type_template_id_64f28d7a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/adminlte/lteitems/Purchases.vue":
+/*!*****************************************************************!*\
+  !*** ./resources/js/components/adminlte/lteitems/Purchases.vue ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Purchases_vue_vue_type_template_id_7a7e496c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Purchases.vue?vue&type=template&id=7a7e496c& */ "./resources/js/components/adminlte/lteitems/Purchases.vue?vue&type=template&id=7a7e496c&");
+/* harmony import */ var _Purchases_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Purchases.vue?vue&type=script&lang=js& */ "./resources/js/components/adminlte/lteitems/Purchases.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Purchases_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Purchases_vue_vue_type_template_id_7a7e496c___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Purchases_vue_vue_type_template_id_7a7e496c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/adminlte/lteitems/Purchases.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/adminlte/lteitems/Purchases.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/adminlte/lteitems/Purchases.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Purchases_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Purchases.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/adminlte/lteitems/Purchases.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Purchases_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/adminlte/lteitems/Purchases.vue?vue&type=template&id=7a7e496c&":
+/*!************************************************************************************************!*\
+  !*** ./resources/js/components/adminlte/lteitems/Purchases.vue?vue&type=template&id=7a7e496c& ***!
+  \************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Purchases_vue_vue_type_template_id_7a7e496c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Purchases.vue?vue&type=template&id=7a7e496c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/adminlte/lteitems/Purchases.vue?vue&type=template&id=7a7e496c&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Purchases_vue_vue_type_template_id_7a7e496c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Purchases_vue_vue_type_template_id_7a7e496c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/items/CartCheckoutComponent.vue":
 /*!*****************************************************************!*\
   !*** ./resources/js/components/items/CartCheckoutComponent.vue ***!
@@ -65780,44 +71409,69 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/route.js":
-/*!*******************************!*\
-  !*** ./resources/js/route.js ***!
-  \*******************************/
+/***/ "./resources/js/router.js":
+/*!********************************!*\
+  !*** ./resources/js/router.js ***!
+  \********************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var routes = __webpack_require__(/*! ./routes.json */ "./resources/js/routes.json");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var _components_adminlte_Profile__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/adminlte/Profile */ "./resources/js/components/adminlte/Profile.vue");
+/* harmony import */ var _components_adminlte_Adminlte__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/adminlte/Adminlte */ "./resources/js/components/adminlte/Adminlte.vue");
+/* harmony import */ var _components_adminlte_lteitems_Products_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/adminlte/lteitems/Products.vue */ "./resources/js/components/adminlte/lteitems/Products.vue");
+/* harmony import */ var _components_adminlte_lteitems_Orders_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/adminlte/lteitems/Orders.vue */ "./resources/js/components/adminlte/lteitems/Orders.vue");
+/* harmony import */ var _components_adminlte_lteitems_Purchases_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/adminlte/lteitems/Purchases.vue */ "./resources/js/components/adminlte/lteitems/Purchases.vue");
+ //Импорт компонента
 
-/* harmony default export */ __webpack_exports__["default"] = (function () {
-  var args = Array.prototype.slice.call(arguments);
-  var name = args.shift();
 
-  if (routes[name] === undefined) {
-    console.log("Route doesn't exist");
-  } else {
-    return '/' + routes[name].split('/').map(function (str) {
-      if (str[0] == '{') {
-        return args.shift();
-      } else {
-        return str;
-      }
-    }).join('/');
-  }
-});
 
-/***/ }),
 
-/***/ "./resources/js/routes.json":
-/*!**********************************!*\
-  !*** ./resources/js/routes.json ***!
-  \**********************************/
-/*! exports provided: , home.index, shop.index, shop.categories, shop.catajax, shop.category, shop.product, cart.add, cart.products, cart.itemamount, cart.old, cart.hold, cart.status, cart.show, cart.delete, user.logout, admin.login, admin.login.submit, admin.dashboard, admin.logout, login, logout, register, password.request, password.email, password.reset, password.update, default */
-/***/ (function(module) {
 
-module.exports = {"":"register","home.index":"home","shop.index":"/","shop.categories":"shop","shop.catajax":"shop-ajax","shop.category":"shop/{slug?}","shop.product":"products/{slug}","cart.add":"add-cart","cart.products":"products-in-cart","cart.itemamount":"get-item-amount","cart.old":"get-old-cart","cart.hold":"get-hold-cart","cart.status":"status-cart","cart.show":"cart","cart.delete":"delete-cart","user.logout":"users/logout","admin.login":"a7dm0in3/login","admin.login.submit":"a7dm0in3/login","admin.dashboard":"a7dm0in3","admin.logout":"a7dm0in3/logout","login":"login","logout":"logout","register":"register","password.request":"password/reset","password.email":"password/email","password.reset":"password/reset/{token}","password.update":"password/reset"};
+ //Экспорт объекта VueRouter (который импортировали выше)
+//В него передаем Литерал-Объект
+
+/* harmony default export */ __webpack_exports__["default"] = (new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
+  //В массиве routes в виде объектов будут перечислены маршруты (пути и связанные с ними конпоненты)
+  routes: [{
+    path: '/shop/:slug?',
+    name: 'category',
+    component: __webpack_require__(/*! ./components/CategoryComponent.vue */ "./resources/js/components/CategoryComponent.vue")
+  }, //{
+  //    path: '/a7dm0in3/products',
+  //    component : Products
+  //},
+  {
+    path: '/a7dm0in3',
+    component: _components_adminlte_Adminlte__WEBPACK_IMPORTED_MODULE_2__["default"],
+    children: [// UserHome will be rendered inside User's <router-view>
+    // when /user/:id is matched
+    //{ path: '',  component: Adminlte },
+    // UserProfile will be rendered inside User's <router-view>
+    // when /user/:id/profile is matched
+    {
+      path: 'products',
+      name: 'adminproducts',
+      component: _components_adminlte_lteitems_Products_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    }, // UserPosts will be rendered inside User's <router-view>
+    // when /user/:id/posts is matched
+    {
+      path: 'orders',
+      name: 'adminorders',
+      component: _components_adminlte_lteitems_Orders_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
+    }, // UserPosts will be rendered inside User's <router-view>
+    // when /user/:id/posts is matched
+    {
+      path: 'purchases',
+      name: 'adminpurchases',
+      component: _components_adminlte_lteitems_Purchases_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+    }]
+  }],
+  //Запись всех перемещений пользователя по переходам
+  mode: 'history'
+}));
 
 /***/ }),
 

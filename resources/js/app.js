@@ -11,18 +11,21 @@ window.Vue = require('vue');
 
 import VueRouter from 'vue-router';
 
+//Импорт собственного маршрутизатора
+import router from './router';
+
 Vue.use(VueRouter);
 
-import route from './route.js';
+//import route from './route.js';
 
-let routes = [
-	{path: '/shop/:slug?', name: 'category', component: require('./components/CategoryComponent.vue')}
-	];
+//let routes = [
+//	{path: '/shop/:slug?', name: 'category', component: require('./components/CategoryComponent.vue')}
+//	];
 
-const router = new VueRouter({
-	mode: 'history',
-	routes
-});
+//const router = new VueRouter({
+//	mode: 'history',
+//	routes
+//});
 
 /**
  * The following block of code may be used to automatically register your
